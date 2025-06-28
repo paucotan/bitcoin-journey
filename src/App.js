@@ -254,17 +254,41 @@ const LandingPage = ({ onGetStarted }) => (
   </div>
 );
 
-const Header = ({ user, onLanguageChange }) => (
+const Header = ({ user, onLanguageChange, currentView, onNavigate }) => (
   <header className="bg-white border-b border-gray-200 px-6 py-4">
     <div className="max-w-6xl mx-auto flex items-center justify-between">
       <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">₿</div>
+        <button 
+          onClick={() => onNavigate('landing')}
+          className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl hover:bg-orange-600 transition-colors"
+        >
+          ₿
+        </button>
         <div>
-          <h1 className="text-xl font-bold text-gray-900">The Bitcoin Journey</h1>
+          <button 
+            onClick={() => onNavigate('landing')}
+            className="text-xl font-bold text-gray-900 hover:text-orange-600 transition-colors"
+          >
+            The Bitcoin Journey
+          </button>
           <p className="text-sm text-gray-600">Understanding Money & Bitcoin</p>
         </div>
       </div>
       <div className="flex items-center space-x-4">
+        {/* Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-4">
+          <button
+            onClick={() => onNavigate('dashboard')}
+            className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors ${
+              currentView === 'dashboard' 
+                ? 'bg-orange-100 text-orange-700' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Dashboard
+          </button>
+        </nav>
+        
         <select
           className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
           onChange={(e) => onLanguageChange(e.target.value)}
@@ -275,7 +299,7 @@ const Header = ({ user, onLanguageChange }) => (
         </select>
         <div className="flex items-center space-x-2">
           <Trophy className="w-5 h-5 text-yellow-500" />
-          <span className="text-sm font-medium">Level 1</span>
+          <span className="text-sm font-medium">Level {user.level}</span>
         </div>
       </div>
     </div>
@@ -299,6 +323,32 @@ const ProgressBar = ({ current, total, streak }) => (
         <span>Lesson {current} of {total}</span>
         <span>{Math.round((current / total) * 100)}% Complete</span>
       </div>
+    </div>
+  </div>
+);
+
+const Breadcrumb = ({ path, currentLesson, onNavigate }) => (
+  <div className="bg-gray-100 px-6 py-3 border-b border-gray-200">
+    <div className="max-w-6xl mx-auto">
+      <nav className="flex items-center space-x-2 text-sm">
+        <button
+          onClick={() => onNavigate('dashboard')}
+          className="text-orange-600 hover:text-orange-700 font-medium"
+        >
+          The Money Story
+        </button>
+        <ChevronRight className="w-4 h-4 text-gray-400" />
+        <button
+          onClick={() => onNavigate('dashboard')}
+          className="text-gray-600 hover:text-gray-900"
+        >
+          Chapter 3: When Money Goes Bad
+        </button>
+        <ChevronRight className="w-4 h-4 text-gray-400" />
+        <span className="text-gray-900 font-medium">
+          {currentLesson?.title || "Current Lesson"}
+        </span>
+      </nav>
     </div>
   </div>
 );
@@ -484,17 +534,46 @@ const Dashboard = ({ onStartLesson }) => (
       <div className="space-y-6">
         <div className="bg-white rounded-xl p-6 border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Your Progress</h3>
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="flex justify-between text-sm">
               <span>Lessons Completed</span>
               <span className="font-medium">8/32</span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-orange-500 rounded-full h-2" style={{width: '25%'}}></div>
+            <div className="w-full bg-gray-200 rounded-full h-3">
+              <div className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full h-3" style={{width: '25%'}}></div>
             </div>
-            <div className="flex justify-between text-sm">
-              <span>Time Spent Learning</span>
-              <span className="font-medium">47 minutes</span>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <span className="text-gray-600">Time Spent</span>
+                <div className="font-medium">47 minutes</div>
+              </div>
+              <div>
+                <span className="text-gray-600">Streak</span>
+                <div className="font-medium">🔥 3 days</div>
+              </div>
+            </div>
+            
+            {/* Quick Progress Overview */}
+            <div className="pt-2 border-t border-gray-100">
+              <div className="text-xs text-gray-600 mb-2">Chapter Progress</div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span>What is Money Really?</span>
+                  <span className="text-green-600">✓ Complete</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span>The Wine Gets Watered Down</span>
+                  <span className="text-green-600">✓ Complete</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span>When Money Goes Bad</span>
+                  <span className="text-orange-600">📖 In Progress</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span>The Gold Standard Era</span>
+                  <span className="text-gray-400">🔒 Locked</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -515,12 +594,20 @@ const Dashboard = ({ onStartLesson }) => (
 
         <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200">
           <h3 className="text-lg font-semibold text-yellow-900 mb-2">🔥 Keep Your Streak!</h3>
-          <p className="text-yellow-800 text-sm mb-3">You're on a 3-day learning streak. Complete today's lesson to continue!</p>
+          <p className="text-yellow-800 text-sm mb-4">You're on a 3-day learning streak. Complete today's lesson to continue!</p>
+          
+          {/* Current Lesson Preview */}
+          <div className="bg-white/50 rounded-lg p-3 mb-4">
+            <div className="text-xs text-gray-600 mb-1">Up Next:</div>
+            <div className="font-medium text-sm text-gray-900">Germany 1923: The Wheelbarrow Money</div>
+            <div className="text-xs text-gray-600">Chapter 3 • Lesson 2 • ~6 min</div>
+          </div>
+          
           <button
             onClick={onStartLesson}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-3 px-4 rounded-lg transition-all transform hover:scale-105 shadow-md"
           >
-            Continue Learning
+            Continue Learning →
           </button>
         </div>
       </div>
@@ -745,13 +832,38 @@ const ScrollableStoryLesson = ({ lesson, onComplete, onBack }) => {
             Ready for the next part of the journey?
           </p>
 
-          <div className="space-y-4">
-            <button
-              onClick={onComplete}
-              className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-2xl text-lg transition-all transform hover:scale-105 shadow-lg"
-            >
-              Continue to Next Lesson
-            </button>
+          <div className="space-y-6">
+            {/* Navigation Controls */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={onBack}
+                className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-medium py-3 px-6 rounded-xl transition-all"
+              >
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                <span>Previous Lesson</span>
+              </button>
+              
+              <button
+                onClick={onComplete}
+                className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-2xl text-lg transition-all transform hover:scale-105 shadow-lg"
+              >
+                Continue to Next Lesson
+              </button>
+            </div>
+            
+            {/* Quick Actions */}
+            <div className="flex flex-wrap gap-3 justify-center">
+              <button
+                onClick={onBack}
+                className="text-green-200 hover:text-white text-sm border border-green-300/50 hover:border-white/50 px-4 py-2 rounded-lg transition-colors"
+              >
+                Return to Dashboard
+              </button>
+              <button className="text-green-200 hover:text-white text-sm border border-green-300/50 hover:border-white/50 px-4 py-2 rounded-lg transition-colors">
+                Replay Lesson
+              </button>
+            </div>
+            
             <div className="text-green-200 text-sm">
               ⭐ +50 XP earned • 🔥 Streak continued
             </div>
@@ -790,210 +902,6 @@ const LessonView = ({ lesson, onComplete, onBack }) => {
   return <ScrollableStoryLesson lesson={lesson} onComplete={onComplete} onBack={onBack} />;
 };
 
-const ClaudeTutor = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      type: 'claude',
-      content: "Hi! I'm Claude, your Bitcoin tutor. I'm here to answer any questions about what you're learning. What would you like to know more about?"
-    }
-  ]);
-  const [currentInput, setCurrentInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [quickQuestions, setQuickQuestions] = useState([
-    "Why does printing money cause inflation?",
-    "How is Bitcoin different from the dollar?",
-    "What backs the US dollar?"
-  ]);
-
-  // Generate dynamic follow-up questions based on conversation
-  const generateFollowUpQuestions = (lastQuestion, lastAnswer) => {
-    if (lastQuestion.toLowerCase().includes('inflation')) {
-      return [
-        "Who benefits from inflation?",
-        "How can I protect my savings from inflation?",
-        "Has this happened in other countries?"
-      ];
-    } else if (lastQuestion.toLowerCase().includes('different') || lastQuestion.toLowerCase().includes('bitcoin')) {
-      return [
-        "How does Bitcoin mining work?",
-        "Is Bitcoin safe to use?",
-        "Why is Bitcoin volatile?"
-      ];
-    } else if (lastQuestion.toLowerCase().includes('backs') || lastQuestion.toLowerCase().includes('dollar')) {
-      return [
-        "What happened in 1971?",
-        "Why did we abandon the gold standard?",
-        "What is fiat money?"
-      ];
-    } else if (lastQuestion.toLowerCase().includes('war')) {
-      return [
-        "How much money was printed during COVID?",
-        "Who decides to print money?",
-        "What is the Federal Reserve?"
-      ];
-    }
-    return [
-      "Tell me about Bitcoin's history",
-      "Why do governments print money?",
-      "What makes Bitcoin valuable?"
-    ];
-  };
-
-  const handleSendMessage = async (question = currentInput) => {
-    if (!question.trim()) return;
-
-    const userMessage = { type: 'user', content: question };
-    setMessages(prev => [...prev, userMessage]);
-    setCurrentInput('');
-    setIsLoading(true);
-
-    try {
-      // Simulate Claude API call - in real implementation, use window.claude.complete
-      const claudeResponse = await simulateClaudeResponse(question);
-      const newClaudeMessage = { type: 'claude', content: claudeResponse };
-      setMessages(prev => [...prev, newClaudeMessage]);
-
-      // Update quick questions with relevant follow-ups
-      const followUps = generateFollowUpQuestions(question, claudeResponse);
-      setQuickQuestions(followUps);
-    } catch (error) {
-      setMessages(prev => [...prev, {
-        type: 'claude',
-        content: "I'm having trouble connecting right now. Try asking your question again!"
-      }]);
-    }
-    setIsLoading(false);
-  };
-
-  const simulateClaudeResponse = (question) => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        const q = question.toLowerCase();
-        if (q.includes('inflation')) {
-          resolve("Great question! When governments print more money, there's more dollars chasing the same goods. It's like if everyone at an auction suddenly got twice as much money - prices would go up! The dollar in your pocket becomes worth less because there are more dollars in circulation.");
-        } else if (q.includes('different') || q.includes('bitcoin')) {
-          resolve("Bitcoin is fundamentally different because it has a fixed supply of 21 million coins. No government or central bank can print more Bitcoin, unlike dollars where the Federal Reserve can create trillions at will. This makes Bitcoin 'hard money' like gold used to be.");
-        } else if (q.includes('backs')) {
-          resolve("Since 1971, the US dollar isn't backed by gold or anything physical - it's backed by trust in the US government. This is called 'fiat money' meaning 'by decree.' The government simply declares it has value, and we accept it because others do too.");
-        } else if (q.includes('war')) {
-          resolve("Wars are incredibly expensive! Governments need massive funds quickly, so they print money to pay for weapons, soldiers, and supplies. This happened in WWI, WWII, Vietnam, and recently with conflicts in Iraq and Afghanistan. Each time, the money supply expanded dramatically.");
-        } else if (q.includes('invented') || q.includes('created') || q.includes('when')) {
-          resolve("Bitcoin was invented in 2008 by someone using the pseudonym Satoshi Nakamoto. The Bitcoin white paper was published on October 31, 2008, and the first Bitcoin block (called the Genesis Block) was mined on January 3, 2009. Interestingly, Satoshi embedded a newspaper headline in that first block: 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks' - a reference to the financial crisis that inspired Bitcoin's creation.");
-        } else if (q.includes('mining')) {
-          resolve("Bitcoin mining is how new bitcoins are created and transactions are verified. Miners use powerful computers to solve complex mathematical puzzles. The first to solve it gets to add a new block of transactions to the blockchain and receives newly created bitcoins as a reward. This process secures the network and prevents cheating.");
-        } else if (q.includes('volatile') || q.includes('price')) {
-          resolve("Bitcoin is volatile because it's still a young asset finding its true value. Unlike stocks that represent companies with earnings, Bitcoin's value comes from its usefulness as money and store of value. As more people adopt it and institutions buy it, the price swings should reduce over time. Think of it like a new technology - early adoption is always bumpy!");
-        } else {
-          resolve("That's a thoughtful question! The key thing to remember is that Bitcoin's rules are set in code and can't be changed easily, while government money can be printed whenever officials decide they need more. What specific aspect would you like me to explain further?");
-        }
-      }, 1000);
-    });
-  };
-
-  if (!isOpen) {
-    return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-110"
-      >
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-            🤖
-          </div>
-          <span className="hidden sm:block font-medium">Ask Claude</span>
-        </div>
-      </button>
-    );
-  }
-
-  return (
-    <div className="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-200">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-            🤖
-          </div>
-          <div>
-            <h3 className="font-semibold">Claude Tutor</h3>
-            <p className="text-xs text-blue-100">Your Bitcoin learning assistant</p>
-          </div>
-        </div>
-        <button
-          onClick={() => setIsOpen(false)}
-          className="text-white/80 hover:text-white"
-        >
-          ✕
-        </button>
-      </div>
-
-      {/* Messages */}
-      <div className="h-80 overflow-y-auto p-4 space-y-3">
-        {messages.map((message, index) => (
-          <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-xs p-3 rounded-2xl ${
-              message.type === 'user'
-                ? 'bg-blue-500 text-white rounded-br-md'
-                : 'bg-gray-100 text-gray-800 rounded-bl-md'
-            }`}>
-              <p className="text-sm">{message.content}</p>
-            </div>
-          </div>
-        ))}
-        {isLoading && (
-          <div className="flex justify-start">
-            <div className="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-bl-md">
-              <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Quick Questions */}
-      <div className="px-4 py-2 border-t border-gray-100">
-        <p className="text-xs text-gray-500 mb-2">Quick questions:</p>
-        <div className="flex flex-wrap gap-1">
-          {quickQuestions.slice(0, 3).map((question, index) => (
-            <button
-              key={index}
-              onClick={() => handleSendMessage(question)}
-              className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded-full transition-colors"
-            >
-              {question}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Input */}
-      <div className="p-4 border-t border-gray-100">
-        <div className="flex space-x-2">
-          <input
-            type="text"
-            value={currentInput}
-            onChange={(e) => setCurrentInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-            placeholder="Ask me anything about Bitcoin..."
-            className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            onClick={() => handleSendMessage()}
-            disabled={!currentInput.trim() || isLoading}
-            className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white p-2 rounded-full transition-colors"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
 const BitcoinJourneyApp = () => {
   const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'dashboard' | 'lesson'
   const [user, setUser] = useState({
@@ -1025,10 +933,21 @@ const BitcoinJourneyApp = () => {
         <LandingPage onGetStarted={() => setCurrentView('dashboard')} />
       ) : (
         <>
-          <Header user={user} onLanguageChange={handleLanguageChange} />
+          <Header 
+            user={user} 
+            onLanguageChange={handleLanguageChange}
+            currentView={currentView}
+            onNavigate={setCurrentView}
+          />
 
           {currentView === 'lesson' && (
-            <ProgressBar current={2} total={3} streak={user.streak} />
+            <>
+              <ProgressBar current={2} total={3} streak={user.streak} />
+              <Breadcrumb 
+                currentLesson={mockData.currentLesson}
+                onNavigate={setCurrentView}
+              />
+            </>
           )}
 
           {currentView === 'dashboard' ? (
@@ -1044,7 +963,7 @@ const BitcoinJourneyApp = () => {
       )}
 
       {/* Claude Tutor - Always Available except on landing */}
-      {currentView !== 'landing' && <ClaudeTutor />}
+      {/* {currentView !== 'landing' && <ClaudeTutor />} */}
     </div>
   );
 };
