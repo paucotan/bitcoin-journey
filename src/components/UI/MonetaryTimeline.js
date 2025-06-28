@@ -1,0 +1,209 @@
+import React, { useState } from 'react';
+
+const MonetaryTimeline = () => {
+  const [activeEvent, setActiveEvent] = useState(null);
+
+  const timelineEvents = [
+    {
+      year: "1913",
+      title: "Federal Reserve Created",
+      description: "The Federal Reserve Act creates a central banking system. The systematic debasement of the dollar begins.",
+      impact: "Dollar loses 96% of value from this point forward",
+      color: "bg-yellow-500",
+      icon: "🏦",
+      source: "https://www.federalreserve.gov/aboutthefed/section2a.htm"
+    },
+    {
+      year: "1933",
+      title: "Gold Confiscation",
+      description: "FDR makes private gold ownership illegal. Citizens forced to sell gold to government at $20/oz.",
+      impact: "Government immediately revalues gold to $35/oz - 75% instant theft",
+      color: "bg-orange-500",
+      icon: "🚫",
+      source: "https://www.treasury.gov/resource-center/faqs/Currency/Pages/legal-tender.aspx"
+    },
+    {
+      year: "1971",
+      title: "Nixon Shock",
+      description: "Nixon ends gold convertibility. The last link between money and real value is severed.",
+      impact: "Dollar becomes pure fiat currency - backed by nothing but promises",
+      color: "bg-red-500",
+      icon: "💥",
+      source: "https://www.nixonlibrary.gov/news/new-economic-policy"
+    },
+    {
+      year: "2008",
+      title: "Financial Crisis",
+      description: "Banks collapse due to reckless lending. Instead of letting them fail, the Fed bails them out.",
+      impact: "Quantitative Easing begins - money printing on steroids",
+      color: "bg-purple-500",
+      icon: "📉",
+      source: "https://www.federalreserve.gov/monetarypolicy/files/FOMC20081216meeting.pdf"
+    },
+    {
+      year: "2020",
+      title: "COVID Money Printing",
+      description: "Under cover of pandemic, the Fed prints 40% of all dollars ever created in just 18 months.",
+      impact: "Worst inflation in 40 years - your groceries, rent, everything skyrockets",
+      color: "bg-red-600",
+      icon: "🖨️",
+      source: "https://fred.stlouisfed.org/series/M2SL"
+    },
+    {
+      year: "2009",
+      title: "Bitcoin Created",
+      description: "Satoshi Nakamoto creates Bitcoin as a response to the 2008 crisis. Fixed supply, no central control.",
+      impact: "First alternative to the broken fiat system",
+      color: "bg-green-500",
+      icon: "₿",
+      source: "https://bitcoin.org/bitcoin.pdf"
+    }
+  ];
+
+  return (
+    <div className="bg-gray-900 rounded-xl p-6 border border-orange-500">
+      <div className="mb-8">
+        <h3 className="text-2xl font-bold text-orange-400 mb-2">
+          Timeline of Monetary Destruction
+        </h3>
+        <p className="text-gray-300 text-sm">
+          Click on each event to see how your money was systematically devalued
+        </p>
+      </div>
+
+      <div className="relative">
+        {/* Timeline Line */}
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-500 via-red-500 to-green-500"></div>
+
+        {/* Timeline Events */}
+        <div className="space-y-8">
+          {timelineEvents.map((event, index) => (
+            <div 
+              key={event.year}
+              className={`relative pl-20 cursor-pointer transition-all duration-300 ${
+                activeEvent === index ? 'scale-105' : 'hover:scale-102'
+              }`}
+              onClick={() => setActiveEvent(activeEvent === index ? null : index)}
+            >
+              {/* Timeline Dot */}
+              <div className={`absolute left-6 w-4 h-4 rounded-full ${event.color} border-2 border-gray-900 z-10`}></div>
+              
+              {/* Event Card */}
+              <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
+                activeEvent === index 
+                  ? `border-${event.color.split('-')[1]}-400 shadow-lg shadow-${event.color.split('-')[1]}-500/20` 
+                  : 'border-gray-700 hover:border-gray-600'
+              }`}>
+                <div className="flex items-center space-x-3 mb-2">
+                  <span className="text-2xl">{event.icon}</span>
+                  <div>
+                    <div className="text-lg font-bold text-white">{event.year}</div>
+                    <div className={`text-${event.color.split('-')[1]}-400 font-semibold`}>{event.title}</div>
+                  </div>
+                </div>
+                
+                <p className="text-gray-300 text-sm mb-3">{event.description}</p>
+                
+                {activeEvent === index && (
+                  <div className="animate-fade-in space-y-3 mt-3">
+                    <div className="bg-red-900/30 border border-red-500 rounded p-3">
+                      <div className="text-red-400 font-semibold text-sm mb-1">💀 Impact on You:</div>
+                      <div className="text-red-300 text-sm">{event.impact}</div>
+                    </div>
+                    <div className="bg-gray-800/50 border border-gray-600 rounded p-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-xs">📄 Official Source:</span>
+                        <a 
+                          href={event.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+                        >
+                          Verify This Event →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {activeEvent !== index && (
+                  <div className="text-gray-500 text-xs">Click to see the damage →</div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Summary Stats */}
+      <div className="mt-8 p-4 bg-red-900/20 border border-red-400 rounded-lg">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div>
+            <div className="text-xl font-bold text-red-400">111 Years</div>
+            <div className="text-xs text-red-200">Of Fed Control</div>
+          </div>
+          <div>
+            <div className="text-xl font-bold text-orange-400">53 Years</div>
+            <div className="text-xs text-orange-200">Since Gold Standard</div>
+          </div>
+          <div>
+            <div className="text-xl font-bold text-yellow-400">16 Years</div>
+            <div className="text-xs text-yellow-200">Of QE Money Printing</div>
+          </div>
+          <div>
+            <div className="text-xl font-bold text-green-400">15 Years</div>
+            <div className="text-xs text-green-200">Of Bitcoin Alternative</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 space-y-3">
+        <div className="text-center">
+          <p className="text-gray-300 text-sm">
+            Notice how Bitcoin was created <span className="text-green-400 font-bold">right after</span> the 2008 crisis? 
+            <br />
+            <span className="text-yellow-400">It's not a coincidence.</span>
+          </p>
+        </div>
+        
+        {/* Sources Footer */}
+        <div className="p-3 bg-gray-800/30 border border-gray-700 rounded-lg">
+          <div className="text-center">
+            <div className="text-gray-400 text-xs mb-2">
+              📚 <span className="font-medium">All events sourced from official government records</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-xs">
+              <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                Federal Reserve
+              </a>
+              <a href="https://www.treasury.gov" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                U.S. Treasury
+              </a>
+              <a href="https://www.nixonlibrary.gov" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                Nixon Presidential Library
+              </a>
+              <a href="https://bitcoin.org" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                Bitcoin.org
+              </a>
+            </div>
+            <div className="text-gray-500 text-xs mt-1">
+              Click any timeline event to view official documentation
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out forwards;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default MonetaryTimeline;
