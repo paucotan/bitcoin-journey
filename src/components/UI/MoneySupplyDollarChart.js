@@ -4,6 +4,7 @@ import { SOURCES } from '../../data/historicalData';
 const MoneySupplyDollarChart = () => {
   const [hoveredPoint, setHoveredPoint] = useState(null);
   const [animationProgress, setAnimationProgress] = useState(0);
+  const [showDataSources, setShowDataSources] = useState(false);
 
   const m2Data = [
     { year: 1959, amount: 0.287, dollarValue: 100.00, event: "Pre-Nixon Era", period: "sound", medianHousePrice: 11900 },
@@ -66,6 +67,7 @@ const MoneySupplyDollarChart = () => {
     const labels = [0, 25, 50, 75, 100];
     return labels.map(percent => {
       const value = max * percent / 100;
+      const displayValue = suffix === '$' ? value.toFixed(0) : (value / (suffix === 'T' ? 1 : 1000)).toFixed(0);
       return (
         <g key={percent}>
           <text
@@ -75,7 +77,7 @@ const MoneySupplyDollarChart = () => {
             fontSize={10}
             textAnchor={position === 'left' ? 'end' : 'start'}
           >
-            {`$${(value / (suffix === 'T' ? 1 : 1000)).toFixed(0)}${suffix}`}
+            {suffix === '$' ? `$${displayValue}` : `$${displayValue}${suffix}`}
           </text>
         </g>
       );
@@ -90,9 +92,6 @@ const MoneySupplyDollarChart = () => {
         </h3>
         <p className="text-gray-300">
           Expand money supply → Dollar loses purchasing power
-        </p>
-        <p className="text-xs text-yellow-400 mt-2">
-          ⚠️ M2 includes cash, deposits, and bank lending - not just Federal Reserve printing
         </p>
       </div>
 
@@ -309,56 +308,68 @@ const MoneySupplyDollarChart = () => {
         </p>
       </div>
 
-      <div className="mt-4 space-y-3">
-        <div className="p-3 bg-gray-800/50 border border-gray-600 rounded-lg">
-          <div className="text-gray-400 text-xs mb-2">
-            📊 <span className="font-medium text-white">Data Sources & Methodology:</span>
+      <div className="mt-4">
+        <button 
+          onClick={() => setShowDataSources(!showDataSources)}
+          className="w-full p-3 bg-gray-800/30 border border-gray-600 rounded-lg hover:bg-gray-800/50 transition-colors text-left"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-gray-400 text-xs">
+              📊 <span className="font-medium text-white">Data Sources & Methodology</span>
+            </span>
+            <span className={`text-gray-400 text-xs transition-transform ${showDataSources ? 'rotate-180' : ''}`}>
+              ▼
+            </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-            <div>
-              <div className="font-medium text-green-400 mb-1">M2 Money Supply:</div>
-              <div className="text-gray-300 mb-1">{SOURCES.M2_DATA.source}</div>
-              <div className="text-gray-400">Series: {SOURCES.M2_DATA.series_id}</div>
-            </div>
-            <div>
-              <div className="font-medium text-orange-400 mb-1">Purchasing Power:</div>
-              <div className="text-gray-300 mb-1">{SOURCES.CPI_DATA.source}</div>
-              <div className="text-gray-400">Series: {SOURCES.CPI_DATA.series_id}</div>
-            </div>
-          </div>
-          <div className="mt-3 pt-2 border-t border-gray-700">
-            <div className="text-gray-400 text-xs">
-              <span className="font-medium text-yellow-400">Calculation:</span> Dollar purchasing power = (2024_CPI / Historical_CPI) × 100
-            </div>
-          </div>
-        </div>
+        </button>
         
-        <div className="flex flex-wrap gap-3 justify-center">
-          <a 
-            href={SOURCES.M2_DATA.url}
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
-          >
-            📈 FRED M2 Data
-          </a>
-          <a 
-            href={SOURCES.CPI_DATA.url}
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
-          >
-            💰 BLS CPI Data
-          </a>
-          <a 
-            href="https://www.bls.gov/data/inflation_calculator.htm" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
-          >
-            🧮 BLS Calculator
-          </a>
-        </div>
+        {showDataSources && (
+          <div className="mt-2 p-3 bg-gray-800/50 border border-gray-600 rounded-lg space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div>
+                <div className="font-medium text-green-400 mb-1">M2 Money Supply:</div>
+                <div className="text-gray-300 mb-1">{SOURCES.M2_DATA.source}</div>
+                <div className="text-gray-400">Series: {SOURCES.M2_DATA.series_id}</div>
+              </div>
+              <div>
+                <div className="font-medium text-orange-400 mb-1">Purchasing Power:</div>
+                <div className="text-gray-300 mb-1">{SOURCES.CPI_DATA.source}</div>
+                <div className="text-gray-400">Series: {SOURCES.CPI_DATA.series_id}</div>
+              </div>
+            </div>
+            <div className="pt-2 border-t border-gray-700">
+              <div className="text-gray-400 text-xs">
+                <span className="font-medium text-yellow-400">Calculation:</span> Dollar purchasing power = (2024_CPI / Historical_CPI) × 100
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3 justify-center pt-2">
+              <a 
+                href={SOURCES.M2_DATA.url}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+              >
+                📈 FRED M2 Data
+              </a>
+              <a 
+                href={SOURCES.CPI_DATA.url}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+              >
+                💰 BLS CPI Data
+              </a>
+              <a 
+                href="https://www.bls.gov/data/inflation_calculator.htm" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+              >
+                🧮 BLS Calculator
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

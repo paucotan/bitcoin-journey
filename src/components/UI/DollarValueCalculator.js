@@ -40,7 +40,7 @@ const DollarValueCalculator = () => {
   const historicalPrices = {
     1913: {
       car: { price: 500, item: "Ford Model T", description: "A complete automobile" },
-      medianHouse: { price: 11900, item: "Median home price", description: "Median U.S. home" },
+      medianHouse: { price: 3500, item: "Typical home price", description: "Typical U.S. home (est.)" },
       coffee: { price: 0.05, item: "Cup of coffee", description: "At a restaurant" },
       bread: { price: 0.04, item: "Loaf of bread", description: "Fresh from bakery" },
       milk: { price: 0.35, item: "Gallon of milk", description: "Farm fresh" },
@@ -161,7 +161,7 @@ const DollarValueCalculator = () => {
         fromYear: 2024,
         toYear: inputYear,
         percentageChange: Math.abs(percentChange).toFixed(1),
-        isLoss: inputAmount < currentValue,
+        isLoss: inputAmount > currentValue,
         isNominalGain: false
       };
     }
@@ -234,7 +234,7 @@ const DollarValueCalculator = () => {
             <div className="mt-3">
               <div className="text-sm text-gray-400 mb-2">Quick amounts:</div>
               <div className="flex flex-wrap gap-2">
-                {[1, 5, 10, 25, 50, 100, 500, 1000].map(amount => (
+                {[10, 100, 10000, 100000, 1000000].map(amount => (
                   <button
                     key={amount}
                     onClick={() => setInputAmount(amount)}
@@ -244,7 +244,7 @@ const DollarValueCalculator = () => {
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
                   >
-                    ${amount}
+                    ${amount >= 1000000 ? `${amount/1000000}M` : amount >= 1000 ? `${amount/1000}k` : amount}
                   </button>
                 ))}
               </div>
@@ -400,7 +400,7 @@ const DollarValueCalculator = () => {
             ? (displayData.isNominalGain
                 ? `While $${inputAmount.toLocaleString()} from ${inputYear} nominally became $${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} today (${displayData.percentageChange}% increase), this is just inflation. In terms of what you can actually buy, the purchasing power impact varies by item.`
                 : `Your $${inputAmount.toLocaleString()} from ${inputYear} lost ${displayData.percentageChange}% of its purchasing power. ${inputYear < 1971 ? 'This wealth destruction began when Nixon ended the gold standard in 1971.' : 'The Federal Reserve has systematically debased your money since then.'}`)
-            : `Today's $${inputAmount.toLocaleString()} would have equivalent purchasing power to $${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} in ${inputYear}. This shows ${displayData.isLoss ? 'how much stronger' : 'how much weaker'} money was historically.`
+            : `Today's $${inputAmount.toLocaleString()} would have equivalent purchasing power to $${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} in ${inputYear}. This shows how much ${displayData.isLoss ? 'weaker money is today due to inflation' : 'stronger money is today'}.`
           }
         </p>
       </div>

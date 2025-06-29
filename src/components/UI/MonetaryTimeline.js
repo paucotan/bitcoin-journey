@@ -15,12 +15,12 @@ const MonetaryTimeline = () => {
     },
     {
       year: "1933",
-      title: "Gold Confiscation",
-      description: "FDR makes private gold ownership illegal. Citizens forced to sell gold to government at $20/oz.",
-      impact: "Government immediately revalues gold to $35/oz - 75% instant theft",
+      title: "Executive Order 6102: Gold Confiscation",
+      description: "FDR outlaws private gold ownership. Citizens forced to sell gold to the government at $20.67/oz.",
+      impact: "A year later, gold revalued to $35/oz — a 69% dollar devaluation and loss of purchasing power",
       color: "bg-orange-500",
       icon: "🚫",
-      source: "https://www.treasury.gov/resource-center/faqs/Currency/Pages/legal-tender.aspx"
+      source: "https://www.presidency.ucsb.edu/documents/executive-order-6102-forbidding-the-hoarding-gold-coin-gold-bullion-and-gold-certificates"
     },
     {
       year: "1971",
@@ -29,13 +29,13 @@ const MonetaryTimeline = () => {
       impact: "Dollar becomes pure fiat currency - backed by nothing but promises",
       color: "bg-red-500",
       icon: "💥",
-      source: "https://www.nixonlibrary.gov/news/new-economic-policy"
+      source: "https://www.presidency.ucsb.edu/documents/address-the-nation-outlining-new-economic-policy-the-challenge-peace"
     },
     {
       year: "2008",
       title: "Financial Crisis",
-      description: "Banks collapse due to reckless lending. Instead of letting them fail, the Fed bails them out.",
-      impact: "Quantitative Easing begins - money printing on steroids",
+      description: "Banks collapse under toxic debt. Instead of letting them fail, the Fed steps in with historic bailouts.",
+      impact: "Quantitative Easing begins—unlimited money printing goes brrrrrr",
       color: "bg-purple-500",
       icon: "📉",
       source: "https://www.federalreserve.gov/monetarypolicy/files/FOMC20081216meeting.pdf"
@@ -43,8 +43,8 @@ const MonetaryTimeline = () => {
     {
       year: "2009",
       title: "Bitcoin Created",
-      description: "Satoshi Nakamoto creates Bitcoin as a response to the 2008 crisis. Fixed supply, no central control.",
-      impact: "First alternative to the broken fiat system",
+      description: "Satoshi Nakamoto publishes the Bitcoin whitepaper in the shadow of the financial crisis—a decentralized digital currency.",
+      impact: "The first fixed-supply, uncensorable alternative to fiat is born.",
       color: "bg-green-500",
       icon: "₿",
       source: "https://bitcoin.org/bitcoin.pdf"
@@ -78,7 +78,7 @@ const MonetaryTimeline = () => {
         {/* Timeline Events */}
         <div className="space-y-8">
           {timelineEvents.map((event, index) => (
-            <div 
+            <div
               key={event.year}
               className={`relative pl-20 cursor-pointer transition-all duration-300 ${
                 activeEvent === index ? 'scale-105' : 'hover:scale-102'
@@ -87,11 +87,11 @@ const MonetaryTimeline = () => {
             >
               {/* Timeline Dot */}
               <div className={`absolute left-6 w-4 h-4 rounded-full ${event.color} border-2 border-gray-900 z-10`}></div>
-              
+
               {/* Event Card */}
               <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
-                activeEvent === index 
-                  ? `border-${event.color.split('-')[1]}-400 shadow-lg shadow-${event.color.split('-')[1]}-500/20` 
+                activeEvent === index
+                  ? `border-${event.color.split('-')[1]}-400 shadow-lg shadow-${event.color.split('-')[1]}-500/20`
                   : 'border-gray-700 hover:border-gray-600'
               }`}>
                 <div className="flex items-center space-x-3 mb-2">
@@ -101,9 +101,9 @@ const MonetaryTimeline = () => {
                     <div className={`text-${event.color.split('-')[1]}-400 font-semibold`}>{event.title}</div>
                   </div>
                 </div>
-                
+
                 <p className="text-gray-300 text-sm mb-3">{event.description}</p>
-                
+
                 {activeEvent === index && (
                   <div className="animate-fade-in space-y-3 mt-3">
                     <div className="bg-red-900/30 border border-red-500 rounded p-3">
@@ -113,7 +113,7 @@ const MonetaryTimeline = () => {
                     <div className="bg-gray-800/50 border border-gray-600 rounded p-2">
                       <div className="flex items-center justify-between">
                         <span className="text-gray-400 text-xs">📄 Official Source:</span>
-                        <a 
+                        <a
                           href={event.source}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -125,7 +125,7 @@ const MonetaryTimeline = () => {
                     </div>
                   </div>
                 )}
-                
+
                 {activeEvent !== index && (
                   <div className="text-gray-500 text-xs">Click to see the damage →</div>
                 )}
@@ -160,12 +160,12 @@ const MonetaryTimeline = () => {
       <div className="mt-4 space-y-3">
         <div className="text-center">
           <p className="text-gray-300 text-sm">
-            Notice how Bitcoin was created <span className="text-green-400 font-bold">right after</span> the 2008 crisis? 
+            Notice how Bitcoin was created <span className="text-green-400 font-bold">right after</span> the 2008 crisis?
             <br />
             <span className="text-yellow-400">It's not a coincidence.</span>
           </p>
         </div>
-        
+
         {/* Sources Footer */}
         <div className="p-3 bg-gray-800/30 border border-gray-700 rounded-lg">
           <div className="text-center">

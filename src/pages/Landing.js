@@ -27,6 +27,7 @@ const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => 
 
 const Landing = () => {
   const [showShock, setShowShock] = useState(false);
+  const [flippedCards, setFlippedCards] = useState({ pure: false, watered: false });
 
   useEffect(() => {
     const timer = setTimeout(() => setShowShock(true), 1000);
@@ -34,22 +35,34 @@ const Landing = () => {
   }, []);
 
   return (
+    <>
+      <style jsx>{`
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+      `}</style>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-black">
       {/* Generational Wealth Theft Hero */}
       <div className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
-          
+
           {/* Compelling Hook */}
           <div className="mb-12">
             <div className="text-orange-400 text-lg font-medium mb-6 tracking-wide">
               THE 1971 DECISION THAT BROKE YOUR FUTURE
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               They Stole Your<br/>
               <span className="text-red-400">Generation's Future</span>
             </h1>
-            
+
             {showShock && (
               <div className="animate-fade-in space-y-6">
                 <p className="text-2xl md:text-3xl text-white mb-8 font-medium max-w-4xl mx-auto leading-relaxed">
@@ -57,7 +70,7 @@ const Landing = () => {
                   The same house costs <span className="text-red-400 font-bold">$400,000</span> today.<br/>
                   <span className="text-yellow-400 font-bold">This isn't inflation—it's systematic wealth transfer.</span>
                 </p>
-                
+
                 {/* Shocking Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
                   <div className="bg-red-900/30 border border-red-500 rounded-lg p-6">
@@ -115,27 +128,96 @@ const Landing = () => {
               <br/><br/>
               <span className="text-red-400 font-bold">That's exactly what happens when they print more money.</span>
               <br/>
-              Your dollars don't multiply—they get diluted. And just like watered-down beer, 
+              Your dollars don't multiply—they get diluted. And just like watered-down beer,
               watered-down money buys you less of what you actually want.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <div className="bg-amber-800/30 border border-amber-400 rounded-lg p-6 text-center">
-              <div className="text-4xl mb-4">🍺</div>
-              <div className="text-xl font-bold text-amber-400 mb-2">Pure Beer</div>
-              <div className="text-white/80">Strong, valuable, what you paid for</div>
+            {/* Pure Beer Card */}
+            <div className="relative h-48">
+              <div 
+                className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                  flippedCards.pure ? 'rotate-y-180' : ''
+                }`}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Front of card */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-amber-800/30 border border-amber-400 rounded-lg p-6 text-center cursor-pointer backface-hidden"
+                  onClick={() => setFlippedCards(prev => ({ ...prev, pure: !prev.pure }))}
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <div className="text-4xl mb-4">🍺</div>
+                  <div className="text-xl font-bold text-amber-400 mb-2">Pure Beer</div>
+                  <div className="text-white/80 mb-4">Strong, valuable, what you paid for</div>
+                  <button className="text-amber-400 hover:text-amber-300 text-sm font-medium">
+                    Read More →
+                  </button>
+                </div>
+                
+                {/* Back of card */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-amber-800/30 border border-amber-400 rounded-lg p-4 text-center cursor-pointer backface-hidden rotate-y-180"
+                  onClick={() => setFlippedCards(prev => ({ ...prev, pure: !prev.pure }))}
+                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                >
+                  <div className="text-2xl mb-2">💰</div>
+                  <div className="text-lg font-bold text-amber-400 mb-2">Sound Money</div>
+                  <div className="text-white/90 text-sm leading-relaxed">
+                    Money whose value cannot easily be manipulated, like Gold. It ensures value doesn't change dramatically over time, preventing inflation and deflation.
+                  </div>
+                  <button className="text-amber-400 hover:text-amber-300 text-sm font-medium mt-2">
+                    ← Back
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="bg-red-800/30 border border-red-400 rounded-lg p-6 text-center">
-              <div className="text-4xl mb-4">🍺💧</div>
-              <div className="text-xl font-bold text-red-400 mb-2">Watered-Down Beer</div>
-              <div className="text-white/80">Weak, worthless, a scam</div>
+
+            {/* Watered-Down Beer Card */}
+            <div className="relative h-48">
+              <div 
+                className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                  flippedCards.watered ? 'rotate-y-180' : ''
+                }`}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Front of card */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-red-800/30 border border-red-400 rounded-lg p-6 text-center cursor-pointer backface-hidden"
+                  onClick={() => setFlippedCards(prev => ({ ...prev, watered: !prev.watered }))}
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <div className="text-4xl mb-4">🍺💧</div>
+                  <div className="text-xl font-bold text-red-400 mb-2">Watered-Down Beer</div>
+                  <div className="text-white/80 mb-4">Weak, worthless, a scam</div>
+                  <button className="text-red-400 hover:text-red-300 text-sm font-medium">
+                    Read More →
+                  </button>
+                </div>
+                
+                {/* Back of card */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-red-800/30 border border-red-400 rounded-lg p-4 text-center cursor-pointer backface-hidden rotate-y-180"
+                  onClick={() => setFlippedCards(prev => ({ ...prev, watered: !prev.watered }))}
+                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                >
+                  <div className="text-2xl mb-2">🏛️</div>
+                  <div className="text-lg font-bold text-red-400 mb-2">Fiat Currency</div>
+                  <div className="text-white/90 text-sm leading-relaxed">
+                    Currency manipulated by politicians or central banks through authority decree. Value changes easily through money printing, diluting purchasing power.
+                  </div>
+                  <button className="text-red-400 hover:text-red-300 text-sm font-medium mt-2">
+                    ← Back
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-12">
             <p className="text-2xl text-white font-bold">
-              In 1971, they started adding water to your money. 
+              In 1971, they started adding water to your money.
               <br/>
               <span className="text-red-400">A lot of water.</span>
             </p>
@@ -151,16 +233,22 @@ const Landing = () => {
               Here's Exactly How They Did It
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              This isn't conspiracy theory. This is <span className="text-red-400 font-bold">official Federal Reserve data</span> showing 
-              the systematic debasement of your purchasing power since Nixon's 1971 decision.
+              This isn't conspiracy theory. This is <span className="text-red-400 font-bold">official Federal Reserve data</span> showing
+              the systematic debasement of your purchasing power since Nixon's 1971 decision to unpeg the dollar from gold, making printing money the defacto way to get more dollars out there.
             </p>
+            <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
+              <h3 className="text-lg font-bold text-orange-400 mb-3">The Problem:</h3>
+              <p className="text-gray-300 mb-4">
+                By printing money, you're taking away the value of what you already have. The charts below show the amount of money added to the existing supply (diluting the supply) and how that correlates with increasing inflation in housing prices and an inverse correlation to dollar purchasing power.
+              </p>
+            </div>
           </div>
-          
+
           <MoneySupplyDollarChart />
-          
+
           <div className="text-center mt-8 mb-12">
             <p className="text-lg text-gray-300 mb-4">
-              See the <span className="text-red-400 font-bold">perfect correlation</span>? 
+              See the <span className="text-red-400 font-bold">perfect correlation</span>?
               As they expanded the money supply 70x, your dollar lost 91% of its purchasing power.
             </p>
             <p className="text-yellow-400 font-bold text-xl mb-8">
@@ -187,7 +275,7 @@ const Landing = () => {
               From gold standard to fake money: <span className="text-red-400 font-bold">The 1971 turning point</span> that broke everything.
             </p>
           </div>
-          
+
           <MonetaryTimeline />
         </div>
       </div>
@@ -203,16 +291,16 @@ const Landing = () => {
             <br />Enter the Revolution.
           </h2>
           <p className="text-2xl text-white/90 mb-8">
-            You've seen the evidence. You understand the crisis. 
+            You've seen the evidence. You understand the crisis.
             <br />Now choose <span className="font-bold">ethical money.</span>
           </p>
-          
+
           <div className="space-y-4">
             <Link
               to="/dashboard"
               className="inline-block bg-white text-red-600 hover:bg-red-50 font-bold py-6 px-12 rounded-2xl text-2xl transition-all transform hover:scale-105 shadow-xl"
             >
-              BEGIN YOUR JOURNEY →
+              BEGIN YOUR JOURNEY (Coming soon) →
             </Link>
             <div className="text-white/80 text-sm">
               ⚡ Free • Educational • Your generation's fighting chance
@@ -252,6 +340,7 @@ const Landing = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 
