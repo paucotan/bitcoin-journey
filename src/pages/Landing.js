@@ -217,9 +217,9 @@ const Landing = () => {
 
           <div className="text-center mt-12">
             <p className="text-2xl text-white font-bold">
-              In 1971, they started adding water to your money.
+              They'd been adding water for years, but 1971 was when they threw away all restraints.
               <br/>
-              <span className="text-red-400">A lot of water.</span>
+              <span className="text-red-400">Now they could add unlimited water.</span>
             </p>
           </div>
         </div>
