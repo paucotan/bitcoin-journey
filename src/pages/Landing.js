@@ -287,8 +287,8 @@ const Landing = () => {
       <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
-            Exit the Exhibition.
-            <br />Enter the Revolution.
+            Museum Tour Complete.
+            <br />Your Mission Begins.
           </h2>
           <p className="text-2xl text-white/90 mb-8">
             You've seen the evidence. You understand the crisis.
@@ -296,14 +296,14 @@ const Landing = () => {
           </p>
 
           <div className="space-y-4">
-            <Link
-              to="/dashboard"
-              className="inline-block bg-white text-red-600 hover:bg-red-50 font-bold py-6 px-12 rounded-2xl text-2xl transition-all transform hover:scale-105 shadow-xl"
-            >
-              BEGIN YOUR JOURNEY (Coming soon) →
-            </Link>
+            <div className="inline-block bg-gray-600 text-gray-300 font-bold py-6 px-12 rounded-2xl text-2xl shadow-xl cursor-not-allowed">
+              🚧 CLASSROOM COMING SOON 🚧
+            </div>
             <div className="text-white/80 text-sm">
               ⚡ Free • Educational • Your generation's fighting chance
+            </div>
+            <div className="text-white/70 text-xs mt-2">
+              The interactive classroom experience is under construction. Stay tuned!
             </div>
           </div>
         </div>

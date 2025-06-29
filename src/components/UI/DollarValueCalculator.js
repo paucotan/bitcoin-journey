@@ -6,6 +6,7 @@ const DollarValueCalculator = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [isCalculating, setIsCalculating] = useState(false);
   const [calculationDirection, setCalculationDirection] = useState('past-to-present'); // 'past-to-present' or 'present-to-past'
+  const [showBitcoinComparison, setShowBitcoinComparison] = useState(false);
 
   // Data sources
   const SOURCES = {
@@ -36,6 +37,30 @@ const DollarValueCalculator = () => {
     2024: { cpi: 321.5 }
   };
 
+  // Historical Bitcoin prices for comparison (representative prices for housing affordability analysis)
+  const bitcoinPrices = {
+    2017: 14000,  // ~$13-15k range, pre-ATH peak
+    2020: 29000,  // Dec 31, 2020: $28,993
+    2021: 47000,  // Dec 31, 2021: $46,211  
+    2024: 65964   // 2024 average: $65,964.11 (up 121% for the year)
+  };
+
+  // Bitcoin data sources
+  const BITCOIN_SOURCES = {
+    STATMUSE: {
+      source: "StatMuse - Bitcoin Average Price 2024",
+      url: "https://www.statmuse.com/money/ask/bitcoin-average-price-2024"
+    },
+    COINGECKO: {
+      source: "CoinGecko - Bitcoin Historical Data",
+      url: "https://www.coingecko.com/en/coins/bitcoin/historical_data"
+    },
+    COINMARKETCAP: {
+      source: "CoinMarketCap - Bitcoin Price History",
+      url: "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
+    }
+  };
+
   // Historical prices for context (museum-style data)
   const historicalPrices = {
     1913: {
@@ -54,6 +79,14 @@ const DollarValueCalculator = () => {
       milk: { price: 1.15, item: "Gallon of milk", description: "At grocery store" },
       gas: { price: 0.36, item: "Gallon of gasoline", description: "Regular unleaded" }
     },
+    2017: {
+      car: { price: 31000, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 322000, item: "Median home price", description: "Median U.S. home" },
+      coffee: { price: 4.00, item: "Cup of coffee", description: "At coffee shop" },
+      bread: { price: 2.50, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 3.50, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 2.40, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
     2020: {
       car: { price: 32000, item: "Average new car", description: "Mid-size sedan" },
       medianHouse: { price: 336900, item: "Median home price", description: "Median U.S. home" },
@@ -61,6 +94,14 @@ const DollarValueCalculator = () => {
       bread: { price: 3.00, item: "Loaf of bread", description: "Store bought" },
       milk: { price: 4.00, item: "Gallon of milk", description: "At grocery store" },
       gas: { price: 2.60, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    2021: {
+      car: { price: 33000, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 358700, item: "Median home price", description: "Median U.S. home" },
+      coffee: { price: 4.75, item: "Cup of coffee", description: "At coffee shop" },
+      bread: { price: 3.25, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 4.25, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 3.00, item: "Gallon of gasoline", description: "Regular unleaded" }
     },
     2024: {
       car: { price: 35000, item: "Average new car", description: "Mid-size sedan" },
@@ -100,6 +141,12 @@ const DollarValueCalculator = () => {
       // Reverse: 2024 to past year
       return calculatePurchasingPower(inputAmount, 2024, inputYear);
     }
+  };
+
+  const calculateBitcoinHousing = (year) => {
+    const housePrice = historicalPrices[year]?.medianHouse?.price;
+    const btcPrice = bitcoinPrices[year];
+    return housePrice && btcPrice ? (housePrice / btcPrice).toFixed(1) : null;
   };
 
   const findWhatYouCouldBuy = (amount, year) => {
@@ -168,6 +215,59 @@ const DollarValueCalculator = () => {
   };
 
   const displayData = getDisplayData();
+
+  // Bitcoin Housing Comparison Component
+  const BitcoinHousingTable = () => {
+    const comparisonYears = [2017, 2020, 2021, 2024];
+    
+    return (
+      <div className="mt-3 bg-orange-900/20 border border-orange-500 rounded-lg p-6">
+        <h4 className="text-xl font-bold text-orange-400 mb-4 text-center">
+          🏠 ₿ Housing Affordability in Bitcoin
+        </h4>
+        <div className="space-y-3">
+          {comparisonYears.map(year => {
+            const btcNeeded = calculateBitcoinHousing(year);
+            const housePrice = historicalPrices[year]?.medianHouse?.price;
+            const btcPrice = bitcoinPrices[year];
+            
+            if (!btcNeeded || !housePrice || !btcPrice) return null;
+            
+            return (
+              <div key={year} className="flex justify-between items-center p-3 bg-gray-800/50 rounded">
+                <span className="text-white font-medium">{year}</span>
+                <div className="text-center flex-1 mx-4">
+                  <div className="text-orange-400 font-bold text-lg">{btcNeeded} BTC</div>
+                  <div className="text-xs text-gray-400">
+                    ${housePrice?.toLocaleString()} ÷ ${btcPrice?.toLocaleString()}
+                  </div>
+                </div>
+                <div className="text-right text-xs text-gray-300">
+                  <div>House: ${(housePrice / 1000).toFixed(0)}k</div>
+                  <div>BTC: ${(btcPrice / 1000).toFixed(0)}k</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        {/* Key Insight */}
+        <div className="mt-4 p-3 bg-green-900/20 border border-green-500 rounded">
+          <div className="text-center">
+            <div className="text-green-400 font-bold text-sm mb-2">🎯 Bitcoin Housing Insight</div>
+            <div className="text-white text-sm mb-2">
+              <span className="text-orange-400 font-bold">Bitcoin price ↗</span> = <span className="text-green-400 font-bold">BTC needed ↘</span>
+            </div>
+            <div className="text-white text-sm">
+              As Bitcoin rises from <span className="text-orange-400">$14k → $66k</span>, houses dropped from <span className="text-green-400 font-bold">23.0 → 6.4 BTC</span>
+              <br />
+              <span className="text-gray-300 text-xs mt-1">Each Bitcoin buys more house as BTC appreciates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="bg-black rounded-xl p-8 border border-orange-500">
@@ -443,6 +543,64 @@ const DollarValueCalculator = () => {
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Bitcoin Housing Comparison Section */}
+      <div className="mt-6 border-t border-gray-700 pt-4">
+        <button 
+          onClick={() => setShowBitcoinComparison(!showBitcoinComparison)}
+          className="w-full text-left p-3 bg-orange-900/10 hover:bg-orange-900/20 rounded-lg border border-orange-500/30 transition-colors"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-orange-400 font-medium">₿ Bitcoin Housing Comparison</span>
+            <span className="text-orange-400 text-sm">
+              {showBitcoinComparison ? '▼ Hide' : '▶ Show'}
+            </span>
+          </div>
+        </button>
+        
+        {/* Bitcoin Table - Conditionally Rendered */}
+        {showBitcoinComparison && (
+          <>
+            <BitcoinHousingTable />
+            
+            {/* Bitcoin Data Sources */}
+            <div className="mt-3 p-3 bg-gray-800/30 border border-gray-600 rounded-lg">
+              <div className="text-center">
+                <div className="text-gray-400 text-xs mb-2">📊 Bitcoin Data Sources:</div>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <a 
+                    href={BITCOIN_SOURCES.STATMUSE.url}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+                  >
+                    📊 StatMuse 2024 Average
+                  </a>
+                  <a 
+                    href={BITCOIN_SOURCES.COINGECKO.url}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+                  >
+                    🦎 CoinGecko Historical
+                  </a>
+                  <a 
+                    href={BITCOIN_SOURCES.COINMARKETCAP.url}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors"
+                  >
+                    📈 CoinMarketCap
+                  </a>
+                </div>
+                <div className="text-gray-500 text-xs mt-1">
+                  2024: $65,964 avg (StatMuse) | 2020-2021: year-end prices | 2017: market avg
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

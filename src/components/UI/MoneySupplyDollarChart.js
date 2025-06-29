@@ -54,9 +54,12 @@ const MoneySupplyDollarChart = () => {
   const dollarPath = createPath(m2Data, (p) => p.dollarValue, maxDollar, true);
   const housePricePath = createPath(m2Data, (p) => p.medianHousePrice, maxHousePrice);
 
-  const Chart = ({ title, children }) => (
+  const Chart = ({ title, legend, children }) => (
     <div className="bg-gray-900 rounded-xl p-6 border border-gray-700">
-      <h4 className="text-xl font-bold text-white mb-4 text-center">{title}</h4>
+      <div className="text-center mb-4">
+        <h4 className="text-xl font-bold text-white">{title}</h4>
+        {legend && <div className="text-xs text-gray-400 mt-1">{legend}</div>}
+      </div>
       <div className="relative">
         {children}
       </div>
@@ -96,7 +99,7 @@ const MoneySupplyDollarChart = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Chart title="M2 Supply vs. House Price">
+        <Chart title="M2 Supply vs. House Price" legend="🔴 M2 Money Supply  🔵 House Price">
           <svg 
             width="100%" 
             height={chartHeight + 80} 
@@ -202,7 +205,7 @@ const MoneySupplyDollarChart = () => {
           </svg>
         </Chart>
         
-        <Chart title="Dollar Purchasing Power">
+        <Chart title="Dollar Purchasing Power" legend="🟢 Purchasing Power">
            <svg 
             width="100%" 
             height={chartHeight + 80} 
@@ -275,37 +278,17 @@ const MoneySupplyDollarChart = () => {
         </Chart>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-6 text-sm max-w-md mx-auto">
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded-full bg-red-500" />
-          <span className="text-gray-300">M2 Money Supply</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded-full bg-blue-500" />
-          <span className="text-gray-300">Median House Price</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-4 h-4 rounded-full bg-green-500" />
-          <span className="text-gray-300">Purchasing Power</span>
-        </div>
-      </div>
 
-      <div className="mt-2 text-center text-xs text-gray-400">
-        Note: Median house prices are nominal (not inflation-adjusted).
-      </div>
-
-      <div className="mt-6 p-4 bg-red-900/20 border border-red-400 rounded-lg">
-        <p className="text-red-300 text-sm">
-          <span className="font-bold">💡 The 1971 Turning Point:</span> Total M2 money supply expanded from $286.6 billion (1959) to $21.1 trillion (2024) - 
-          a <span className="text-red-400 font-bold">7,357% increase</span>. Meanwhile, $100 from 1959 has lost 
-          <span className="text-red-400 font-bold">90.95% of its purchasing power</span> - now worth only $9.05.
-        </p>
-        <p className="text-red-200 text-xs mt-2">
-          <span className="font-bold">Note:</span> M2 includes cash, bank deposits, savings, and credit creation - not just Fed printing.
-        </p>
-        <p className="text-red-200 text-xs">
-          Sources: Federal Reserve M2SL series, BLS Consumer Price Index (baseline: 1959 = $100)
-        </p>
+      <div className="mt-6 text-center">
+        <div className="bg-gray-800/30 rounded-lg p-4 max-w-4xl mx-auto">
+          <div className="text-orange-400 font-bold text-sm mb-2">💡 The 1971 Turning Point</div>
+          <div className="text-white text-sm leading-relaxed">
+            M2 expanded <span className="text-red-400 font-bold">7,357%</span> since 1959, while $100 lost <span className="text-red-400 font-bold">90.95%</span> of its purchasing power (now worth $9.05)
+          </div>
+          <div className="text-gray-400 text-xs mt-3 border-t border-gray-700 pt-2">
+            Sources: Federal Reserve M2SL, BLS CPI • Note: Median house prices nominal, not inflation-adjusted
+          </div>
+        </div>
       </div>
 
       <div className="mt-4">

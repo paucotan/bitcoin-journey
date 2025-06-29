@@ -95,7 +95,7 @@ const MonetaryTimeline = () => {
                   : 'border-gray-700 hover:border-gray-600'
               }`}>
                 <div className="flex items-center space-x-3 mb-2">
-                  <span className="text-2xl">{event.icon}</span>
+                  <span className={`text-2xl ${event.icon === '₿' ? 'text-orange-400' : ''}`}>{event.icon}</span>
                   <div>
                     <div className="text-lg font-bold text-white">{event.year}</div>
                     <div className={`text-${event.color.split('-')[1]}-400 font-semibold`}>{event.title}</div>
