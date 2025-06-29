@@ -35,59 +35,124 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-black">
-      {/* Dramatic Opening */}
+      {/* Generational Wealth Theft Hero */}
       <div className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
           
-          {/* Shocking Revelation */}
+          {/* Compelling Hook */}
           <div className="mb-12">
-            <div className="text-red-400 text-lg font-medium mb-4 animate-pulse">
-              BREAKING: The Truth They Don't Want You to Know
+            <div className="text-orange-400 text-lg font-medium mb-6 tracking-wide">
+              THE 1971 DECISION THAT BROKE YOUR FUTURE
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-              <span className="text-red-500 text-9xl block mb-4">1971</span>
-              <span className="text-red-400">Everything Broke</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+              They Stole Your<br/>
+              <span className="text-red-400">Generation's Future</span>
             </h1>
             
             {showShock && (
-              <div className="animate-fade-in">
-                <p className="text-3xl md:text-4xl text-white mb-8 font-bold max-w-2xl mx-auto">
-                  Nixon killed sound money.<br/>
-                  <span className="text-red-400">Your generation pays the price.</span>
+              <div className="animate-fade-in space-y-6">
+                <p className="text-2xl md:text-3xl text-white mb-8 font-medium max-w-4xl mx-auto leading-relaxed">
+                  Your parents could buy a house for <span className="text-green-400 font-bold">$25,000</span>.<br/>
+                  The same house costs <span className="text-red-400 font-bold">$400,000</span> today.<br/>
+                  <span className="text-yellow-400 font-bold">This isn't inflation—it's systematic wealth transfer.</span>
                 </p>
+                
+                {/* Shocking Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+                  <div className="bg-red-900/30 border border-red-500 rounded-lg p-6">
+                    <div className="text-3xl font-bold text-red-400 mb-2">
+                      <AnimatedCounter start={0} end={87} duration={2000} suffix="%" />
+                    </div>
+                    <div className="text-sm text-red-200">Dollar Value Lost Since 1971</div>
+                  </div>
+                  <div className="bg-orange-900/30 border border-orange-500 rounded-lg p-6">
+                    <div className="text-3xl font-bold text-orange-400 mb-2">
+                      <AnimatedCounter start={0} end={16} duration={2000} suffix="x" />
+                    </div>
+                    <div className="text-sm text-orange-200">House Price Multiplier</div>
+                  </div>
+                  <div className="bg-yellow-900/30 border border-yellow-500 rounded-lg p-6">
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">
+                      1971
+                    </div>
+                    <div className="text-sm text-yellow-200">The Year It All Changed</div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
 
-
           <div className="flex justify-center mb-12">
             <button className="text-orange-400 hover:text-orange-300 text-xl font-medium transition-colors animate-pulse">
-              ↓ See the evidence ↓
+              ↓ See how they did it ↓
             </button>
           </div>
 
         </div>
 
         {/* Background Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="text-9xl absolute top-10 left-10 animate-float text-red-500">💸</div>
-          <div className="text-6xl absolute bottom-20 right-20 animate-float-delayed text-orange-500">🔥</div>
-          <div className="text-8xl absolute top-1/2 left-1/4 animate-bounce-gentle text-yellow-500">⚠️</div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="text-9xl absolute top-10 left-10 animate-float text-red-500">🏠</div>
+          <div className="text-6xl absolute bottom-20 right-20 animate-float-delayed text-orange-500">💸</div>
+          <div className="text-8xl absolute top-1/2 left-1/4 animate-bounce-gentle text-yellow-500">⚖️</div>
+          <div className="text-7xl absolute top-1/3 right-1/3 animate-float text-green-500">💰</div>
         </div>
       </div>
 
+      {/* Beer Analogy - Simple Explanation */}
+      <div className="bg-gradient-to-r from-amber-900 via-orange-900 to-red-900 py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-6xl mb-6">🍺</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Think of Money Like Beer
+            </h2>
+            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              Imagine you have a perfect pint of beer. Now someone adds water to it.
+              <br/><br/>
+              <span className="text-yellow-400 font-bold">Did you get "more beer"?</span> No. You got watered-down beer that tastes awful.
+              <br/><br/>
+              <span className="text-red-400 font-bold">That's exactly what happens when they print more money.</span>
+              <br/>
+              Your dollars don't multiply—they get diluted. And just like watered-down beer, 
+              watered-down money buys you less of what you actually want.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="bg-amber-800/30 border border-amber-400 rounded-lg p-6 text-center">
+              <div className="text-4xl mb-4">🍺</div>
+              <div className="text-xl font-bold text-amber-400 mb-2">Pure Beer</div>
+              <div className="text-white/80">Strong, valuable, what you paid for</div>
+            </div>
+            <div className="bg-red-800/30 border border-red-400 rounded-lg p-6 text-center">
+              <div className="text-4xl mb-4">🍺💧</div>
+              <div className="text-xl font-bold text-red-400 mb-2">Watered-Down Beer</div>
+              <div className="text-white/80">Weak, worthless, a scam</div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-2xl text-white font-bold">
+              In 1971, they started adding water to your money. 
+              <br/>
+              <span className="text-red-400">A lot of water.</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* The Evidence Section - Money Supply Chart */}
       <div className="bg-gray-900 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Here's The Proof
+              Here's Exactly How They Did It
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Don't take our word for it. This is <span className="text-red-400 font-bold">official Federal Reserve data</span> showing 
-              how they've systematically destroyed your money since 1971.
+              This isn't conspiracy theory. This is <span className="text-red-400 font-bold">official Federal Reserve data</span> showing 
+              the systematic debasement of your purchasing power since Nixon's 1971 decision.
             </p>
           </div>
           
@@ -95,11 +160,11 @@ const Landing = () => {
           
           <div className="text-center mt-8 mb-12">
             <p className="text-lg text-gray-300 mb-4">
-              See the <span className="text-red-400 font-bold">perfect inverse correlation</span>? 
-              The more money they print, the less your dollar is worth.
+              See the <span className="text-red-400 font-bold">perfect correlation</span>? 
+              As they expanded the money supply 70x, your dollar lost 91% of its purchasing power.
             </p>
             <p className="text-yellow-400 font-bold text-xl mb-8">
-              This is not inflation - this is systematic theft.
+              This isn't market forces - this is engineered wealth transfer.
             </p>
           </div>
 

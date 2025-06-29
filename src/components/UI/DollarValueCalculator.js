@@ -40,7 +40,7 @@ const DollarValueCalculator = () => {
   const historicalPrices = {
     1913: {
       car: { price: 500, item: "Ford Model T", description: "A complete automobile" },
-      house: { price: 3500, item: "Average home", description: "4 bedroom house with land" },
+      medianHouse: { price: 11900, item: "Median home price", description: "Median U.S. home" },
       coffee: { price: 0.05, item: "Cup of coffee", description: "At a restaurant" },
       bread: { price: 0.04, item: "Loaf of bread", description: "Fresh from bakery" },
       milk: { price: 0.35, item: "Gallon of milk", description: "Farm fresh" },
@@ -48,20 +48,36 @@ const DollarValueCalculator = () => {
     },
     1971: {
       car: { price: 3500, item: "Average new car", description: "Mid-size sedan" },
-      house: { price: 25000, item: "Average home", description: "3 bedroom suburban home" },
+      medianHouse: { price: 17000, item: "Median home price", description: "Median U.S. home" },
       coffee: { price: 0.25, item: "Cup of coffee", description: "At diner" },
       bread: { price: 0.25, item: "Loaf of bread", description: "Store bought" },
       milk: { price: 1.15, item: "Gallon of milk", description: "At grocery store" },
       gas: { price: 0.36, item: "Gallon of gasoline", description: "Regular unleaded" }
     },
+    2020: {
+      car: { price: 32000, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 336900, item: "Median home price", description: "Median U.S. home" },
+      coffee: { price: 4.50, item: "Cup of coffee", description: "At coffee shop" },
+      bread: { price: 3.00, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 4.00, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 2.60, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
     2024: {
       car: { price: 35000, item: "Average new car", description: "Mid-size sedan" },
-      house: { price: 400000, item: "Average home", description: "3 bedroom suburban home" },
+      medianHouse: { price: 422800, item: "Median home price", description: "Median U.S. home" },
       coffee: { price: 5.00, item: "Cup of coffee", description: "At coffee shop" },
       bread: { price: 3.50, item: "Loaf of bread", description: "Store bought" },
       milk: { price: 4.50, item: "Gallon of milk", description: "At grocery store" },
       gas: { price: 3.50, item: "Gallon of gasoline", description: "Regular unleaded" }
     }
+  };
+
+  // Format numbers with commas for readability
+  const formatPrice = (price) => {
+    return price.toLocaleString('en-US', { 
+      minimumFractionDigits: 2, 
+      maximumFractionDigits: 2 
+    });
   };
 
   const calculatePurchasingPower = (amount, fromYear, toYear = 2024) => {
@@ -88,13 +104,27 @@ const DollarValueCalculator = () => {
 
   const findWhatYouCouldBuy = (amount, year) => {
     const yearData = historicalPrices[year];
-    if (!yearData) return [];
+    if (!yearData || amount <= 0) return [];
 
-    return Object.entries(yearData).map(([key, item]) => ({
-      ...item,
-      quantity: Math.floor(amount / item.price),
-      category: key
-    })).filter(item => item.quantity > 0);
+    return Object.entries(yearData).map(([key, item]) => {
+      const exactQuantity = amount / item.price;
+      const wholeQuantity = Math.floor(exactQuantity);
+      
+      // For expensive items like houses/cars, show fractions if less than 1
+      const isExpensive = item.price > 1000;
+      const displayQuantity = isExpensive && wholeQuantity === 0 && exactQuantity > 0.001 
+        ? exactQuantity 
+        : wholeQuantity;
+        
+      return {
+        ...item,
+        quantity: wholeQuantity,
+        displayQuantity: displayQuantity,
+        exactQuantity: exactQuantity,
+        category: key,
+        isFractional: isExpensive && wholeQuantity === 0 && exactQuantity > 0.001
+      };
+    }).filter(item => item.quantity > 0 || item.isFractional);
   };
 
   useEffect(() => {
@@ -111,22 +141,28 @@ const DollarValueCalculator = () => {
   // Dynamic data based on calculation direction
   const getDisplayData = () => {
     if (calculationDirection === 'past-to-present') {
+      // Past to Present: Show purchasing power loss due to inflation
+      const percentChange = ((currentValue - inputAmount) / inputAmount * 100);
       return {
         fromItems: findWhatYouCouldBuy(inputAmount, inputYear),
         toItems: findWhatYouCouldBuy(currentValue, 2024),
         fromYear: inputYear,
         toYear: 2024,
-        percentageChange: ((currentValue - inputAmount) / inputAmount * 100).toFixed(1),
-        isLoss: currentValue < inputAmount
+        percentageChange: Math.abs(percentChange).toFixed(1),
+        isLoss: currentValue < inputAmount,
+        isNominalGain: currentValue > inputAmount // Nominal dollar gain but purchasing power perspective
       };
     } else {
+      // Present to Past: Show what today's money was worth historically
+      const percentChange = ((inputAmount - currentValue) / currentValue * 100);
       return {
         fromItems: findWhatYouCouldBuy(inputAmount, 2024),
         toItems: findWhatYouCouldBuy(currentValue, inputYear),
         fromYear: 2024,
         toYear: inputYear,
-        percentageChange: ((currentValue - inputAmount) / inputAmount * 100).toFixed(1),
-        isLoss: currentValue < inputAmount
+        percentageChange: Math.abs(percentChange).toFixed(1),
+        isLoss: inputAmount < currentValue,
+        isNominalGain: false
       };
     }
   };
@@ -185,11 +221,33 @@ const DollarValueCalculator = () => {
               <input
                 type="number"
                 value={inputAmount}
-                onChange={(e) => setInputAmount(Number(e.target.value))}
+                onChange={(e) => setInputAmount(Number(e.target.value) || 0)}
+                onFocus={(e) => e.target.select()}
                 className="w-full pl-8 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-lg focus:border-orange-500 focus:outline-none"
-                min="1"
+                min="0"
                 max="1000000"
+                placeholder="Enter amount"
               />
+            </div>
+            
+            {/* Quick Amount Buttons */}
+            <div className="mt-3">
+              <div className="text-sm text-gray-400 mb-2">Quick amounts:</div>
+              <div className="flex flex-wrap gap-2">
+                {[1, 5, 10, 25, 50, 100, 500, 1000].map(amount => (
+                  <button
+                    key={amount}
+                    onClick={() => setInputAmount(amount)}
+                    className={`px-3 py-1 rounded-md text-sm transition-colors ${
+                      inputAmount === amount 
+                        ? 'bg-orange-500 text-white' 
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    ${amount}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -234,15 +292,34 @@ const DollarValueCalculator = () => {
               }
             </div>
             
-            <div className="bg-red-500/20 rounded-lg p-3">
-              <div className="text-red-300 text-lg font-semibold">
-                {Math.abs(displayData.percentageChange)}% 
-                {displayData.isLoss ? ' of value LOST' : ' of value GAINED'}
-              </div>
-              <div className="text-red-200 text-sm">
+            <div className={`${
+              calculationDirection === 'past-to-present' 
+                ? (displayData.isNominalGain ? 'bg-orange-500/20' : 'bg-red-500/20')
+                : (displayData.isLoss ? 'bg-red-500/20' : 'bg-green-500/20')
+            } rounded-lg p-3`}>
+              <div className={`${
+                calculationDirection === 'past-to-present' 
+                  ? (displayData.isNominalGain ? 'text-orange-300' : 'text-red-300')
+                  : (displayData.isLoss ? 'text-red-300' : 'text-green-300')
+              } text-lg font-semibold`}>
+                {displayData.percentageChange}%
                 {calculationDirection === 'past-to-present' 
-                  ? 'to monetary debasement'
-                  : 'showing historical purchasing power'
+                  ? (displayData.isNominalGain 
+                      ? ' nominal increase (inflation effect)'
+                      : ' of purchasing power LOST')
+                  : (displayData.isLoss 
+                      ? ' less purchasing power historically' 
+                      : ' more purchasing power historically')
+                }
+              </div>
+              <div className={`${
+                calculationDirection === 'past-to-present' 
+                  ? (displayData.isNominalGain ? 'text-orange-200' : 'text-red-200')
+                  : (displayData.isLoss ? 'text-red-200' : 'text-green-200')
+              } text-sm`}>
+                {calculationDirection === 'past-to-present' 
+                  ? 'due to monetary debasement since ' + inputYear
+                  : 'compared to today\'s purchasing power'
                 }
               </div>
             </div>
@@ -258,14 +335,20 @@ const DollarValueCalculator = () => {
             What ${inputAmount} could buy in {displayData.fromYear}
           </h4>
           <div className="space-y-3">
-            {displayData.fromItems.slice(0, 4).map((item, index) => (
+            {displayData.fromItems.slice(0, 6).map((item, index) => (
               <div key={index} className="flex justify-between items-center">
                 <div>
                   <div className="text-green-300 font-medium">{item.item}</div>
                   <div className="text-green-200 text-sm">{item.description}</div>
+                  <div className="text-green-400 text-xs">
+                    ${formatPrice(item.price)} each
+                  </div>
                 </div>
                 <div className="text-green-400 font-bold">
-                  {item.quantity}x
+                  {item.isFractional 
+                    ? `${(item.exactQuantity * 100).toFixed(1)}%`
+                    : `${item.quantity}x`
+                  }
                 </div>
               </div>
             ))}
@@ -279,14 +362,20 @@ const DollarValueCalculator = () => {
           </h4>
           <div className="space-y-3">
             {displayData.toItems.length > 0 ? (
-              displayData.toItems.slice(0, 4).map((item, index) => (
+              displayData.toItems.slice(0, 6).map((item, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <div>
                     <div className="text-red-300 font-medium">{item.item}</div>
                     <div className="text-red-200 text-sm">{item.description}</div>
+                    <div className="text-red-400 text-xs">
+                      ${formatPrice(item.price)} each
+                    </div>
                   </div>
                   <div className="text-red-400 font-bold">
-                    {item.quantity}x
+                    {item.isFractional 
+                      ? `${(item.exactQuantity * 100).toFixed(1)}%`
+                      : `${item.quantity}x`
+                    }
                   </div>
                 </div>
               ))
@@ -308,10 +397,10 @@ const DollarValueCalculator = () => {
         <p className="text-orange-300 text-center">
           <span className="font-bold">💡 Museum Insight:</span> {' '}
           {calculationDirection === 'past-to-present' 
-            ? (inputYear < 1971 
-                ? `This wealth destruction began when Nixon ended the gold standard in 1971. Your money lost ${Math.abs(displayData.percentageChange)}% of its value through systematic monetary debasement.`
-                : `Since ${inputYear}, the Federal Reserve has printed away ${Math.abs(displayData.percentageChange)}% of your money's value. This is not inflation - this is theft.`)
-            : `In ${inputYear} terms, today's $${inputAmount} would have had ${Math.abs(displayData.percentageChange)}% ${displayData.isLoss ? 'less' : 'more'} purchasing power. This shows the true scale of monetary debasement since then.`
+            ? (displayData.isNominalGain
+                ? `While $${inputAmount} from ${inputYear} nominally became $${currentValue.toFixed(2)} today (${displayData.percentageChange}% increase), this is just inflation. In terms of what you can actually buy, the purchasing power impact varies by item.`
+                : `Your $${inputAmount} from ${inputYear} lost ${displayData.percentageChange}% of its purchasing power. ${inputYear < 1971 ? 'This wealth destruction began when Nixon ended the gold standard in 1971.' : 'The Federal Reserve has systematically debased your money since then.'}`)
+            : `Today's $${inputAmount} would have equivalent purchasing power to $${currentValue.toFixed(2)} in ${inputYear}. This shows ${displayData.isLoss ? 'how much stronger' : 'how much weaker'} money was historically.`
           }
         </p>
       </div>

@@ -16,7 +16,7 @@ const MoneySupplyDollarChart = () => {
     { year: 2015, amount: 11.789, dollarValue: 12.20, event: "QE3 Ends", period: "qe-era", medianHousePrice: 294900 },
     { year: 2020, amount: 15.417, dollarValue: 11.24, event: "COVID Begins", period: "brrr", medianHousePrice: 336900 },
     { year: 2021, amount: 19.360, dollarValue: 9.95, event: "Peak Money Printing", period: "brrr", medianHousePrice: 358700 },
-    { year: 2024, amount: 20.773, dollarValue: 9.04, event: "Current Day", period: "brrr", medianHousePrice: 422800 }
+    { year: 2024, amount: 20.773, dollarValue: 9.05, event: "Current Day", period: "brrr", medianHousePrice: 422800 }
   ];
 
   const maxM2 = Math.max(...m2Data.map(d => d.amount));
@@ -299,7 +299,7 @@ const MoneySupplyDollarChart = () => {
         <p className="text-red-300 text-sm">
           <span className="font-bold">💡 The 1971 Turning Point:</span> Total M2 money supply expanded from $286.6 billion (1959) to $21.1 trillion (2024) - 
           a <span className="text-red-400 font-bold">7,357% increase</span>. Meanwhile, $100 from 1959 has lost 
-          <span className="text-red-400 font-bold">90.96% of its purchasing power</span> - now worth only $9.04.
+          <span className="text-red-400 font-bold">90.95% of its purchasing power</span> - now worth only $9.05.
         </p>
         <p className="text-red-200 text-xs mt-2">
           <span className="font-bold">Note:</span> M2 includes cash, bank deposits, savings, and credit creation - not just Fed printing.
