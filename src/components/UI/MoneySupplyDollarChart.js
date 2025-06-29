@@ -110,8 +110,80 @@ const MoneySupplyDollarChart = () => {
             <path d={housePricePath} fill="none" stroke="#3b82f6" strokeWidth={2} strokeDasharray="5,5" />
             {m2Data.map((point, index) => (
               <g key={index}>
-                <circle cx={getXPosition(index)} cy={getYPosition(point.amount, maxM2)} r={5} fill="#ef4444" />
-                <circle cx={getXPosition(index)} cy={getYPosition(point.medianHousePrice, maxHousePrice)} r={5} fill="#3b82f6" />
+                <circle 
+                  cx={getXPosition(index)} 
+                  cy={getYPosition(point.amount, maxM2)} 
+                  r={hoveredPoint === index ? 8 : 5} 
+                  fill="#ef4444" 
+                  className="transition-all duration-200 cursor-pointer"
+                  onMouseEnter={() => setHoveredPoint(index)}
+                  onMouseLeave={() => setHoveredPoint(null)}
+                />
+                <circle 
+                  cx={getXPosition(index)} 
+                  cy={getYPosition(point.medianHousePrice, maxHousePrice)} 
+                  r={hoveredPoint === index ? 8 : 5} 
+                  fill="#3b82f6" 
+                  className="transition-all duration-200 cursor-pointer"
+                  onMouseEnter={() => setHoveredPoint(index)}
+                  onMouseLeave={() => setHoveredPoint(null)}
+                />
+                
+                {/* Year Labels */}
+                <text
+                  x={getXPosition(index)}
+                  y={chartHeight + 20}
+                  fill="rgba(255,255,255,0.7)"
+                  fontSize={10}
+                  textAnchor="middle"
+                  className="pointer-events-none"
+                >
+                  {point.year}
+                </text>
+
+                {/* Hover Tooltip for M2 */}
+                {hoveredPoint === index && (
+                  <g>
+                    <rect
+                      x={getXPosition(index) - 80}
+                      y={getYPosition(point.amount, maxM2) - 70}
+                      width={160}
+                      height={60}
+                      fill="rgba(0,0,0,0.9)"
+                      stroke="rgba(255,255,255,0.3)"
+                      rx={4}
+                    />
+                    <text
+                      x={getXPosition(index)}
+                      y={getYPosition(point.amount, maxM2) - 50}
+                      fill="#ef4444"
+                      fontSize={12}
+                      textAnchor="middle"
+                      fontWeight="bold"
+                    >
+                      M2: ${point.amount}T
+                    </text>
+                    <text
+                      x={getXPosition(index)}
+                      y={getYPosition(point.amount, maxM2) - 35}
+                      fill="#3b82f6"
+                      fontSize={12}
+                      textAnchor="middle"
+                      fontWeight="bold"
+                    >
+                      House: ${(point.medianHousePrice/1000).toFixed(0)}k
+                    </text>
+                    <text
+                      x={getXPosition(index)}
+                      y={getYPosition(point.amount, maxM2) - 20}
+                      fill="rgba(255,255,255,0.8)"
+                      fontSize={10}
+                      textAnchor="middle"
+                    >
+                      {point.event}
+                    </text>
+                  </g>
+                )}
               </g>
             ))}
              <defs>
@@ -119,6 +191,12 @@ const MoneySupplyDollarChart = () => {
                 <stop offset="0%" stopColor="#22c55e" />
                 <stop offset="30%" stopColor="#f59e0b" />
                 <stop offset="70%" stopColor="#ef4444" />
+                <stop offset="100%" stopColor="#dc2626" />
+              </linearGradient>
+              <linearGradient id="dollarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#22c55e" />
+                <stop offset="18%" stopColor="#22c55e" />
+                <stop offset="18.1%" stopColor="#ef4444" />
                 <stop offset="100%" stopColor="#dc2626" />
               </linearGradient>
             </defs>
@@ -133,9 +211,65 @@ const MoneySupplyDollarChart = () => {
             className="overflow-visible"
           >
             {renderYAxis(maxDollar, '$')}
-            <path d={dollarPath} fill="none" stroke="#22c55e" strokeWidth={4} />
+            <path d={dollarPath} fill="none" stroke="url(#dollarGradient)" strokeWidth={4} />
             {m2Data.map((point, index) => (
-              <circle key={index} cx={getXPosition(index)} cy={getYPosition(point.dollarValue, maxDollar, true)} r={5} fill={point.year < 1971 ? '#22c55e' : '#ef4444'} />
+              <g key={index}>
+                <circle 
+                  cx={getXPosition(index)} 
+                  cy={getYPosition(point.dollarValue, maxDollar, true)} 
+                  r={hoveredPoint === index ? 8 : 5} 
+                  fill={point.year < 1971 ? '#22c55e' : '#ef4444'} 
+                  className="transition-all duration-200 cursor-pointer"
+                  onMouseEnter={() => setHoveredPoint(index)}
+                  onMouseLeave={() => setHoveredPoint(null)}
+                />
+                
+                {/* Year Labels */}
+                <text
+                  x={getXPosition(index)}
+                  y={chartHeight + 20}
+                  fill="rgba(255,255,255,0.7)"
+                  fontSize={10}
+                  textAnchor="middle"
+                  className="pointer-events-none"
+                >
+                  {point.year}
+                </text>
+
+                {/* Hover Tooltip for Dollar Value */}
+                {hoveredPoint === index && (
+                  <g>
+                    <rect
+                      x={getXPosition(index) - 70}
+                      y={getYPosition(point.dollarValue, maxDollar, true) - 60}
+                      width={140}
+                      height={50}
+                      fill="rgba(0,0,0,0.9)"
+                      stroke="rgba(255,255,255,0.3)"
+                      rx={4}
+                    />
+                    <text
+                      x={getXPosition(index)}
+                      y={getYPosition(point.dollarValue, maxDollar, true) - 40}
+                      fill={point.year < 1971 ? '#22c55e' : '#ef4444'}
+                      fontSize={12}
+                      textAnchor="middle"
+                      fontWeight="bold"
+                    >
+                      ${point.dollarValue.toFixed(2)}
+                    </text>
+                    <text
+                      x={getXPosition(index)}
+                      y={getYPosition(point.dollarValue, maxDollar, true) - 25}
+                      fill="rgba(255,255,255,0.8)"
+                      fontSize={10}
+                      textAnchor="middle"
+                    >
+                      {point.event}
+                    </text>
+                  </g>
+                )}
+              </g>
             ))}
             <line x1={0} y1={chartHeight} x2={chartWidth} y2={chartHeight} stroke="rgba(255,255,255,0.1)" strokeWidth={1} />
           </svg>
