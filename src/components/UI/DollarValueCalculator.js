@@ -274,15 +274,15 @@ const DollarValueCalculator = () => {
           <div className="text-center">
             <div className="text-gray-300 text-sm mb-2">
               {calculationDirection === 'past-to-present' 
-                ? `Your $${inputAmount} from ${inputYear} is worth:`
-                : `Your $${inputAmount} today would be worth:`
+                ? `Your $${inputAmount.toLocaleString()} from ${inputYear} is worth:`
+                : `Your $${inputAmount.toLocaleString()} today would be worth:`
               }
             </div>
             <div className="text-4xl font-bold text-red-400 mb-2">
               {isCalculating ? (
                 <span className="animate-pulse">Calculating...</span>
               ) : (
-                `$${currentValue.toFixed(2)}`
+                `$${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
               )}
             </div>
             <div className="text-gray-300 text-sm mb-4">
@@ -332,7 +332,7 @@ const DollarValueCalculator = () => {
         {/* What you could buy FROM */}
         <div className="bg-green-900/20 border border-green-500 rounded-lg p-6">
           <h4 className="text-xl font-bold text-green-400 mb-4 text-center">
-            What ${inputAmount} could buy in {displayData.fromYear}
+            What ${inputAmount.toLocaleString()} could buy in {displayData.fromYear}
           </h4>
           <div className="space-y-3">
             {displayData.fromItems.slice(0, 6).map((item, index) => (
@@ -358,7 +358,7 @@ const DollarValueCalculator = () => {
         {/* What you can buy TO */}
         <div className="bg-red-900/20 border border-red-500 rounded-lg p-6">
           <h4 className="text-xl font-bold text-red-400 mb-4 text-center">
-            What ${currentValue.toFixed(2)} can buy in {displayData.toYear}
+            What ${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} can buy in {displayData.toYear}
           </h4>
           <div className="space-y-3">
             {displayData.toItems.length > 0 ? (
@@ -398,9 +398,9 @@ const DollarValueCalculator = () => {
           <span className="font-bold">💡 Museum Insight:</span> {' '}
           {calculationDirection === 'past-to-present' 
             ? (displayData.isNominalGain
-                ? `While $${inputAmount} from ${inputYear} nominally became $${currentValue.toFixed(2)} today (${displayData.percentageChange}% increase), this is just inflation. In terms of what you can actually buy, the purchasing power impact varies by item.`
-                : `Your $${inputAmount} from ${inputYear} lost ${displayData.percentageChange}% of its purchasing power. ${inputYear < 1971 ? 'This wealth destruction began when Nixon ended the gold standard in 1971.' : 'The Federal Reserve has systematically debased your money since then.'}`)
-            : `Today's $${inputAmount} would have equivalent purchasing power to $${currentValue.toFixed(2)} in ${inputYear}. This shows ${displayData.isLoss ? 'how much stronger' : 'how much weaker'} money was historically.`
+                ? `While $${inputAmount.toLocaleString()} from ${inputYear} nominally became $${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} today (${displayData.percentageChange}% increase), this is just inflation. In terms of what you can actually buy, the purchasing power impact varies by item.`
+                : `Your $${inputAmount.toLocaleString()} from ${inputYear} lost ${displayData.percentageChange}% of its purchasing power. ${inputYear < 1971 ? 'This wealth destruction began when Nixon ended the gold standard in 1971.' : 'The Federal Reserve has systematically debased your money since then.'}`)
+            : `Today's $${inputAmount.toLocaleString()} would have equivalent purchasing power to $${currentValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} in ${inputYear}. This shows ${displayData.isLoss ? 'how much stronger' : 'how much weaker'} money was historically.`
           }
         </p>
       </div>
