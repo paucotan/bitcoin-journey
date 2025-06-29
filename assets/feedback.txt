@@ -1,0 +1,18 @@
+charts
+How did you get the numbers from? According to the M2 supply growth, $0T in 1959 and $21T in 2024. Is that really the case?
+Also, the purchasing power chart indicates that $100 from 1959 is worth today $3.5. I don't think that's true.
+According to the CPI inflation calculator, $100 from 1959 is worth $1,108.50 today. so that's the rate of increase/debasement.
+I want to stress the importance of having the numbers anchored in reality somehow, even if its not perfect.
+
+The BLS API may be helpful for later to pull actual numbers from: https://www.bls.gov/developers/api_sample_code.htm
+
+Time Machine calculator
+I like this. However, I would change a few things:
+1. I don't like you cannot delete the 0 from 'dollar amount' field.
+2. the 'What [amount] buy in 1913 is not working properly. it's always showing the same amount regardless of the price.
+I also am skeptical whether the prices are accurate (where do you get those prices from)
+there should include a small 'sources: bls' or something like that.
+
+
+timeline
+Monetary destruction timeline is nice. But it shows Bitcoin created 2009 after covid in 2020. It should be right after 2008 in chronological order.

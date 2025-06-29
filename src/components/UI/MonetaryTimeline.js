@@ -41,15 +41,6 @@ const MonetaryTimeline = () => {
       source: "https://www.federalreserve.gov/monetarypolicy/files/FOMC20081216meeting.pdf"
     },
     {
-      year: "2020",
-      title: "COVID Money Printing",
-      description: "Under cover of pandemic, the Fed prints 40% of all dollars ever created in just 18 months.",
-      impact: "Worst inflation in 40 years - your groceries, rent, everything skyrockets",
-      color: "bg-red-600",
-      icon: "🖨️",
-      source: "https://fred.stlouisfed.org/series/M2SL"
-    },
-    {
       year: "2009",
       title: "Bitcoin Created",
       description: "Satoshi Nakamoto creates Bitcoin as a response to the 2008 crisis. Fixed supply, no central control.",
@@ -57,6 +48,15 @@ const MonetaryTimeline = () => {
       color: "bg-green-500",
       icon: "₿",
       source: "https://bitcoin.org/bitcoin.pdf"
+    },
+    {
+      year: "2020",
+      title: "COVID Money Printing",
+      description: "Under cover of pandemic, the Fed prints 40% of all dollars ever created in just 18 months.",
+      impact: "Worst inflation in 40 years - your groceries, rent, everything skyrockets",
+      color: "bg-red-600",
+      icon: "🖨️",
+      source: "https://fred.stlouisfed.org/series/M2SL"
     }
   ];
 
