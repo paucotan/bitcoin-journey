@@ -3,11 +3,52 @@ import React, { useState, useEffect } from 'react';
 const SocietalDeclineCharts = () => {
   const [activeChart, setActiveChart] = useState(0);
   const [animationComplete, setAnimationComplete] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimationComplete(true), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Swipe functionality
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && activeChart < chartData.length - 1) {
+      setActiveChart(activeChart + 1);
+    }
+    if (isRightSwipe && activeChart > 0) {
+      setActiveChart(activeChart - 1);
+    }
+  };
+
+  const nextChart = () => {
+    if (activeChart < chartData.length - 1) {
+      setActiveChart(activeChart + 1);
+    }
+  };
+
+  const prevChart = () => {
+    if (activeChart > 0) {
+      setActiveChart(activeChart - 1);
+    }
+  };
 
   const chartData = [
     {
@@ -146,7 +187,12 @@ const SocietalDeclineCharts = () => {
         </div>
 
         <div className="relative">
-          <svg width={chartWidth} height={chartHeight} className="w-full">
+          <svg 
+            width="100%" 
+            height={chartHeight} 
+            viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+            className="overflow-visible"
+          >
             {/* Grid lines */}
             {[0, 25, 50, 75, 100].map(percent => (
               <line
@@ -285,25 +331,59 @@ const SocietalDeclineCharts = () => {
 
         {/* Chart Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="flex space-x-4">
-            {chartData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveChart(index)}
-                className={`w-4 h-4 rounded-full transition-colors ${
-                  activeChart === index ? 'bg-orange-500' : 'bg-gray-600'
-                }`}
-              />
-            ))}
+          <div className="flex flex-col items-center space-y-2">
+            <div className="flex space-x-4">
+              {chartData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveChart(index)}
+                  className={`w-4 h-4 rounded-full transition-colors ${
+                    activeChart === index ? 'bg-orange-500' : 'bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="text-gray-400 text-xs md:hidden">
+              ← Swipe to navigate →
+            </div>
           </div>
         </div>
 
-        {/* Active Chart */}
-        <div className="grid grid-cols-1 gap-8">
-          <Chart
-            {...chartData[activeChart]}
-            index={activeChart}
-          />
+        {/* Active Chart with Swipe */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevChart}
+            disabled={activeChart === 0}
+            className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/50 border border-gray-600 flex items-center justify-center transition-colors ${
+              activeChart === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-black/70 hover:border-orange-500'
+            }`}
+          >
+            <span className="text-white text-xl">‹</span>
+          </button>
+          
+          <button
+            onClick={nextChart}
+            disabled={activeChart === chartData.length - 1}
+            className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/50 border border-gray-600 flex items-center justify-center transition-colors ${
+              activeChart === chartData.length - 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-black/70 hover:border-orange-500'
+            }`}
+          >
+            <span className="text-white text-xl">›</span>
+          </button>
+
+          {/* Swipeable Chart Container */}
+          <div 
+            className="grid grid-cols-1 gap-8 touch-pan-y"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <Chart
+              {...chartData[activeChart]}
+              index={activeChart}
+            />
+          </div>
         </div>
 
         {/* Chart Grid Navigation */}
