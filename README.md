@@ -1,5 +1,7 @@
 # The Bitcoin Journey
 
+![Bitcoin Journey Logo](assets/btc_journey_logo.png)
+
 An educational React application that teaches users about money, inflation, and Bitcoin through interactive stories and real-world examples.
 
 ## 🚀 Features
