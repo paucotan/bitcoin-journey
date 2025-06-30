@@ -298,7 +298,7 @@ const Landing = () => {
       </div>
 
       {/* Practical Guidance Section */}
-      <div className="bg-gradient-to-b from-gray-900 to-black py-20">
+      <div id="practical-guidance" className="bg-gradient-to-b from-gray-900 to-black py-20">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-16">
