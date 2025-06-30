@@ -19,15 +19,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'power',
       step: '1',
-      frontTitle: 'A Living Digital Organism',
-      frontEmoji: '🌳',
-      frontDescription: 'How can software be alive?',
+      frontTitle: 'Global Financial Infrastructure',
+      frontEmoji: '🏗️',
+      frontDescription: 'How powerful is Bitcoin\'s network?',
       frontTheme: 'bg-orange-600/30 border-orange-400',
-      backTitle: 'Digital Life That Breathes and Grows',
+      backTitle: 'More Secure Than Google\'s Entire Infrastructure',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span> is a living digital organism that performs more calculations every second than every human who ever lived could do in their entire lifetimes. Like any living thing, it breathes energy, grows stronger over time, and evolves to survive attacks. It's digital life anchored to physical reality.
+          <span className="text-orange-400 font-semibold">Bitcoin</span> runs on more computing power than Google, Amazon, and Facebook combined. It performs 500 quintillion calculations per second. This massive infrastructure makes it virtually impossible to hack or shut down.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -35,15 +35,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'immutable',
       step: '2', 
-      frontTitle: 'Bitcoin\'s Genetic Code',
-      frontEmoji: '🧬',
-      frontDescription: 'Can digital DNA be modified?',
+      frontTitle: 'Unchangeable Like a Constitution',
+      frontEmoji: '📜',
+      frontDescription: 'Can Bitcoin\'s rules be changed?',
       frontTheme: 'bg-gray-600/30 border-gray-400',
-      backTitle: 'Immutable DNA vs Genetic Engineering',
+      backTitle: 'Constitutional vs Corporate Control',
       backEmoji: '₿',
       backContent: () => (
         <>
-          Like DNA, <span className="text-orange-400 font-semibold">Bitcoin</span>'s genetic code resists mutation. This living organism requires overwhelming consensus to evolve. Meanwhile, Ethereum gets genetically modified in labs: reversing transactions, changing consensus mechanisms, adjusting monetary policy. <span className="text-orange-400 font-semibold">Bitcoin</span> evolved naturally and maintains its original DNA.
+          <span className="text-orange-400 font-semibold">Bitcoin</span>'s rules are like the U.S. Constitution - they require overwhelming agreement to change. Banks can freeze your account or governments can print more money whenever they want. <span className="text-orange-400 font-semibold">Bitcoin</span> treats everyone equally under mathematical law.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -51,15 +51,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'launch',
       step: '3',
-      frontTitle: 'Natural Birth vs Lab Creation',
-      frontEmoji: '🌱',
-      frontDescription: 'How do digital life forms emerge?',
+      frontTitle: 'No CEO, No Company, No Control',
+      frontEmoji: '🗽',
+      frontDescription: 'Who controls Bitcoin?',
       frontTheme: 'bg-blue-600/30 border-blue-400',
-      backTitle: 'Wild Evolution vs Artificial Creation',
+      backTitle: 'Decentralized vs Corporate Controlled',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span> was born to escape fiat thinking entirely - no founders, no company, no central authority. Satoshi released it into the wild and disappeared, letting it evolve organically. Other crypto projects copy fiat structures: VC funding, corporate foundations, changeable rules. They're digital fiat seeking regulatory approval. <span className="text-orange-400 font-semibold">Bitcoin</span> chose mathematical sovereignty.
+          <span className="text-orange-400 font-semibold">Bitcoin</span> has no CEO who can be pressured, no company that can be shut down, no headquarters to raid. Its creator disappeared, leaving it to run itself. Other cryptocurrencies have CEOs and corporate structures that can be controlled or shut down. <span className="text-orange-400 font-semibold">Bitcoin</span> is truly independent.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -67,15 +67,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'physics',
       step: '4',
-      frontTitle: 'Digital Life Rooted in Reality',
+      frontTitle: 'Backed by Real Energy, Not Promises',
       frontEmoji: '⚡',
-      frontDescription: 'How does digital life connect to the physical world?',
+      frontDescription: 'What makes Bitcoin valuable?',
       frontTheme: 'bg-purple-600/30 border-purple-400',
-      backTitle: 'The Only Life Form Bridging Both Worlds',
+      backTitle: 'Energy-Backed vs Promise-Backed Money',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span> is the only digital life form rooted in physical reality. It consumes real energy to survive, like any living organism. Each <span className="text-orange-400 font-semibold">Bitcoin</span> represents actual thermodynamic work. Other crypto projects exist only in simulated environments, disconnected from natural laws. <span className="text-orange-400 font-semibold">Bitcoin</span> is digital life that obeys physics.
+          Each <span className="text-orange-400 font-semibold">Bitcoin</span> costs real electricity to create - like mining gold costs real energy. It takes about $30,000 in electricity to mine one Bitcoin today. Your dollars are backed only by government promises. <span className="text-orange-400 font-semibold">Bitcoin</span> is the only digital money with real production costs.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -132,7 +132,7 @@ const BitcoinVsAltcoins = () => {
         {/* Flip Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {comparisonCards.map((card) => (
-            <div key={card.key} className="relative h-64">
+            <div key={card.key} className="relative h-80 md:h-72">
               <div 
                 className={`w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
                   flippedCards[card.key] ? 'rotate-y-180' : ''
@@ -166,8 +166,8 @@ const BitcoinVsAltcoins = () => {
                         {card.backTitle}
                       </h3>
                     </div>
-                    <div className="flex-1">
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                    <div className="flex-1 overflow-hidden">
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
                         {typeof card.backContent === 'function' ? card.backContent() : card.backContent}
                       </p>
                     </div>
@@ -181,28 +181,43 @@ const BitcoinVsAltcoins = () => {
           ))}
         </div>
 
-        {/* Summary Section */}
+        {/* Share Section */}
         <div className="text-center">
           <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-2 border-orange-500 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-4xl">₿</span>
+              <span className="text-4xl">💡</span>
               <h3 className="text-2xl font-bold text-orange-400">
-                Now You Understand
+                Spread the Knowledge
               </h3>
-              <span className="text-4xl">₿</span>
             </div>
             <p className="text-white text-lg mb-6 leading-relaxed">
-              <span className="text-orange-400 font-semibold">Bitcoin</span> isn't "crypto." It's the first living digital organism - 
-              a new form of life that evolved to survive in both digital and physical worlds.
+              Share this Bitcoin story with someone who needs to see it
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2">
-                <span className="text-xl">₿</span>
-                Choose Digital Life
-                <span className="text-xl">₿</span>
+              <button 
+                onClick={() => {
+                  const url = 'https://bitcoin-journey.vercel.app/';
+                  const text = 'Just discovered why Bitcoin isn\'t "crypto" - it\'s the first living digital organism. This changed my perspective completely.';
+                  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                }}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2"
+              >
+                Share on <span className="text-xl">𝕏</span>
               </button>
-              <button className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg">
-                Learn More About <span className="font-bold">Bitcoin</span>
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText('https://bitcoin-journey.vercel.app/');
+                  const button = event.target.closest('button');
+                  const originalText = button.innerHTML;
+                  button.innerHTML = '<span class="text-xl">✓</span> Link Copied!';
+                  setTimeout(() => {
+                    button.innerHTML = originalText;
+                  }, 2000);
+                }}
+                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2"
+              >
+                <span className="text-xl">🔗</span>
+                Copy Link
               </button>
             </div>
             <p className="text-sm text-gray-400 mt-4">

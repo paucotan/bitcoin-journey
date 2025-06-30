@@ -64,11 +64,9 @@ const BitcoinMoralCode = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="text-6xl text-orange-400">₿</span>
             <h2 className="text-5xl font-bold text-white">
-              Bitcoin's Moral Code
+              <span className="text-orange-400">Bitcoin's</span> Moral Code
             </h2>
-            <span className="text-6xl text-orange-400">₿</span>
           </div>
           <p className="text-xl text-orange-300 mb-8 font-semibold">
             The moral revolution that fixes money
@@ -78,18 +76,13 @@ const BitcoinMoralCode = () => {
             "Bitcoin is more powerful than war, it's more powerful than government because of math."
             <footer className="text-lg text-gray-400 mt-2 not-italic">- Jack Mallers</footer>
           </blockquote>
-          <div className="mt-6 text-center">
-            <span className="text-4xl text-orange-400">₿</span>
-          </div>
         </div>
 
         {/* Bitcoin Hero Statement */}
         <div className="text-center mb-12">
           <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-2 border-orange-500 rounded-xl p-6 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <span className="text-4xl text-orange-400">₿</span>
               <h3 className="text-2xl font-bold text-orange-400">Bitcoin Fixes This</h3>
-              <span className="text-4xl text-orange-400">₿</span>
             </div>
             <p className="text-white text-lg font-medium">
               Every principle below represents how Bitcoin mathematically prevents monetary tyranny
@@ -113,7 +106,6 @@ const BitcoinMoralCode = () => {
               >
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl text-orange-400">₿</span>
                     <span className="text-2xl">{code.icon}</span>
                   </div>
                   <div>
@@ -133,26 +125,23 @@ const BitcoinMoralCode = () => {
           <div className="bg-black rounded-lg p-8 border border-gray-700">
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="text-5xl text-orange-400">₿</span>
                 <span className="text-6xl">{moralCodes[activeCodeIndex].icon}</span>
-                <span className="text-5xl text-orange-400">₿</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">
                 {moralCodes[activeCodeIndex].principle}
               </h3>
             </div>
-            
+
             <div className="space-y-4">
               <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
-                <h4 className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
-                  <span className="text-lg">₿</span>
+                <h4 className="text-orange-400 font-semibold mb-2">
                   Bitcoin's Solution:
                 </h4>
                 <p className="text-gray-300">
                   {moralCodes[activeCodeIndex].details}
                 </p>
               </div>
-              
+
               <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
                 <h4 className="text-red-400 font-semibold mb-2 flex items-center gap-2">
                   <span className="text-lg">💴</span>
@@ -166,78 +155,51 @@ const BitcoinMoralCode = () => {
           </div>
         </div>
 
-        {/* Peaceful Revolution Message */}
-        <div className="text-center mb-16">
-          <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-lg p-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-4xl text-orange-400">₿</span>
-              <h3 className="text-3xl font-bold text-white">
-                Bitcoin: The Peaceful Revolution
-              </h3>
-              <span className="text-4xl text-orange-400">₿</span>
-            </div>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              You don't need protests. You don't need war. You don't need permission from politicians. 
-              <span className="text-orange-400 font-bold">Bitcoin</span> achieves change peacefully through math.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-2xl text-orange-400">₿</span>
-                  <div className="text-3xl">🧮</div>
-                </div>
-                <h4 className="text-white font-semibold">Math, Not Violence</h4>
-                <p className="text-gray-400 text-sm">Bitcoin's cryptography secures your wealth</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-2xl text-orange-400">₿</span>
-                  <div className="text-3xl">⚖️</div>
-                </div>
-                <h4 className="text-white font-semibold">Equality for All</h4>
-                <p className="text-gray-400 text-sm">Bitcoin: Same rules, same opportunities</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-2xl text-orange-400">₿</span>
-                  <div className="text-3xl">🕊️</div>
-                </div>
-                <h4 className="text-white font-semibold">Peaceful Transition</h4>
-                <p className="text-gray-400 text-sm">Choose Bitcoin, don't fight</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Generation Call to Action */}
+        {/* Your Generation's Fighting Chance */}
         <div className="text-center">
-          <div className="bg-black border border-orange-500/30 rounded-lg p-8 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-3xl text-orange-400">₿</span>
-              <h3 className="text-2xl font-bold text-orange-400">
-                Bitcoin: Your Generation's Fighting Chance
+          <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-lg p-8 max-w-5xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <h3 className="text-3xl font-bold text-white">
+                <span className="text-orange-500">₿</span> Your Generation's Fighting Chance
               </h3>
-              <span className="text-3xl text-orange-400">₿</span>
             </div>
-            <p className="text-lg text-gray-300 mb-6">
-              This is not just an investment. <span className="text-orange-400 font-bold">Bitcoin</span> is a revolution. 
-              This is your chance to choose ethical money and reclaim your financial future.
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+              You don't need protests. You don't need war. You don't need permission from politicians. 
+              <span className="text-orange-400 font-bold">Bitcoin</span> is a peaceful revolution that achieves change through math.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2">
-                <span className="text-xl">₿</span>
-                Choose Bitcoin
-                <span className="text-xl">₿</span>
-              </button>
-              <button className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2">
-                <span className="text-xl">₿</span>
-                Choose Freedom
-                <span className="text-xl">₿</span>
-              </button>
+            <p className="text-lg text-gray-300 mb-8">
+              This is not just an investment. This is your chance to choose ethical money and reclaim your financial future.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <div className="text-4xl">🧮</div>
+                </div>
+                <h4 className="text-white font-semibold text-lg mb-2">Math, Not Violence</h4>
+                <p className="text-gray-400">Bitcoin's cryptography secures your wealth without conflict</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <div className="text-4xl">⚖️</div>
+                </div>
+                <h4 className="text-white font-semibold text-lg mb-2">Equality for All</h4>
+                <p className="text-gray-400">Same rules, same opportunities, regardless of status</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <div className="text-4xl">🕊️</div>
+                </div>
+                <h4 className="text-white font-semibold text-lg mb-2">Peaceful Transition</h4>
+                <p className="text-gray-400">Choose sound money, don't fight the system</p>
+              </div>
             </div>
-            <p className="text-sm text-gray-500 mt-4">
-              ₿ Not having to waste human life to defend monetized wealth is worth every watt. ₿
-            </p>
+            
+            <div className="text-center">
+              <p className="text-lg text-orange-400 italic font-medium">
+                "Not having to waste human life to defend monetized wealth is worth every watt."
+              </p>
+            </div>
           </div>
         </div>
       </div>

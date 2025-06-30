@@ -7,6 +7,7 @@ const DollarValueCalculator = () => {
   const [isCalculating, setIsCalculating] = useState(false);
   const [calculationDirection, setCalculationDirection] = useState('past-to-present'); // 'past-to-present' or 'present-to-past'
   const [showBitcoinComparison, setShowBitcoinComparison] = useState(false);
+  const [showDataSources, setShowDataSources] = useState(false);
 
   // Data sources
   const SOURCES = {
@@ -505,44 +506,61 @@ const DollarValueCalculator = () => {
         </p>
       </div>
 
-      {/* Data Source */}
-      <div className="mt-4 p-3 bg-gray-800/50 border border-gray-600 rounded-lg">
-        <div className="text-gray-400 text-xs">
-          📊 <span className="font-medium text-white">Data Sources & Methodology:</span>
-          <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-            <div>
-              <div className="font-medium text-green-400">Purchasing Power:</div>
-              <div className="text-gray-300">{SOURCES.CPI_DATA.source}</div>
+      {/* Data Sources - Collapsible */}
+      <div className="mt-4">
+        <button 
+          onClick={() => setShowDataSources(!showDataSources)}
+          className="w-full p-3 bg-gray-800/30 border border-gray-600 rounded-lg hover:bg-gray-800/50 transition-colors text-left"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-gray-400 text-xs">
+              📊 <span className="font-medium text-white">Data Sources & Methodology</span>
+            </span>
+            <span className={`text-gray-400 text-xs transition-transform ${showDataSources ? 'rotate-180' : ''}`}>
+              ▼
+            </span>
+          </div>
+        </button>
+        
+        {showDataSources && (
+          <div className="mt-2 p-3 bg-gray-800/50 border border-gray-600 rounded-lg space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <div className="font-medium text-green-400 text-sm">Purchasing Power:</div>
+                <div className="text-gray-300 text-xs">{SOURCES.CPI_DATA.source}</div>
+              </div>
+              <div>
+                <div className="font-medium text-orange-400 text-sm">Historical Prices:</div>
+                <div className="text-gray-300 text-xs">{SOURCES.HISTORICAL_PRICES.source}</div>
+              </div>
             </div>
-            <div>
-              <div className="font-medium text-orange-400">Historical Prices:</div>
-              <div className="text-gray-300">{SOURCES.HISTORICAL_PRICES.source}</div>
+            
+            <div className="pt-2 border-t border-gray-700">
+              <div className="text-yellow-400 font-medium text-sm">Formula:</div>
+              <div className="text-gray-300 text-xs">Adjusted Value = (Amount × Current_CPI) / Historical_CPI</div>
+              <div className="text-gray-400 text-xs mt-1">
+                Example: $100 in 1959 = ($100 × 321.5) / 29.1 = $1,106
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap gap-2 justify-center pt-2 border-t border-gray-700">
+              <a href={SOURCES.CPI_DATA.url} target="_blank" rel="noopener noreferrer" 
+                 className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors">
+                BLS CPI Data
+              </a>
+              <a href="https://www.bls.gov/data/inflation_calculator.htm" target="_blank" rel="noopener noreferrer" 
+                 className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors">
+                BLS Calculator
+              </a>
+              {SOURCES.HISTORICAL_PRICES.urls.map((url, i) => (
+                <a key={i} href={url} target="_blank" rel="noopener noreferrer" 
+                   className="text-blue-400 hover:text-blue-300 text-xs underline transition-colors">
+                  Source {i + 1}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="mt-2 pt-2 border-t border-gray-700">
-            <div className="text-yellow-400 font-medium">Formula:</div>
-            <div className="text-gray-300">Adjusted Value = (Amount × Current_CPI) / Historical_CPI</div>
-            <div className="text-gray-400 text-xs mt-1">
-              Example: $100 in 1959 = ($100 × 321.5) / 29.1 = $1,106
-            </div>
-          </div>
-        </div>
-        <div className="mt-3 flex flex-wrap gap-2 justify-center">
-          <a href={SOURCES.CPI_DATA.url} target="_blank" rel="noopener noreferrer" 
-             className="text-blue-400 hover:text-blue-300 text-xs underline">
-            BLS CPI Data
-          </a>
-          <a href="https://www.bls.gov/data/inflation_calculator.htm" target="_blank" rel="noopener noreferrer" 
-             className="text-blue-400 hover:text-blue-300 text-xs underline">
-            BLS Calculator
-          </a>
-          {SOURCES.HISTORICAL_PRICES.urls.map((url, i) => (
-            <a key={i} href={url} target="_blank" rel="noopener noreferrer" 
-               className="text-blue-400 hover:text-blue-300 text-xs underline">
-              Source {i + 1}
-            </a>
-          ))}
-        </div>
+        )}
       </div>
 
       {/* Bitcoin Housing Comparison Section */}
