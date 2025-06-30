@@ -6,6 +6,8 @@ import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import ChapterView from './pages/ChapterView';
 import LessonView from './pages/LessonView';
+import GuidesIndex from './pages/guides/GuidesIndex';
+import FirstWallet from './pages/guides/FirstWallet';
 
 function AppRouter() {
   return (
@@ -15,6 +17,10 @@ function AppRouter() {
           <Routes>
             {/* Landing page - no header */}
             <Route path="/" element={<Landing />} />
+            
+            {/* Guides section - no header (has its own navigation) */}
+            <Route path="/guides" element={<GuidesIndex />} />
+            <Route path="/guides/first-wallet" element={<FirstWallet />} />
             
             {/* All other routes have header */}
             <Route path="/*" element={

@@ -297,6 +297,131 @@ const Landing = () => {
         <BitcoinVsAltcoins />
       </div>
 
+      {/* Practical Guidance Section */}
+      <div className="bg-gradient-to-b from-gray-900 to-black py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Take Action?
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              You understand why Bitcoin matters. Now learn how to safely get started with step-by-step practical guides.
+            </p>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
+          </div>
+
+          {/* Featured Guide */}
+          <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-xl p-8 mb-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-4xl">💳</span>
+                  <span className="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded border border-green-500/30">
+                    BEGINNER
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Your First Bitcoin Wallet
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Learn how to safely store Bitcoin with our recommended app Strike. Includes fee waivers and step-by-step setup.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <span className="text-orange-400">•</span>
+                    Custodial vs non-custodial explained
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <span className="text-orange-400">•</span>
+                    Zero fees on DCA + low fees on regular purchases
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <span className="text-orange-400">•</span>
+                    Dollar cost averaging setup
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <span className="text-orange-400">•</span>
+                    Essential security practices
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <a 
+                    href="/guides/first-wallet"
+                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    Start Here →
+                  </a>
+                  <span className="text-orange-400 text-sm">8 min read</span>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-black/50 rounded-lg p-6 border border-gray-700">
+                  <div className="text-6xl mb-4">⚡</div>
+                  <div className="text-white font-bold mb-2">Strike App</div>
+                  <div className="text-gray-400 text-sm mb-4">Our top recommendation</div>
+                  <div className="space-y-2 text-xs text-gray-500">
+                    <div>✓ Available in 95+ countries</div>
+                    <div>✓ Zero fees on DCA purchases</div>
+                    <div>✓ Lightning Network built-in</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Other Guides Preview */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 opacity-60">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">💰</span>
+                <span className="bg-gray-600 text-gray-400 text-xs px-2 py-1 rounded">
+                  COMING SOON
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Buying Your First Bitcoin
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Step-by-step guide to making your first Bitcoin purchase safely and avoiding common mistakes.
+              </p>
+              <div className="text-gray-500 text-xs">
+                Exchange safety • Fee comparison • Withdrawal process
+              </div>
+            </div>
+
+            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 opacity-60">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">⚡</span>
+                <span className="bg-gray-600 text-gray-400 text-xs px-2 py-1 rounded">
+                  COMING SOON
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Lightning Network Basics
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Understanding Bitcoin's instant payment layer and making your first Lightning transaction.
+              </p>
+              <div className="text-gray-500 text-xs">
+                Layer 2 explained • Lightning wallets • First payment
+              </div>
+            </div>
+          </div>
+
+          {/* All Guides CTA */}
+          <div className="text-center">
+            <a 
+              href="/guides"
+              className="inline-flex items-center gap-2 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              View All Practical Guides
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Final CTA - Exhibition Exit */}
       <div id="final-cta" className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -306,18 +431,18 @@ const Landing = () => {
           </h2>
           <p className="text-2xl text-white/90 mb-8">
             You've seen the evidence. You understand the crisis.
-            <br />Now choose <span className="font-bold">ethical money.</span>
+            <br />Now you have the tools to choose <span className="font-bold">ethical money.</span>
           </p>
 
           <div className="space-y-4">
-            <div className="inline-block bg-gray-600 text-gray-300 font-bold py-6 px-12 rounded-2xl text-2xl shadow-xl cursor-not-allowed">
-              🚧 CLASSROOM COMING SOON 🚧
-            </div>
+            <a 
+              href="/guides/first-wallet"
+              className="inline-block bg-white text-orange-600 font-bold py-6 px-12 rounded-2xl text-2xl shadow-xl hover:bg-gray-100 transition-colors"
+            >
+              🚀 Start Your Bitcoin Journey
+            </a>
             <div className="text-white/80 text-sm">
-              ⚡ Free • Educational • Your generation's fighting chance
-            </div>
-            <div className="text-white/70 text-xs mt-2">
-              The interactive classroom experience is under construction. Stay tuned!
+              ⚡ Free guides • Practical steps • Your generation's fighting chance
             </div>
           </div>
         </div>
