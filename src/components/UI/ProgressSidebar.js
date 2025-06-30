@@ -5,6 +5,7 @@ const ProgressSidebar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+  const [isAutoHidden, setIsAutoHidden] = useState(false);
 
   const sections = [
     { id: 'hero', label: 'Introduction', icon: '🌅' },
@@ -19,9 +20,27 @@ const ProgressSidebar = () => {
   ];
 
   useEffect(() => {
+    let timer = null;
+
     const handleScroll = () => {
       // Show sidebar after scrolling past hero
-      setIsVisible(window.scrollY > 300);
+      const shouldBeVisible = window.scrollY > 300;
+      setIsVisible(shouldBeVisible);
+
+      if (shouldBeVisible) {
+        // Show sidebar immediately when scrolling
+        setIsAutoHidden(false);
+
+        // Clear existing timer
+        if (timer) {
+          clearTimeout(timer);
+        }
+
+        // Set new timer to hide after 1 second of no scrolling
+        timer = setTimeout(() => {
+          setIsAutoHidden(true);
+        }, 1000);
+      }
 
       // Find active section
       const sectionElements = sections.map(section => 
@@ -44,7 +63,12 @@ const ProgressSidebar = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId) => {
@@ -66,8 +90,13 @@ const ProgressSidebar = () => {
       {/* Desktop Sidebar */}
       <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
       <div 
-        className="relative"
-        onMouseEnter={() => setIsExpanded(true)}
+        className={`relative transition-opacity duration-500 ease-out ${
+          isAutoHidden && !isExpanded ? 'opacity-0' : 'opacity-100'
+        }`}
+        onMouseEnter={() => {
+          setIsExpanded(true);
+          setIsAutoHidden(false); // Override auto-hide on hover
+        }}
         onMouseLeave={() => setIsExpanded(false)}
       >
         {/* Collapsed State - Progress Line + Current Section */}
@@ -188,7 +217,9 @@ const ProgressSidebar = () => {
       </div>
 
       {/* Mobile Floating Progress Dot */}
-      <div className="fixed bottom-6 right-6 z-50 lg:hidden">
+      <div className={`fixed bottom-6 right-6 z-50 lg:hidden transition-opacity duration-500 ease-out ${
+        isAutoHidden && !isMobileExpanded ? 'opacity-0' : 'opacity-100'
+      }`}>
         {/* Floating Dot */}
         <div
           className="relative"
