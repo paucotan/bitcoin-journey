@@ -4,6 +4,7 @@ import MoneySupplyDollarChart from '../components/UI/MoneySupplyDollarChart';
 import MonetaryTimeline from '../components/UI/MonetaryTimeline';
 import SocietalDeclineCharts from '../components/UI/SocietalDeclineCharts';
 import BitcoinMoralCode from '../components/UI/BitcoinMoralCode';
+import BitcoinVsAltcoins from '../components/UI/BitcoinVsAltcoins';
 import DollarValueCalculator from '../components/UI/DollarValueCalculator';
 
 const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => {
@@ -282,6 +283,9 @@ const Landing = () => {
 
       {/* Bitcoin's Moral Code - The Solution */}
       <BitcoinMoralCode />
+
+      {/* Bitcoin vs Altcoins - Why Bitcoin is Unique */}
+      <BitcoinVsAltcoins />
 
       {/* Final CTA - Exhibition Exit */}
       <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 py-20">
