@@ -5,6 +5,7 @@ import MonetaryTimeline from '../components/UI/MonetaryTimeline';
 import SocietalDeclineCharts from '../components/UI/SocietalDeclineCharts';
 import BitcoinMoralCode from '../components/UI/BitcoinMoralCode';
 import BitcoinVsAltcoins from '../components/UI/BitcoinVsAltcoins';
+import ProgressSidebar from '../components/UI/ProgressSidebar';
 import DollarValueCalculator from '../components/UI/DollarValueCalculator';
 
 const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => {
@@ -49,8 +50,9 @@ const Landing = () => {
         }
       `}</style>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-black">
+      <ProgressSidebar />
       {/* Generational Wealth Theft Hero */}
-      <div className="relative overflow-hidden min-h-screen flex items-center justify-center">
+      <div id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
 
           {/* Compelling Hook */}
@@ -115,7 +117,7 @@ const Landing = () => {
       </div>
 
       {/* Beer Analogy - Simple Explanation */}
-      <div className="bg-gradient-to-r from-amber-900 via-orange-900 to-red-900 py-16">
+      <div id="crisis" className="bg-gradient-to-r from-amber-900 via-orange-900 to-red-900 py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-6xl mb-6">🍺</div>
@@ -227,7 +229,7 @@ const Landing = () => {
       </div>
 
       {/* The Evidence Section - Money Supply Chart */}
-      <div className="bg-gray-900 py-20">
+      <div id="charts" className="bg-gray-900 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
@@ -258,15 +260,19 @@ const Landing = () => {
           </div>
 
           {/* Interactive Calculator */}
-          <DollarValueCalculator />
+          <div id="calculator">
+            <DollarValueCalculator />
+          </div>
         </div>
       </div>
 
       {/* The Great Divergence - Data Exhibition */}
-      <SocietalDeclineCharts />
+      <div id="societal-decline">
+        <SocietalDeclineCharts />
+      </div>
 
       {/* Historical Timeline Section */}
-      <div className="bg-black py-20">
+      <div id="timeline" className="bg-black py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-orange-400 mb-4">
@@ -282,13 +288,17 @@ const Landing = () => {
       </div>
 
       {/* Bitcoin's Moral Code - The Solution */}
-      <BitcoinMoralCode />
+      <div id="moral-code-section">
+        <BitcoinMoralCode />
+      </div>
 
       {/* Bitcoin vs Altcoins - Why Bitcoin is Unique */}
-      <BitcoinVsAltcoins />
+      <div id="bitcoin-vs-crypto">
+        <BitcoinVsAltcoins />
+      </div>
 
       {/* Final CTA - Exhibition Exit */}
-      <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 py-20">
+      <div id="final-cta" className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
             Museum Tour Complete.
