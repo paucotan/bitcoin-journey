@@ -7,8 +7,8 @@ const MonetaryTimeline = () => {
     {
       year: "1913",
       title: "Federal Reserve Created",
-      description: "The Federal Reserve Act creates a central banking system. The systematic debasement of the dollar begins.",
-      impact: "Dollar loses 96% of value from this point forward",
+      description: "The Federal Reserve Act creates a central banking system, ending the gold standard era. Government can now print money beyond gold reserves.",
+      impact: "Dollar loses 96% of purchasing power from 1913 to today",
       color: "bg-yellow-500",
       icon: "🏦",
       source: "https://www.federalreserve.gov/aboutthefed/section2a.htm"
@@ -16,11 +16,20 @@ const MonetaryTimeline = () => {
     {
       year: "1933",
       title: "Executive Order 6102: Gold Confiscation",
-      description: "FDR outlaws private gold ownership. Citizens forced to sell gold to the government at $20.67/oz.",
-      impact: "A year later, gold revalued to $35/oz — a 69% dollar devaluation and loss of purchasing power",
+      description: "FDR outlaws private gold ownership, forcing citizens to sell gold at $20.67/oz. Government immediately devalues dollar by 69%.",
+      impact: "Gold revalued to $35/oz the next year — massive wealth transfer from citizens to government",
       color: "bg-orange-500",
       icon: "🚫",
       source: "https://www.presidency.ucsb.edu/documents/executive-order-6102-forbidding-the-hoarding-gold-coin-gold-bullion-and-gold-certificates"
+    },
+    {
+      year: "1944",
+      title: "Bretton Woods Agreement",
+      description: "Global monetary system established with USD as world reserve currency, backed by gold at $35/oz. Other currencies pegged to dollar.",
+      impact: "Dollar becomes foundation of global trade, but money printing continues behind the scenes",
+      color: "bg-blue-500",
+      icon: "🌍",
+      source: "https://www.state.gov/milestones/1937-1945/bretton-woods"
     },
     {
       year: "1971",
@@ -147,8 +156,8 @@ const MonetaryTimeline = () => {
             <div className="text-xs text-orange-200">Since Gold Standard</div>
           </div>
           <div>
-            <div className="text-xl font-bold text-yellow-400">16 Years</div>
-            <div className="text-xs text-yellow-200">Of QE Money Printing</div>
+            <div className="text-xl font-bold text-yellow-400">111 Years</div>
+            <div className="text-xs text-yellow-200">Of Money Printing</div>
           </div>
           <div>
             <div className="text-xl font-bold text-green-400">15 Years</div>

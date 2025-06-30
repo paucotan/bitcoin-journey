@@ -1,36 +1,21 @@
-Feedback for improvements:
+Feedback for improvements
 
-Beer secton improvements:
-- A 'read more' button under 'pure beer' and 'watered-down beer' cards that flips the card to expand on the concepts.
-Pure Beer: this is the concept of *sound money*: money whose value cannot easily be manipulated, like Gold. It's a way to ensure that the value of money doesn't change too much over time, which can help prevent inflation and deflation.
-Watered-down beer: this is currency that can be manipulated by politicians or central banks, like fiat money. It's a way to create a system where the value of money can be changed easily, i.e Fiat (by authority decree)
-Anecdote that people were killed if caught dilluting beer in the old days.
+New section idea:
+Add a section titled "What makes Bitcoin different than other crypto?"
 
-------------------------
-'Here's Exactly How They Did It' section:
-This isn't conspiracy theory. This is official Federal Reserve data showing the systematic debasement of your purchasing power since Nixon's 1971 decision to unpeg the dollar from gold, making printing money the defacto way to get more dollars out there.
-The problem: by printing money, you're taking away the value of what you already have (see charts)
+This should include:
+- Deep dive into Proof of Work vs Proof of Stake
+- Explain why Bitcoin's design choices matter
+- Address common question people have about "why Bitcoin and not other cryptocurrencies"
+- Could cover topics like:
+  * Energy usage misconceptions
+  * Security trade-offs between PoW and PoS
+  * Centralization risks in other cryptos
+  * Why Bitcoin's "inefficiency" is actually a feature
 
+Note on Bitcoin symbols (₿):
+- Might be slightly overkill with symbols everywhere
+- But it's a nice visual element for BTC-related content
+- Consider reducing frequency while keeping strategic placement
 
-Add a brief introduction to explain what the charts below shows the amount of money added to the existing supply (i.e. dilluting the supply)
- and how that correlates with increasing inflation in housing prices
- And also a chart that shows an inverse correlation to dollar purchasing power.
- (by the way, fix the dollar purchasing power Y-Axis to show dollar amounts, right now its all at $0)
-
-Also remove the redundant warning about: Note: M2 includes cash, bank deposits, savings, and credit creation - not just Fed printing on top of the chart (since its already mentioned below the chart)
-
-📊 Data Sources & Methodology:
-this section should be collapsable dropdown but right now its taking too much space.
-
-
--------------
-💰 Museum Time Machine Calculator
-
-Adjust quick amounts to show larger denomination: $10, $100, 10k, 100k, $1M for better understanding of the scale.
-
-Median home price
-Median U.S. home in 1913
-$11,900.00 each is hard to believe
-fact-check this.
-It should well below $5k in early 20th century.
-
+Previous timeline feedback items have been successfully implemented.
