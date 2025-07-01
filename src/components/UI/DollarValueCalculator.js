@@ -72,6 +72,14 @@ const DollarValueCalculator = () => {
       milk: { price: 0.35, item: "Gallon of milk", description: "Farm fresh" },
       gas: { price: 0.10, item: "Gallon of gasoline", description: "At filling station" }
     },
+    1959: {
+      car: { price: 2200, item: "Average new car", description: "Typical automobile" },
+      medianHouse: { price: 11800, item: "Median home price", description: "Average U.S. home" },
+      coffee: { price: 0.69, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 0.20, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 0.84, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 0.30, item: "Gallon of gasoline", description: "Regular gas" }
+    },
     1971: {
       car: { price: 3500, item: "Average new car", description: "Mid-size sedan" },
       medianHouse: { price: 17000, item: "Median home price", description: "Median U.S. home" },
@@ -79,6 +87,46 @@ const DollarValueCalculator = () => {
       bread: { price: 0.25, item: "Loaf of bread", description: "Store bought" },
       milk: { price: 1.15, item: "Gallon of milk", description: "At grocery store" },
       gas: { price: 0.36, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    1980: {
+      car: { price: 7500, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 47200, item: "Median home price", description: "Average U.S. home" },
+      coffee: { price: 2.50, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 0.50, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 2.16, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 1.19, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    1990: {
+      car: { price: 14483, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 79100, item: "Median home price", description: "Average U.S. home" },
+      coffee: { price: 2.92, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 0.75, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 2.78, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 1.00, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    2000: {
+      car: { price: 21850, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 119600, item: "Median home price", description: "Average U.S. home" },
+      coffee: { price: 3.20, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 1.00, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 2.79, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 1.51, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    2008: {
+      car: { price: 28400, item: "Average new car", description: "Mid-size sedan" },
+      medianHouse: { price: 197100, item: "Median home price", description: "Financial crisis era" },
+      coffee: { price: 3.60, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 1.37, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 3.80, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 3.27, item: "Gallon of gasoline", description: "Regular unleaded" }
+    },
+    2010: {
+      car: { price: 23769, item: "Average new car", description: "Post-recession pricing" },
+      medianHouse: { price: 221800, item: "Median home price", description: "Recovery period" },
+      coffee: { price: 3.85, item: "Pound of coffee", description: "Ground coffee" },
+      bread: { price: 1.38, item: "Loaf of bread", description: "Store bought" },
+      milk: { price: 3.39, item: "Gallon of milk", description: "At grocery store" },
+      gas: { price: 2.79, item: "Gallon of gasoline", description: "Regular unleaded" }
     },
     2017: {
       car: { price: 31000, item: "Average new car", description: "Mid-size sedan" },
