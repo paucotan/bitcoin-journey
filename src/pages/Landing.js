@@ -29,7 +29,13 @@ const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => 
 
 const Landing = () => {
   const [showShock, setShowShock] = useState(false);
-  const [flippedCards, setFlippedCards] = useState({ pure: false, watered: false });
+  const [flippedCards, setFlippedCards] = useState({
+    pure: false,
+    watered: false,
+    hero1: false,
+    hero2: false,
+    hero3: false
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => setShowShock(true), 1000);
@@ -39,6 +45,34 @@ const Landing = () => {
   return (
     <>
       <style jsx>{`
+        .flip-card-container {
+          perspective: 1000px;
+        }
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          transition: transform 0.7s ease-in-out;
+          will-change: transform;
+        }
+        .flip-card-inner.flipped {
+          transform: rotateY(180deg);
+        }
+        .flip-card-face {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          transform-style: preserve-3d;
+        }
+        .flip-card-back {
+          transform: rotateY(180deg);
+        }
         .rotate-y-180 {
           transform: rotateY(180deg);
         }
@@ -74,32 +108,119 @@ const Landing = () => {
                   <span className="text-yellow-400 font-bold">This isn't inflation—it's systematic wealth transfer.</span>
                 </p>
 
-                {/* Shocking Stats Grid */}
+                {/* Shocking Stats Grid - Now with Flip Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-                  <div className="bg-red-900/30 border border-red-500 rounded-lg p-6">
-                    <div className="text-3xl font-bold text-red-400 mb-2">
-                      <AnimatedCounter start={0} end={87} duration={2000} suffix="%" />
+                  {/* Card 1: The Big Print Crisis */}
+                  <div className="relative h-32 group flip-card-container">
+                    <div
+                      className={`flip-card-inner cursor-pointer ${flippedCards.hero1 ? 'flipped' : ''}`}
+                      onClick={() => setFlippedCards(prev => ({ ...prev, hero1: !prev.hero1 }))}
+                    >
+                      {/* Front of card */}
+                      <div
+                        className="flip-card-face bg-red-900/30 border border-red-500 rounded-lg p-4 text-center transition-all duration-300 group-hover:bg-red-900/40 group-hover:border-red-400 group-hover:shadow-lg group-hover:shadow-red-500/20"
+                      >
+                        <div className="text-3xl font-bold text-red-400 mb-1">
+                          <AnimatedCounter start={0} end={87} duration={2000} suffix="%" />
+                        </div>
+                        <div className="text-sm text-red-200">Dollar Value Lost Since 1971</div>
+                        {/* Flip indicator */}
+                        <div className="absolute top-2 right-2 text-red-400/60 text-xs group-hover:text-red-300 transition-colors">⟲</div>
+                      </div>
+
+                      {/* Back of card */}
+                      <div
+                        className="flip-card-face flip-card-back bg-red-900/60 border border-red-400 rounded-lg p-2 text-center transition-all duration-300 flex flex-col justify-center group-hover:bg-red-900/70 group-hover:border-red-300 group-hover:shadow-lg group-hover:shadow-red-500/20"
+                      >
+                        <div className="text-base mb-1">🍺➡️💧</div>
+                        <div className="text-xs font-bold text-red-300 mb-1">The Addiction</div>
+                        <div className="text-red-100 text-xs leading-tight px-1">
+                          Money printing is like alcoholism: good at first, progressively worse, until the pain forces change.
+                        </div>
+                        <div className="text-red-200 text-xs font-medium">The Big Print is coming.</div>
+                      </div>
                     </div>
-                    <div className="text-sm text-red-200">Dollar Value Lost Since 1971</div>
                   </div>
-                  <div className="bg-orange-900/30 border border-orange-500 rounded-lg p-6">
-                    <div className="text-3xl font-bold text-orange-400 mb-2">
-                      <AnimatedCounter start={0} end={16} duration={2000} suffix="x" />
+
+                  {/* Card 2: Mathematical Certainty */}
+                  <div className="relative h-32 group flip-card-container">
+                    <div
+                      className={`flip-card-inner cursor-pointer ${
+                        flippedCards.hero2 ? 'flipped' : ''
+                      }`}
+                      onClick={() => setFlippedCards(prev => ({ ...prev, hero2: !prev.hero2 }))}
+                    >
+                      {/* Front of card */}
+                      <div
+                        className="flip-card-face bg-orange-900/30 border border-orange-500 rounded-lg p-4 text-center transition-all duration-300 group-hover:bg-orange-900/40 group-hover:border-orange-400 group-hover:shadow-lg group-hover:shadow-orange-500/20"
+                      >
+                        <div className="text-3xl font-bold text-orange-400 mb-1">
+                          <AnimatedCounter start={0} end={16} duration={2000} suffix="x" />
+                        </div>
+                        <div className="text-sm text-orange-200">House Price Increase</div>
+                        <div className="text-sm text-orange-200">Since 1971</div>
+                        {/* Flip indicator */}
+                        <div className="absolute top-2 right-2 text-orange-400/60 text-xs group-hover:text-orange-300 transition-colors">⟲</div>
+                      </div>
+
+                      {/* Back of card */}
+                      <div
+                        className="flip-card-face flip-card-back bg-orange-900/60 border border-orange-400 rounded-lg p-2 text-center transition-all duration-300 flex flex-col justify-center group-hover:bg-orange-900/70 group-hover:border-orange-300 group-hover:shadow-lg group-hover:shadow-orange-500/20"
+                      >
+                        <div className="text-lg mb-1">💸📈</div>
+                        <div className="text-xs font-bold text-orange-300 mb-1">Money Printing Effect</div>
+                        <div className="text-orange-100 text-xs leading-tight px-1">
+                          From $25,000 in 1971 to $420,000 today. This isn't natural price discovery.
+                        </div>
+                        <div className="text-orange-200 text-xs font-medium">It's systematic currency debasement.</div>
+                      </div>
                     </div>
-                    <div className="text-sm text-orange-200">House Price Multiplier</div>
                   </div>
-                  <div className="bg-yellow-900/30 border border-yellow-500 rounded-lg p-6">
-                    <div className="text-3xl font-bold text-yellow-400 mb-2">
-                      1971
+
+                  {/* Card 3: The Peaceful Revolution */}
+                  <div className="relative h-32 group flip-card-container">
+                    <div
+                      className={`flip-card-inner cursor-pointer ${
+                        flippedCards.hero3 ? 'flipped' : ''
+                      }`}
+                      onClick={() => setFlippedCards(prev => ({ ...prev, hero3: !prev.hero3 }))}
+                    >
+                      {/* Front of card */}
+                      <div
+                        className="flip-card-face bg-yellow-900/30 border border-yellow-500 rounded-lg p-4 text-center transition-all duration-300 group-hover:bg-yellow-900/40 group-hover:border-yellow-400 group-hover:shadow-lg group-hover:shadow-yellow-500/20"
+                      >
+                        <div className="text-3xl font-bold text-yellow-400 mb-1">
+                          1971
+                        </div>
+                        <div className="text-sm text-yellow-200">The Year It All Changed</div>
+                        {/* Flip indicator */}
+                        <div className="absolute top-2 right-2 text-yellow-400/60 text-xs group-hover:text-yellow-300 transition-colors">⟲</div>
+                      </div>
+
+                      {/* Back of card */}
+                      <div
+                        className="flip-card-face flip-card-back bg-yellow-900/60 border border-yellow-400 rounded-lg p-2 text-center transition-all duration-300 flex flex-col justify-center group-hover:bg-yellow-900/70 group-hover:border-yellow-300 group-hover:shadow-lg group-hover:shadow-yellow-500/20"
+                      >
+                        <div className="text-lg mb-1">🕊️</div>
+                        <div className="text-sm font-bold text-yellow-300 mb-1">Opt Out Peacefully</div>
+                        <div className="text-yellow-100 text-xs leading-snug px-1">
+                          Bitcoin offers escape from the corrupt system through math, not violence.
+                        </div>
+                        <div className="text-yellow-200 text-xs font-medium mt-1">Own what they cannot print.</div>
+                      </div>
                     </div>
-                    <div className="text-sm text-yellow-200">The Year It All Changed</div>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          <div className="flex justify-center mb-12">
+          <div className="flex flex-col items-center mb-12">
+            <div className="text-center mb-6">
+              <div className="text-orange-400 text-sm font-medium mb-2">
+                💡 Click the cards above to discover the solution
+              </div>
+            </div>
             <button className="text-orange-400 hover:text-orange-300 text-xl font-medium transition-colors animate-pulse">
               ↓ See how they did it ↓
             </button>
@@ -139,14 +260,14 @@ const Landing = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* Pure Beer Card */}
             <div className="relative h-48">
-              <div 
+              <div
                 className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
                   flippedCards.pure ? 'rotate-y-180' : ''
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Front of card */}
-                <div 
+                <div
                   className="absolute inset-0 w-full h-full bg-amber-800/30 border border-amber-400 rounded-lg p-6 text-center cursor-pointer backface-hidden"
                   onClick={() => setFlippedCards(prev => ({ ...prev, pure: !prev.pure }))}
                   style={{ backfaceVisibility: 'hidden' }}
@@ -158,9 +279,9 @@ const Landing = () => {
                     Read More →
                   </button>
                 </div>
-                
+
                 {/* Back of card */}
-                <div 
+                <div
                   className="absolute inset-0 w-full h-full bg-amber-800/30 border border-amber-400 rounded-lg p-4 text-center cursor-pointer backface-hidden rotate-y-180"
                   onClick={() => setFlippedCards(prev => ({ ...prev, pure: !prev.pure }))}
                   style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
@@ -179,14 +300,14 @@ const Landing = () => {
 
             {/* Watered-Down Beer Card */}
             <div className="relative h-48">
-              <div 
+              <div
                 className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
                   flippedCards.watered ? 'rotate-y-180' : ''
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Front of card */}
-                <div 
+                <div
                   className="absolute inset-0 w-full h-full bg-red-800/30 border border-red-400 rounded-lg p-6 text-center cursor-pointer backface-hidden"
                   onClick={() => setFlippedCards(prev => ({ ...prev, watered: !prev.watered }))}
                   style={{ backfaceVisibility: 'hidden' }}
@@ -198,9 +319,9 @@ const Landing = () => {
                     Read More →
                   </button>
                 </div>
-                
+
                 {/* Back of card */}
-                <div 
+                <div
                   className="absolute inset-0 w-full h-full bg-red-800/30 border border-red-400 rounded-lg p-4 text-center cursor-pointer backface-hidden rotate-y-180"
                   onClick={() => setFlippedCards(prev => ({ ...prev, watered: !prev.watered }))}
                   style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
@@ -240,10 +361,25 @@ const Landing = () => {
               the systematic debasement of your purchasing power since Nixon's 1971 decision to unpeg the dollar from gold, making printing money the defacto way to get more dollars out there.
             </p>
             <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
-              <h3 className="text-lg font-bold text-orange-400 mb-3">The Problem:</h3>
-              <p className="text-gray-300 mb-4">
-                By printing money, you're taking away the value of what you already have. The charts below show the amount of money added to the existing supply (diluting the supply) and how that correlates with increasing inflation in housing prices and an inverse correlation to dollar purchasing power.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-shrink-0 order-2 md:order-1">
+                  <img 
+                    src="/mickey.GIF" 
+                    alt="Mickey Mouse as the Sorcerer's Apprentice drowning in an endless flood of multiplying water buckets, representing how money printing creates an uncontrollable cascade of currency debasement that overwhelms and destroys purchasing power" 
+                    className="w-32 h-24 md:w-40 md:h-30 rounded-lg object-cover border border-orange-500/40"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex-1 order-1 md:order-2">
+                  <h3 className="text-lg font-bold text-orange-400 mb-3">The Problem:</h3>
+                  <p className="text-gray-300 mb-4">
+                    By printing money, you're taking away the value of what you already have. The charts below show the amount of money added to the existing supply (diluting the supply) and how that correlates with increasing inflation in housing prices and an inverse correlation to dollar purchasing power.
+                  </p>
+                  <p className="text-orange-300/80 text-sm italic">
+                    Like Mickey's magic water, "creating" more money only drowns us in devaluation.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -346,7 +482,7 @@ const Landing = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <a 
+                  <a
                     href="/guides/first-wallet"
                     className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
                   >
@@ -411,7 +547,7 @@ const Landing = () => {
 
           {/* All Guides CTA */}
           <div className="text-center">
-            <a 
+            <a
               href="/guides"
               className="inline-flex items-center gap-2 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-3 px-6 rounded-lg transition-colors"
             >
@@ -435,7 +571,7 @@ const Landing = () => {
           </p>
 
           <div className="space-y-4">
-            <a 
+            <a
               href="/guides/first-wallet"
               className="inline-block bg-white text-orange-600 font-bold py-6 px-12 rounded-2xl text-2xl shadow-xl hover:bg-gray-100 transition-colors"
             >

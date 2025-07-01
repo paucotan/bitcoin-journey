@@ -34,7 +34,7 @@ const BitcoinVsAltcoins = () => {
     },
     {
       key: 'immutable',
-      step: '2', 
+      step: '2',
       frontTitle: 'Unchangeable Like a Constitution',
       frontEmoji: '📜',
       frontDescription: 'Can Bitcoin\'s rules be changed?',
@@ -99,7 +99,8 @@ const BitcoinVsAltcoins = () => {
           </p>
           <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 rounded-lg p-4 max-w-2xl mx-auto">
             <p className="text-white font-medium">
-              Bitcoin is backed by thermodynamics. Everything else is backed by promises.
+              Bitcoin is backed by physics.<br/>
+              Everything else is backed by promises.
             </p>
           </div>
         </div>
@@ -118,8 +119,8 @@ const BitcoinVsAltcoins = () => {
               <div
                 key={card.key}
                 className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold transition-all ${
-                  flippedCards[card.key] 
-                    ? 'bg-orange-500 border-orange-400 text-white' 
+                  flippedCards[card.key]
+                    ? 'bg-orange-500 border-orange-400 text-white'
                     : 'bg-gray-800 border-gray-600 text-gray-400'
                 }`}
               >
@@ -133,7 +134,7 @@ const BitcoinVsAltcoins = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {comparisonCards.map((card) => (
             <div key={card.key} className="relative h-80 md:h-72">
-              <div 
+              <div
                 className={`w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
                   flippedCards[card.key] ? 'rotate-y-180' : ''
                 }`}
@@ -194,7 +195,7 @@ const BitcoinVsAltcoins = () => {
               Share this Bitcoin story with someone who needs to see it
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 onClick={() => {
                   const url = 'https://bitcoin-journey.vercel.app/';
                   const text = 'Just discovered why Bitcoin isn\'t "crypto" - it\'s the first living digital organism. This changed my perspective completely.';
@@ -204,7 +205,7 @@ const BitcoinVsAltcoins = () => {
               >
                 Share on <span className="text-xl">𝕏</span>
               </button>
-              <button 
+              <button
                 onClick={() => {
                   navigator.clipboard.writeText('https://bitcoin-journey.vercel.app/');
                   const button = event.target.closest('button');
