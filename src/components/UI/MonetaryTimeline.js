@@ -98,10 +98,10 @@ const MonetaryTimeline = () => {
               <div className={`absolute left-6 w-4 h-4 rounded-full ${event.color} border-2 border-gray-900 z-10`}></div>
 
               {/* Event Card */}
-              <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
+              <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 transform ${
                 activeEvent === index
-                  ? `border-${event.color.split('-')[1]}-400 shadow-lg shadow-${event.color.split('-')[1]}-500/20`
-                  : 'border-gray-700 hover:border-gray-600'
+                  ? `border-${event.color.split('-')[1]}-400 shadow-xl shadow-${event.color.split('-')[1]}-500/30 translate-y-[-2px] shadow-[0_8px_30px_rgba(0,0,0,0.12),0_0_20px_${event.color.split('-')[1] === 'yellow' ? 'rgba(234,179,8,0.2)' : event.color.split('-')[1] === 'orange' ? 'rgba(249,115,22,0.2)' : event.color.split('-')[1] === 'blue' ? 'rgba(59,130,246,0.2)' : event.color.split('-')[1] === 'red' ? 'rgba(239,68,68,0.2)' : event.color.split('-')[1] === 'purple' ? 'rgba(147,51,234,0.2)' : 'rgba(34,197,94,0.2)'}]`
+                  : 'border-gray-700 hover:border-gray-600 shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-black/40 hover:translate-y-[-6px] hover:scale-[1.02]'
               }`}>
                 <div className="flex items-center space-x-3 mb-2">
                   <span className={`text-2xl ${event.icon === '₿' ? 'text-orange-400' : ''}`}>{event.icon}</span>
