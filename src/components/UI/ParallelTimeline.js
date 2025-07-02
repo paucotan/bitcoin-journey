@@ -58,13 +58,22 @@ const ParallelTimeline = () => {
       color: "bg-red-600",
       icon: "🖨️",
       category: "monetary"
+    },
+    {
+      year: "2024",
+      title: "Debt Crisis Accelerates",
+      description: "US national debt exceeds $34 trillion. Interest payments alone consume 20% of federal budget.",
+      impact: "Money printing becomes the only solution - hyperinflation risk increases",
+      color: "bg-red-700",
+      icon: "📊",
+      category: "monetary"
     }
   ];
 
-  const cypherpunkEvents = [
+  const bitcoinEvents = [
     {
       year: "1976",
-      title: "Diffie-Hellman Key Exchange",
+      title: "Diffie-Hellman Key Exchange", 
       description: "Whitfield Diffie and Martin Hellman publish 'New Directions in Cryptography', introducing public-key cryptography.",
       impact: "Foundation for secure communication without shared secrets - essential for digital currencies",
       color: "bg-green-500",
@@ -73,51 +82,11 @@ const ParallelTimeline = () => {
       keyPerson: "Diffie & Hellman"
     },
     {
-      year: "1978",
-      title: "RSA Algorithm",
-      description: "Rivest, Shamir, and Adleman create the first practical public-key cryptosystem.",
-      impact: "Enables secure digital signatures and encrypted communications at scale",
-      color: "bg-green-600",
-      icon: "🔑",
-      category: "crypto",
-      keyPerson: "Rivest, Shamir & Adleman"
-    },
-    {
-      year: "1985",
-      title: "Elliptic Curve Cryptography",
-      description: "Neal Koblitz and Victor Miller independently propose using elliptic curves for cryptography.",
-      impact: "More efficient cryptography - Bitcoin uses ECDSA for digital signatures",
-      color: "bg-teal-500",
-      icon: "📈",
-      category: "crypto",
-      keyPerson: "Koblitz & Miller"
-    },
-    {
-      year: "1989",
-      title: "DigiCash",
-      description: "David Chaum creates the first digital cash system with cryptographic privacy protection.",
-      impact: "First attempt at anonymous digital money - proves digital cash is possible",
-      color: "bg-blue-600",
-      icon: "💰",
-      category: "digital-cash",
-      keyPerson: "David Chaum"
-    },
-    {
-      year: "1991",
-      title: "PGP Encryption",
-      description: "Phil Zimmermann releases Pretty Good Privacy, making strong encryption accessible to everyone.",
-      impact: "Democratizes cryptography - 'Crypto is for the people, not just governments'",
-      color: "bg-purple-600",
-      icon: "🛡️",
-      category: "crypto",
-      keyPerson: "Phil Zimmermann"
-    },
-    {
       year: "1992",
       title: "Cypherpunk Mailing List",
       description: "Eric Hughes, Tim May, and John Gilmore start the cypherpunk movement focusing on privacy through cryptography.",
       impact: "Creates the ideological and technical community that will birth Bitcoin",
-      color: "bg-indigo-500",
+      color: "bg-indigo-500", 
       icon: "📧",
       category: "movement",
       keyPerson: "Hughes, May & Gilmore"
@@ -129,28 +98,8 @@ const ParallelTimeline = () => {
       impact: "Direct precursor to Bitcoin's proof-of-work - solves the double-spending problem",
       color: "bg-pink-500",
       icon: "⚡",
-      category: "proof-of-work",
+      category: "proof-of-work", 
       keyPerson: "Adam Back"
-    },
-    {
-      year: "1998",
-      title: "Bit Gold Concept",
-      description: "Nick Szabo proposes Bit Gold, a decentralized digital currency using proof-of-work.",
-      impact: "Bitcoin's direct conceptual predecessor - includes most key ideas",
-      color: "bg-yellow-600",
-      icon: "🥇",
-      category: "digital-cash",
-      keyPerson: "Nick Szabo"
-    },
-    {
-      year: "2004",
-      title: "RPOW",
-      description: "Hal Finney creates Reusable Proofs of Work, the first working proof-of-work currency.",
-      impact: "First implementation of transferable proof-of-work - Hal later receives first Bitcoin transaction",
-      color: "bg-orange-600",
-      icon: "🔄",
-      category: "proof-of-work",
-      keyPerson: "Hal Finney"
     },
     {
       year: "2008",
@@ -161,6 +110,46 @@ const ParallelTimeline = () => {
       icon: "₿",
       category: "bitcoin",
       keyPerson: "Satoshi Nakamoto"
+    },
+    {
+      year: "2009",
+      title: "Genesis Block Mined",
+      description: "Satoshi mines the first Bitcoin block with the message: 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks'.",
+      impact: "Bitcoin network officially launches - first alternative to fiat money is born",
+      color: "bg-orange-500",
+      icon: "⛏️",
+      category: "bitcoin",
+      keyPerson: "Satoshi Nakamoto"
+    },
+    {
+      year: "2010", 
+      title: "Pizza Day",
+      description: "Laszlo Hanyecz buys two pizzas for 10,000 BTC (~$25). The first real-world Bitcoin purchase.",
+      impact: "Proves Bitcoin can function as money - establishes first price discovery mechanism",
+      color: "bg-yellow-500",
+      icon: "🍕",
+      category: "bitcoin",
+      keyPerson: "Laszlo Hanyecz"
+    },
+    {
+      year: "2017",
+      title: "Bitcoin Fork Wars",
+      description: "Hard fork creates Bitcoin Cash as debate rages over Bitcoin's scaling approach. Bitcoin's protocol proves antifragile.",
+      impact: "Demonstrates Bitcoin's resistance to change and commitment to decentralization over convenience",
+      color: "bg-red-500", 
+      icon: "⚔️",
+      category: "bitcoin",
+      keyPerson: "Bitcoin Community"
+    },
+    {
+      year: "2021",
+      title: "El Salvador Adoption",
+      description: "El Salvador becomes first country to adopt Bitcoin as legal tender. Institutions begin major Bitcoin purchases.",
+      impact: "Bitcoin transitions from internet money to sovereign money - institutional adoption accelerates", 
+      color: "bg-green-600",
+      icon: "🏛️",
+      category: "bitcoin",
+      keyPerson: "Nayib Bukele"
     }
   ];
 
@@ -173,6 +162,19 @@ const ParallelTimeline = () => {
       setActiveTrack(track);
     }
   };
+
+  // Create chronologically aligned timeline
+  const createAlignedTimeline = () => {
+    const allYears = [...new Set([...monetaryEvents.map(e => parseInt(e.year)), ...bitcoinEvents.map(e => parseInt(e.year))])].sort((a, b) => a - b);
+    
+    return allYears.map(year => {
+      const monetary = monetaryEvents.find(e => parseInt(e.year) === year);
+      const bitcoin = bitcoinEvents.find(e => parseInt(e.year) === year);
+      return { year, monetary, bitcoin };
+    });
+  };
+
+  const alignedTimeline = createAlignedTimeline();
 
   const getCategoryColor = (category) => {
     const colors = {
@@ -200,115 +202,216 @@ const ParallelTimeline = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Monetary Destruction Timeline */}
-        <div className="space-y-6">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-red-400 mb-2">💀 Monetary Destruction</h3>
-            <p className="text-gray-400 text-sm">How governments systematically destroyed sound money</p>
-          </div>
-          
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-500 via-red-500 to-purple-600"></div>
-            
-            <div className="space-y-6">
-              {monetaryEvents.map((event, index) => (
-                <div
-                  key={`monetary-${index}`}
-                  className={`relative pl-20 cursor-pointer transition-all duration-300 ${
-                    activeEvent === index && activeTrack === 'monetary' ? 'scale-105' : 'hover:scale-102'
-                  }`}
-                  onClick={() => handleEventClick(index, 'monetary')}
-                >
-                  <div className={`absolute left-6 w-4 h-4 rounded-full ${event.color} border-2 border-gray-900 z-10`}></div>
-                  
-                  <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
-                    activeEvent === index && activeTrack === 'monetary'
-                      ? 'border-red-400 shadow-lg shadow-red-500/20'
-                      : 'border-gray-700 hover:border-gray-600'
-                  }`}>
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-2xl">{event.icon}</span>
-                      <div>
-                        <div className="text-lg font-bold text-white">{event.year}</div>
-                        <div className="text-red-400 font-semibold">{event.title}</div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-300 text-sm mb-3">{event.description}</p>
-                    
-                    {activeEvent === index && activeTrack === 'monetary' && (
-                      <div className="animate-fade-in space-y-3 mt-3">
-                        <div className="bg-red-900/30 border border-red-500 rounded p-3">
-                          <div className="text-red-400 font-semibold text-sm mb-1">💀 Impact on You:</div>
-                          <div className="text-red-300 text-sm">{event.impact}</div>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {!(activeEvent === index && activeTrack === 'monetary') && (
-                      <div className="text-gray-500 text-xs">Click to see the damage →</div>
-                    )}
-                  </div>
-                </div>
-              ))}
+      <div className="relative">
+        <div className="text-center mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-red-400 mb-1">💀 Monetary Destruction</h3>
+              <p className="text-gray-400 text-xs">How governments destroyed sound money</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-green-400 mb-1">🚀 Bitcoin Genesis</h3>
+              <p className="text-gray-400 text-xs">How cypherpunks built the alternative</p>
             </div>
           </div>
         </div>
 
-        {/* Cypherpunk Innovation Timeline */}
-        <div className="space-y-6">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-green-400 mb-2">🚀 Cryptographic Innovation</h3>
-            <p className="text-gray-400 text-sm">How cypherpunks built Bitcoin on the shoulders of giants</p>
-          </div>
+        {/* Desktop Timeline */}
+        <div className="hidden md:block relative max-w-6xl mx-auto">
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-500 via-orange-500 to-green-500 transform -translate-x-1/2"></div>
           
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 via-blue-500 to-orange-400"></div>
-            
-            <div className="space-y-6">
-              {cypherpunkEvents.map((event, index) => (
-                <div
-                  key={`crypto-${index}`}
-                  className={`relative pl-20 cursor-pointer transition-all duration-300 ${
-                    activeEvent === index && activeTrack === 'crypto' ? 'scale-105' : 'hover:scale-102'
-                  }`}
-                  onClick={() => handleEventClick(index, 'crypto')}
-                >
-                  <div className={`absolute left-6 w-4 h-4 rounded-full ${event.color} border-2 border-gray-900 z-10`}></div>
-                  
-                  <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
-                    activeEvent === index && activeTrack === 'crypto'
-                      ? 'border-green-400 shadow-lg shadow-green-500/20'
-                      : 'border-gray-700 hover:border-gray-600'
-                  }`}>
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-2xl">{event.icon}</span>
-                      <div>
-                        <div className="text-lg font-bold text-white">{event.year}</div>
-                        <div className={`font-semibold ${getCategoryColor(event.category)}`}>{event.title}</div>
-                        <div className="text-gray-400 text-xs">{event.keyPerson}</div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-300 text-sm mb-3">{event.description}</p>
-                    
-                    {activeEvent === index && activeTrack === 'crypto' && (
-                      <div className="animate-fade-in space-y-3 mt-3">
-                        <div className="bg-green-900/30 border border-green-500 rounded p-3">
-                          <div className="text-green-400 font-semibold text-sm mb-1">🚀 Bitcoin Connection:</div>
-                          <div className="text-green-300 text-sm">{event.impact}</div>
+          <div className="space-y-8">
+            {alignedTimeline.map((row, index) => (
+              <div key={row.year} className="relative">
+                {/* Year marker */}
+                <div className="absolute left-1/2 w-12 h-12 bg-gray-900 border-4 border-orange-500 rounded-full flex items-center justify-center transform -translate-x-1/2 z-20">
+                  <span className="text-white font-bold text-sm">{row.year}</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-8">
+                  {/* Left side - Monetary */}
+                  <div className="text-right pr-8">
+                    {row.monetary ? (
+                      <div
+                        className={`cursor-pointer transition-all duration-300 ${
+                          activeEvent === `monetary-${index}` ? 'scale-105' : 'hover:scale-102'
+                        }`}
+                        onClick={() => handleEventClick(`monetary-${index}`, 'monetary')}
+                      >
+                        <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
+                          activeEvent === `monetary-${index}`
+                            ? 'border-red-400 shadow-lg shadow-red-500/20'
+                            : 'border-gray-700 hover:border-gray-600'
+                        }`}>
+                          <div className="flex items-center justify-end space-x-3 mb-2">
+                            <div className="text-right">
+                              <div className="text-red-400 font-semibold">{row.monetary.title}</div>
+                            </div>
+                            <span className="text-2xl">{row.monetary.icon}</span>
+                          </div>
+                          
+                          <p className="text-gray-300 text-sm mb-3">{row.monetary.description}</p>
+                          
+                          {activeEvent === `monetary-${index}` && (
+                            <div className="animate-fade-in space-y-3 mt-3">
+                              <div className="bg-red-900/30 border border-red-500 rounded p-3">
+                                <div className="text-red-400 font-semibold text-sm mb-1">💀 Impact on You:</div>
+                                <div className="text-red-300 text-sm">{row.monetary.impact}</div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {activeEvent !== `monetary-${index}` && (
+                            <div className="text-gray-500 text-xs">Click to see the damage →</div>
+                          )}
                         </div>
                       </div>
+                    ) : (
+                      <div className="h-4"></div>
                     )}
-                    
-                    {!(activeEvent === index && activeTrack === 'crypto') && (
-                      <div className="text-gray-500 text-xs">Click to see Bitcoin connection →</div>
+                  </div>
+
+                  {/* Right side - Bitcoin */}
+                  <div className="text-left pl-8">
+                    {row.bitcoin ? (
+                      <div
+                        className={`cursor-pointer transition-all duration-300 ${
+                          activeEvent === `bitcoin-${index}` ? 'scale-105' : 'hover:scale-102'
+                        }`}
+                        onClick={() => handleEventClick(`bitcoin-${index}`, 'bitcoin')}
+                      >
+                        <div className={`bg-gray-800 border-2 rounded-lg p-4 transition-all duration-300 ${
+                          activeEvent === `bitcoin-${index}`
+                            ? 'border-green-400 shadow-lg shadow-green-500/20'
+                            : 'border-gray-700 hover:border-gray-600'
+                        }`}>
+                          <div className="flex items-center space-x-3 mb-2">
+                            <span className="text-2xl">{row.bitcoin.icon}</span>
+                            <div>
+                              <div className={`font-semibold ${getCategoryColor(row.bitcoin.category)}`}>{row.bitcoin.title}</div>
+                              <div className="text-gray-400 text-xs">{row.bitcoin.keyPerson}</div>
+                            </div>
+                          </div>
+                          
+                          <p className="text-gray-300 text-sm mb-3">{row.bitcoin.description}</p>
+                          
+                          {activeEvent === `bitcoin-${index}` && (
+                            <div className="animate-fade-in space-y-3 mt-3">
+                              <div className="bg-green-900/30 border border-green-500 rounded p-3">
+                                <div className="text-green-400 font-semibold text-sm mb-1">🚀 Bitcoin Connection:</div>
+                                <div className="text-green-300 text-sm">{row.bitcoin.impact}</div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {activeEvent !== `bitcoin-${index}` && (
+                            <div className="text-gray-500 text-xs">Click to see Bitcoin connection →</div>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="h-4"></div>
                     )}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Timeline */}
+        <div className="md:hidden relative">
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-500 via-orange-500 to-green-500"></div>
+          
+          <div className="space-y-6">
+            {alignedTimeline.map((row, index) => (
+              <div key={row.year} className="relative">
+                {/* Year marker for mobile */}
+                <div className="absolute left-6 w-8 h-8 bg-gray-900 border-2 border-orange-500 rounded-full flex items-center justify-center z-20">
+                  <span className="text-white font-bold text-xs">{row.year.toString().slice(-2)}</span>
+                </div>
+
+                <div className="pl-16 space-y-4">
+                  {/* Monetary event */}
+                  {row.monetary && (
+                    <div
+                      className={`cursor-pointer transition-all duration-300 ${
+                        activeEvent === `monetary-${index}` ? 'scale-105' : 'hover:scale-102'
+                      }`}
+                      onClick={() => handleEventClick(`monetary-${index}`, 'monetary')}
+                    >
+                      <div className={`bg-gray-800 border-2 rounded-lg p-3 transition-all duration-300 ${
+                        activeEvent === `monetary-${index}`
+                          ? 'border-red-400 shadow-lg shadow-red-500/20'
+                          : 'border-gray-700 hover:border-gray-600'
+                      }`}>
+                        <div className="flex items-center space-x-3 mb-2">
+                          <span className="text-xl">{row.monetary.icon}</span>
+                          <div>
+                            <div className="text-red-400 font-semibold text-sm">{row.monetary.title}</div>
+                            <div className="text-gray-400 text-xs">💀 Monetary Destruction</div>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-300 text-xs mb-2">{row.monetary.description}</p>
+                        
+                        {activeEvent === `monetary-${index}` && (
+                          <div className="animate-fade-in space-y-2 mt-2">
+                            <div className="bg-red-900/30 border border-red-500 rounded p-2">
+                              <div className="text-red-400 font-semibold text-xs mb-1">💀 Impact:</div>
+                              <div className="text-red-300 text-xs">{row.monetary.impact}</div>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {activeEvent !== `monetary-${index}` && (
+                          <div className="text-gray-500 text-xs">Tap to see impact →</div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Bitcoin event */}
+                  {row.bitcoin && (
+                    <div
+                      className={`cursor-pointer transition-all duration-300 ${
+                        activeEvent === `bitcoin-${index}` ? 'scale-105' : 'hover:scale-102'
+                      } ml-4`}
+                      onClick={() => handleEventClick(`bitcoin-${index}`, 'bitcoin')}
+                    >
+                      <div className={`bg-gray-800 border-2 rounded-lg p-3 transition-all duration-300 ${
+                        activeEvent === `bitcoin-${index}`
+                          ? 'border-green-400 shadow-lg shadow-green-500/20'
+                          : 'border-gray-700 hover:border-gray-600'
+                      }`}>
+                        <div className="flex items-center space-x-3 mb-2">
+                          <span className="text-xl">{row.bitcoin.icon}</span>
+                          <div>
+                            <div className={`font-semibold text-sm ${getCategoryColor(row.bitcoin.category)}`}>{row.bitcoin.title}</div>
+                            <div className="text-gray-400 text-xs">🚀 {row.bitcoin.keyPerson}</div>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-300 text-xs mb-2">{row.bitcoin.description}</p>
+                        
+                        {activeEvent === `bitcoin-${index}` && (
+                          <div className="animate-fade-in space-y-2 mt-2">
+                            <div className="bg-green-900/30 border border-green-500 rounded p-2">
+                              <div className="text-green-400 font-semibold text-xs mb-1">🚀 Connection:</div>
+                              <div className="text-green-300 text-xs">{row.bitcoin.impact}</div>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {activeEvent !== `bitcoin-${index}` && (
+                          <div className="text-gray-500 text-xs">Tap to see connection →</div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
