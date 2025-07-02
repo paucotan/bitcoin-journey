@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MoneySupplyDollarChart from '../components/UI/MoneySupplyDollarChart';
-import MonetaryTimeline from '../components/UI/MonetaryTimeline';
+import ParallelTimeline from '../components/UI/ParallelTimeline';
 import SocietalDeclineCharts from '../components/UI/SocietalDeclineCharts';
 import BitcoinMoralCode from '../components/UI/BitcoinMoralCode';
 import BitcoinVsAltcoins from '../components/UI/BitcoinVsAltcoins';
@@ -412,14 +412,14 @@ const Landing = () => {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-orange-400 mb-4">
-              The Monetary Timeline
+              The Parallel Genesis of Bitcoin
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              From gold standard to fake money: <span className="text-red-400 font-bold">The 1971 turning point</span> that broke everything.
+              While governments destroyed sound money, <span className="text-green-400 font-bold">cypherpunks built the alternative</span>.
             </p>
           </div>
 
-          <MonetaryTimeline />
+          <ParallelTimeline />
         </div>
       </div>
 

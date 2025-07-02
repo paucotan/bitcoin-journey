@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, BookOpen, Trophy, Play, Check } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import ParallelTimeline from '../components/UI/ParallelTimeline';
 
 const ChapterCard = ({ chapter }) => {
   const status = chapter.completed ? 'complete' : 
@@ -75,6 +76,16 @@ const Dashboard = () => {
               <li>• Historical examples of monetary collapse</li>
               <li>• Why Bitcoin represents a new monetary paradigm</li>
             </ul>
+          </div>
+
+          {/* Bitcoin Museum Section */}
+          <div className="space-y-6">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">🏛️ The Bitcoin Museum</h2>
+              <p className="text-gray-600">Explore the parallel timelines that led to Bitcoin's creation</p>
+            </div>
+            
+            <ParallelTimeline />
           </div>
         </div>
 
