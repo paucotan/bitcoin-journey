@@ -71,7 +71,7 @@ const BitcoinMoralCode = () => {
     {
       title: "Manipulation & Lies",
       fiatProblem: "Opaque monetary policy, hidden bailouts, false economic data",
-      fiatIcon: "🎭",
+      fiatIcon: <img src="/assets/annuit-coeptis.jpg" alt="Manipulation & Lies" className="w-8 h-8 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
       fiatExample: "Secret Federal Reserve meetings, undisclosed bank bailouts, inflation lies",
       bitcoinSolution: "Transparent, verifiable, mathematical monetary policy",
       bitcoinIcon: "✅",

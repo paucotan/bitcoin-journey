@@ -38,7 +38,7 @@ const ParallelTimeline = () => {
       description: "Nixon ends gold convertibility. The last link between money and real value is severed.",
       impact: "Dollar becomes pure fiat currency - backed by nothing but promises",
       color: "bg-red-500",
-      icon: "💥",
+      icon: <img src="/assets/annuit-coeptis.jpg" alt="Nixon Shock" className="w-6 h-6 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
       category: "monetary"
     },
     {

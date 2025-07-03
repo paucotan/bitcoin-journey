@@ -247,6 +247,7 @@ const Landing = () => {
           <div className="text-6xl absolute bottom-20 right-20 animate-float-delayed text-orange-500">💸</div>
           <div className="text-8xl absolute top-1/2 left-1/4 animate-bounce-gentle text-yellow-500">⚖️</div>
           <div className="text-7xl absolute top-1/3 right-1/3 animate-float text-green-500">💰</div>
+          <img src="/assets/annuit-coeptis.jpg" alt="Fiat symbol" className="absolute top-20 right-10 w-24 h-24 animate-float opacity-90 rounded-full bg-gray-800 p-1" style={{objectFit: 'cover'}} />
         </div>
       </div>
 
