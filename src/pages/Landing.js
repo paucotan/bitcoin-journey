@@ -7,6 +7,7 @@ import BitcoinMoralCode from '../components/UI/BitcoinMoralCode';
 import BitcoinVsAltcoins from '../components/UI/BitcoinVsAltcoins';
 import ProgressSidebar from '../components/UI/ProgressSidebar';
 import DollarValueCalculator from '../components/UI/DollarValueCalculator';
+import BookCarousel from '../components/UI/BookCarousel';
 
 const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => {
   const [count, setCount] = useState(start);
@@ -556,6 +557,11 @@ const Landing = () => {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Further Reading Section */}
+      <div id="further-reading">
+        <BookCarousel />
       </div>
 
       {/* Final CTA - Exhibition Exit */}

@@ -17,6 +17,7 @@ const ProgressSidebar = () => {
     { id: 'moral-code-section', label: 'Bitcoin\'s Code', icon: '⚖️' },
     { id: 'bitcoin-vs-crypto', label: 'Why Bitcoin', icon: '🌳' },
     { id: 'practical-guidance', label: 'Take Action', icon: '🛠️' },
+    { id: 'further-reading', label: 'Further Reading', icon: '📚' },
     { id: 'final-cta', label: 'Choose Bitcoin', icon: '🎯' }
   ];
 
