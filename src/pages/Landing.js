@@ -8,6 +8,7 @@ import BitcoinVsAltcoins from '../components/UI/BitcoinVsAltcoins';
 import ProgressSidebar from '../components/UI/ProgressSidebar';
 import DollarValueCalculator from '../components/UI/DollarValueCalculator';
 import BookCarousel from '../components/UI/BookCarousel';
+import Footer from '../components/Layout/Footer';
 
 const AnimatedCounter = ({ start, end, duration, prefix = "", suffix = "" }) => {
   const [count, setCount] = useState(start);
@@ -88,6 +89,17 @@ const Landing = () => {
       <ProgressSidebar />
       {/* Generational Wealth Theft Hero */}
       <div id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
+        {/* Burning Money Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{
+            backgroundImage: `url('https://static.vecteezy.com/system/resources/thumbnails/050/766/422/small_2x/a-pile-of-burning-money-on-fire-video.jpg')`
+          }}
+        ></div>
+        
+        {/* Overlay Gradients for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-red-900/70 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
         <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
 
           {/* Compelling Hook */}
@@ -217,7 +229,7 @@ const Landing = () => {
           </div>
 
           <div className="flex flex-col items-center mb-12">
-            <div className="text-center mb-6">
+            <div className="text-center mb-12">
               <div className="text-orange-400 text-sm font-medium mb-2">
                 💡 Click the cards above to discover the solution
               </div>
@@ -621,6 +633,9 @@ const Landing = () => {
         }
       `}</style>
     </div>
+    
+    {/* Footer */}
+    <Footer />
     </>
   );
 };

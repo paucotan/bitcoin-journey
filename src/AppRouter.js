@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Header from './components/Layout/Header';
 import Landing from './pages/Landing';
+import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import ChapterView from './pages/ChapterView';
 import LessonView from './pages/LessonView';
@@ -17,6 +18,9 @@ function AppRouter() {
           <Routes>
             {/* Landing page - no header */}
             <Route path="/" element={<Landing />} />
+            
+            {/* About page - no header */}
+            <Route path="/about" element={<About />} />
             
             {/* Guides section - no header (has its own navigation) */}
             <Route path="/guides" element={<GuidesIndex />} />

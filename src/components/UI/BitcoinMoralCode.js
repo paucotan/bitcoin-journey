@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const BitcoinMoralCode = () => {
-  const [activeCodeIndex, setActiveCodeIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,41 +19,60 @@ const BitcoinMoralCode = () => {
     return () => observer.disconnect();
   }, []);
 
-  const moralCodes = [
+  const comparisons = [
     {
-      principle: "You shall not steal",
-      description: "No confiscation of wealth through inflation",
-      icon: "🛡️",
-      details: "Bitcoin's fixed supply means no government can print money to fund wars or bailouts at your expense.",
-      contrast: "Fiat: $8 trillion printed in 2020 alone"
+      title: "Theft by Inflation",
+      fiatProblem: "Governments print money, stealing your purchasing power silently",
+      fiatIcon: "💸",
+      fiatExample: "$8 trillion printed in 2020 alone - your savings lost 15% value",
+      bitcoinSolution: "Fixed supply of 21 million, divisible to 8 decimal places - everyone can participate while your value stays protected",
+      bitcoinIcon: "🛡️",
+      bitcoinExample: "Each Bitcoin = 100,000,000 satoshis. Plenty for global adoption while maintaining scarcity"
     },
     {
-      principle: "You shall not inflate",
-      description: "21 million Bitcoin. Forever.",
-      icon: "📈",
-      details: "Mathematical scarcity replaces political promises. No central banker can create Bitcoin out of thin air.",
-      contrast: "Fiat: Money supply increased 40% since 2020"
+      title: "Financial Censorship",
+      fiatProblem: "Banks and governments can freeze accounts and block transactions",
+      fiatIcon: "🏛️",
+      fiatExample: "Canadian truckers' accounts frozen, WikiLeaks payment blockades",
+      bitcoinSolution: "Permissionless money - no one can stop your transactions",
+      bitcoinIcon: "🌐",
+      bitcoinExample: "24/7 global transactions with no gatekeepers or permissions needed"
     },
     {
-      principle: "You shall not censor",
-      description: "Permissionless transactions for everyone",
-      icon: "🌐",
-      details: "No government can freeze your Bitcoin or block your transactions. True financial sovereignty.",
-      contrast: "Fiat: Bank accounts frozen, payments blocked"
+      title: "Confiscation Risk",
+      fiatProblem: "Governments can seize assets through laws, taxes, or executive orders",
+      fiatIcon: "⚖️",
+      fiatExample: "Bank bail-ins, gold confiscation, emergency asset seizures",
+      bitcoinSolution: "Self-custody protected by cryptography - truly own your wealth",
+      bitcoinIcon: "🔐",
+      bitcoinExample: "Your private keys = your Bitcoin. Mathematically impossible to seize"
     },
     {
-      principle: "You shall not confiscate",
-      description: "Property rights protected by cryptography",
-      icon: "🔐",
-      details: "Your private keys, your Bitcoin. No amount of violence can break mathematical security.",
-      contrast: "Fiat: Government seizure, bail-ins, capital controls"
+      title: "Exclusion & Barriers",
+      fiatProblem: "2 billion people excluded from banking, high fees for remittances",
+      fiatIcon: "🚫",
+      fiatExample: "10-15% fees to send money home, weeks for international transfers",
+      bitcoinSolution: "Anyone with internet access can participate in the global economy",
+      bitcoinIcon: "🌍",
+      bitcoinExample: "Send Bitcoin anywhere in minutes for pennies, no bank account needed"
     },
     {
-      principle: "You shall not counterfeit",
-      description: "Every Bitcoin is cryptographically verified",
-      icon: "✅",
-      details: "Impossible to create fake Bitcoin. The network validates every transaction through proof of work.",
-      contrast: "Fiat: Unlimited counterfeiting by central banks"
+      title: "Manipulation & Lies",
+      fiatProblem: "Opaque monetary policy, hidden bailouts, false economic data",
+      fiatIcon: "🎭",
+      fiatExample: "Secret Federal Reserve meetings, undisclosed bank bailouts, inflation lies",
+      bitcoinSolution: "Transparent, verifiable, mathematical monetary policy",
+      bitcoinIcon: "✅",
+      bitcoinExample: "Every transaction public, supply schedule coded and immutable"
+    },
+    {
+      title: "War & Conflict Financing",
+      fiatProblem: "Governments print money to fund wars without public consent or taxation",
+      fiatIcon: "⚔️",
+      fiatExample: "WWI, WWII, Vietnam, Iraq - all funded by monetary expansion, not votes",
+      bitcoinSolution: "Wars become financially impossible without voluntary funding",
+      bitcoinIcon: "🕊️",
+      bitcoinExample: "No central authority can print Bitcoin to fund conflicts - requires real economic sacrifice"
     }
   ];
 
@@ -64,142 +82,105 @@ const BitcoinMoralCode = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <h2 className="text-5xl font-bold text-white">
-              <span className="text-orange-400">Bitcoin's</span> Moral Code
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              The Moral Case for <span className="text-orange-400">Bitcoin</span>
             </h2>
           </div>
           <p className="text-xl text-orange-300 mb-8 font-semibold">
-            The moral revolution that fixes money
+            Why Bitcoin matters beyond the money
           </p>
           <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
-          <blockquote className="text-2xl text-orange-400 italic max-w-4xl mx-auto">
+          <blockquote className="text-xl md:text-2xl text-orange-400 italic max-w-4xl mx-auto">
             "Bitcoin is more powerful than war, it's more powerful than government because of math."
             <footer className="text-lg text-gray-400 mt-2 not-italic">- Jack Mallers</footer>
           </blockquote>
         </div>
 
-        {/* Bitcoin Hero Statement */}
-        <div className="text-center mb-12">
-          <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-2 border-orange-500 rounded-xl p-6 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <h3 className="text-2xl font-bold text-orange-400">Bitcoin Fixes This</h3>
-            </div>
-            <p className="text-white text-lg font-medium">
-              Every principle below represents how Bitcoin mathematically prevents monetary tyranny
-            </p>
-          </div>
-        </div>
+        {/* Comparison Cards */}
+        <div className="space-y-8">
+          {comparisons.map((comparison, index) => (
+            <div
+              key={index}
+              className={`transition-all duration-700 ${
+                isVisible 
+                  ? 'opacity-100 transform translate-y-0' 
+                  : 'opacity-0 transform translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {/* Comparison Title */}
+              <div className="text-center mb-6">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  {comparison.title}
+                </h3>
+                <div className="w-16 h-0.5 bg-orange-500 mx-auto"></div>
+              </div>
 
-        {/* Interactive Moral Code Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left: Principle List */}
-          <div className="space-y-4">
-            {moralCodes.map((code, index) => (
-              <div
-                key={index}
-                onClick={() => setActiveCodeIndex(index)}
-                className={`p-6 rounded-lg border cursor-pointer transition-all duration-300 ${
-                  activeCodeIndex === index
-                    ? 'border-orange-500 bg-orange-500/10 transform scale-105'
-                    : 'border-gray-700 bg-gray-800/50 hover:border-gray-600'
-                }`}
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">{code.icon}</span>
+              {/* Side-by-Side Cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                {/* Fiat Problem Card */}
+                <div className="bg-gradient-to-br from-red-900/20 to-red-800/20 border border-red-500/30 rounded-xl p-6 hover:border-red-400/50 transition-colors duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-4xl">{comparison.fiatIcon}</div>
+                    <div>
+                      <h4 className="text-red-400 font-bold text-lg">The Broken System</h4>
+                      <p className="text-red-300/80 text-sm">Fiat Currency Problems</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white">
-                      {code.principle}
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                      {code.description}
+                  
+                  <div className="space-y-4">
+                    <p className="text-white text-base leading-relaxed">
+                      {comparison.fiatProblem}
                     </p>
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
+                      <p className="text-red-200 text-sm">
+                        <span className="font-semibold">Example:</span> {comparison.fiatExample}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bitcoin Solution Card */}
+                <div className="bg-gradient-to-br from-green-900/20 to-orange-900/20 border border-orange-500/30 rounded-xl p-6 hover:border-orange-400/50 transition-colors duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-4xl">{comparison.bitcoinIcon}</div>
+                    <div>
+                      <h4 className="text-orange-400 font-bold text-lg">Bitcoin's Solution</h4>
+                      <p className="text-orange-300/80 text-sm">Sound Money Principles</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <p className="text-white text-base leading-relaxed">
+                      {comparison.bitcoinSolution}
+                    </p>
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-3">
+                      <p className="text-orange-200 text-sm">
+                        <span className="font-semibold">How:</span> {comparison.bitcoinExample}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Right: Active Principle Details */}
-          <div className="bg-black rounded-lg p-8 border border-gray-700">
-            <div className="text-center mb-6">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="text-6xl">{moralCodes[activeCodeIndex].icon}</span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">
-                {moralCodes[activeCodeIndex].principle}
-              </h3>
             </div>
-
-            <div className="space-y-4">
-              <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
-                <h4 className="text-orange-400 font-semibold mb-2">
-                  Bitcoin's Solution:
-                </h4>
-                <p className="text-gray-300">
-                  {moralCodes[activeCodeIndex].details}
-                </p>
-              </div>
-
-              <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
-                <h4 className="text-red-400 font-semibold mb-2 flex items-center gap-2">
-                  <span className="text-lg">💴</span>
-                  Fiat's Failure:
-                </h4>
-                <p className="text-gray-300">
-                  {moralCodes[activeCodeIndex].contrast}
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Your Generation's Fighting Chance */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-lg p-8 max-w-5xl mx-auto">
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <h3 className="text-3xl font-bold text-white">
-                <span className="text-orange-500">₿</span> Your Generation's Fighting Chance
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                <span className="text-orange-500">₿</span> Your Generation's Choice
               </h3>
             </div>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
               You don't need protests. You don't need war. You don't need permission from politicians. 
-              <span className="text-orange-400 font-bold">Bitcoin</span> is a peaceful revolution that achieves change through math.
+              <span className="text-orange-400 font-bold">Bitcoin</span> is a peaceful revolution through mathematics.
             </p>
-            <p className="text-lg text-gray-300 mb-8">
-              This is not just an investment. This is your chance to choose ethical money and reclaim your financial future.
+            <p className="text-base md:text-lg text-orange-400 italic font-medium">
+              "Choose sound money. Own your financial future."
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <div className="text-4xl">🧮</div>
-                </div>
-                <h4 className="text-white font-semibold text-lg mb-2">Math, Not Violence</h4>
-                <p className="text-gray-400">Bitcoin's cryptography secures your wealth without conflict</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <div className="text-4xl">⚖️</div>
-                </div>
-                <h4 className="text-white font-semibold text-lg mb-2">Equality for All</h4>
-                <p className="text-gray-400">Same rules, same opportunities, regardless of status</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <div className="text-4xl">🕊️</div>
-                </div>
-                <h4 className="text-white font-semibold text-lg mb-2">Peaceful Transition</h4>
-                <p className="text-gray-400">Choose sound money, don't fight the system</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <p className="text-lg text-orange-400 italic font-medium">
-                "Not having to waste human life to defend monetized wealth is worth every watt."
-              </p>
-            </div>
           </div>
         </div>
       </div>
