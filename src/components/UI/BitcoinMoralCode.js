@@ -10,14 +10,26 @@ const BitcoinMoralCode = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     const element = document.getElementById('moral-code-section');
-    if (element) observer.observe(element);
+    if (element) {
+      observer.observe(element);
+    }
 
-    return () => observer.disconnect();
-  }, []);
+    // Fallback: Show cards after 2 seconds if intersection observer hasn't triggered
+    const fallbackTimer = setTimeout(() => {
+      if (!isVisible) {
+        setIsVisible(true);
+      }
+    }, 2000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
+  }, [isVisible]);
 
   const comparisons = [
     {
