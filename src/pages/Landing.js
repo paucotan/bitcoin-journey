@@ -85,7 +85,7 @@ const Landing = () => {
           transform-style: preserve-3d;
         }
       `}</style>
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-black pt-16">
       <ProgressSidebar />
       {/* Generational Wealth Theft Hero */}
       <div id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">

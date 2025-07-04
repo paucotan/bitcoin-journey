@@ -26,7 +26,7 @@ const GuidesIndex = () => {
           description: 'Understanding digital money and decentralization basics',
           readTime: '6 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/what-is-bitcoin',
           icon: '₿'
         },
@@ -83,7 +83,7 @@ const GuidesIndex = () => {
           description: 'Essential security practices and common mistakes',
           readTime: '5 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/security-checklist',
           icon: '✅'
         },
@@ -120,7 +120,7 @@ const GuidesIndex = () => {
           description: 'Smart buying strategy with automation and psychology',
           readTime: '8 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/dollar-cost-averaging',
           icon: '📈'
         },
@@ -177,7 +177,7 @@ const GuidesIndex = () => {
           description: 'Mempool, priority, and fee estimation strategies',
           readTime: '6 min',
           difficulty: 'Intermediate',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/bitcoin-fees',
           icon: '💸'
         },
@@ -205,7 +205,7 @@ const GuidesIndex = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16">
       {/* Header */}
       <div className="bg-black/50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 py-12">

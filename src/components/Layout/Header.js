@@ -8,23 +8,17 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="bg-white border-b border-gray-200 px-6 py-4">
+    <header className="bg-white border-b border-gray-200 px-6 py-4 mt-16">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Link 
-            to="/"
-            className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl hover:bg-orange-600 transition-colors"
-          >
+          <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
             ₿
-          </Link>
+          </div>
           <div>
-            <Link 
-              to="/"
-              className="text-xl font-bold text-gray-900 hover:text-orange-600 transition-colors"
-            >
-              The Bitcoin Journey
-            </Link>
-            <p className="text-sm text-gray-600">Understanding Money & Bitcoin</p>
+            <div className="text-xl font-bold text-gray-900">
+              Dashboard
+            </div>
+            <p className="text-sm text-gray-600">Learning Progress & Stats</p>
           </div>
         </div>
         

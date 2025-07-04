@@ -1,0 +1,177 @@
+MCP Server Setup Guide for Bitcoin Journey Project
+=======================================================
+
+## What is MCP (Model Context Protocol)?
+MCP allows AI assistants like Claude to access external data sources and services through standardized "servers". 
+Think of it as a way to connect Claude to live data feeds, APIs, and databases.
+
+## Available MCP Servers for Your Project
+
+### 1. FRED Economic Data MCP Server (M2 Money Supply)
+- Server: @kablewy/fred-mcp-server or @jaldekoa/mcp-fredapi
+- Data: M2 money supply, inflation, GDP, interest rates, etc.
+- Source: Federal Reserve Economic Data (FRED)
+- Real-time: Yes, updated regularly
+
+### 2. CoinGecko MCP Server (Bitcoin Price Data)
+- Server: Official CoinGecko MCP Server
+- Data: Bitcoin prices, market cap, volume, 15k+ cryptocurrencies
+- Source: CoinGecko API (aggregated from 1000+ exchanges)
+- Real-time: Yes, live price feeds
+
+### 3. Alternative Crypto Servers
+- CoinMarketCap MCP servers
+- Binance data servers
+- Multi-exchange aggregators
+
+## Prerequisites
+
+### 1. Install UV (Python Package Manager)
+```bash
+# On macOS (using Homebrew)
+brew install uv
+
+# On Linux/WSL
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### 2. Install Claude Desktop (if using locally)
+- Download from: https://claude.ai/download
+- Or use Claude Code CLI (which you're already using)
+
+## Setup Steps
+
+### Step 1: Install MCP Servers
+
+For FRED Economic Data (M2 Money Supply):
+```bash
+# Install the FRED MCP server
+uvx mcp-fredapi
+
+# Or the alternative version
+uvx @kablewy/fred-mcp-server
+```
+
+For CoinGecko Bitcoin Data:
+```bash
+# Install CoinGecko MCP server
+uvx coingecko-mcp-server
+```
+
+### Step 2: Get API Keys
+
+#### FRED API Key (Required for M2 data)
+1. Go to: https://fred.stlouisfed.org/docs/api/api_key.html
+2. Create free account
+3. Get API key
+4. Add to your environment variables:
+```bash
+export FRED_API_KEY="your_api_key_here"
+```
+
+#### CoinGecko API Key (Optional - higher rate limits)
+1. Go to: https://www.coingecko.com/en/api
+2. Sign up for free account
+3. Get API key (optional, but recommended for higher limits)
+
+### Step 3: Configure MCP Servers
+
+Create MCP configuration file:
+```json
+{
+  "mcpServers": {
+    "fred-economic-data": {
+      "command": "uvx",
+      "args": ["mcp-fredapi"],
+      "env": {
+        "FRED_API_KEY": "your_fred_api_key_here"
+      }
+    },
+    "coingecko-crypto": {
+      "command": "uvx",
+      "args": ["coingecko-mcp-server"],
+      "env": {
+        "COINGECKO_API_KEY": "your_coingecko_api_key_here"
+      }
+    }
+  }
+}
+```
+
+### Step 4: Test the Setup
+
+You can test the MCP servers by asking Claude (via Claude Code CLI) to:
+
+1. Get current Bitcoin price
+2. Get latest M2 money supply data
+3. Compare Bitcoin price vs M2 growth over time
+
+## Integration with Your React App
+
+### Option 1: Direct MCP Integration
+- Use MCP servers directly in your development environment
+- Claude can fetch data and help you integrate it into your React components
+
+### Option 2: Backend API Layer
+- Create a Node.js backend that uses MCP servers
+- Expose REST API endpoints for your React app
+- This separates concerns and allows caching
+
+### Option 3: Real-time WebSocket Integration
+- Use MCP servers to feed real-time data to WebSocket connections
+- Your React app subscribes to live price/M2 updates
+
+## Data You Can Access
+
+### From FRED MCP Server:
+- M2 Money Supply (M2SL) - What you're already using
+- M2 Real (inflation-adjusted)
+- Federal Funds Rate
+- GDP Deflator
+- CPI (Consumer Price Index)
+- 10-Year Treasury Rate
+- And 800,000+ other economic series
+
+### From CoinGecko MCP Server:
+- Bitcoin current price
+- Bitcoin historical prices
+- Market cap and volume
+- Price change percentages
+- Market data from 1000+ exchanges
+- 15,000+ other cryptocurrencies
+
+## Benefits for Your Project
+
+1. **Real-time Updates**: Live Bitcoin price and M2 data
+2. **Historical Analysis**: Compare Bitcoin vs M2 over any time period
+3. **Automated Insights**: AI-powered analysis of trends
+4. **Rich Visualizations**: Feed live data to your existing charts
+5. **Educational Value**: Show real-time economic relationships
+
+## Next Steps
+
+1. Install UV and MCP servers
+2. Get API keys (especially FRED)
+3. Test basic data retrieval
+4. Decide on integration approach (direct MCP vs backend API)
+5. Update your React components to use live data
+
+## Troubleshooting
+
+Common issues:
+- API key not set: Check environment variables
+- Rate limiting: Get API keys for higher limits
+- Server not starting: Check UV installation
+- Data format issues: MCP servers return structured data that may need formatting
+
+## Resources
+
+- MCP Documentation: https://docs.anthropic.com/en/docs/build-with-claude/mcp
+- FRED API Docs: https://fred.stlouisfed.org/docs/api/
+- CoinGecko API Docs: https://www.coingecko.com/en/api/documentation
+- MCP Server Directory: https://mcpserverdirectory.org/
+
+Would you like me to help you implement any of these steps?

@@ -5,7 +5,7 @@ const GuideLayout = ({ children, title, description, readTime, nextGuide }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16">
       {/* Header */}
       <div className="bg-black/50 border-b border-gray-800">
         <div className="max-w-4xl mx-auto px-4 py-6">
