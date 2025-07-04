@@ -90,12 +90,6 @@ const TopNavigation = () => {
               About
             </Link>
             
-            <Link
-              to="/dashboard"
-              className="text-sm font-medium px-4 py-2 rounded-lg transition-colors text-gray-200 hover:text-white hover:bg-white/10 drop-shadow-lg"
-            >
-              Dashboard
-            </Link>
           </div>
         </div>
       </div>
