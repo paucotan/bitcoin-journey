@@ -49,6 +49,16 @@ const GuidesIndex = () => {
           status: 'available',
           path: '/guides/send-receive-bitcoin',
           icon: '💸'
+        },
+        {
+          id: 'time-preference',
+          title: 'Time Preference: Why Sound Money Makes Better People',
+          description: 'How the type of money shapes behavior and civilization',
+          readTime: '8 min',
+          difficulty: 'Intermediate',
+          status: 'available',
+          path: '/guides/time-preference',
+          icon: '⏰'
         }
       ]
     },
@@ -63,7 +73,7 @@ const GuidesIndex = () => {
           description: 'Complete guide to Ledger, Trezor, and cold storage',
           readTime: '12 min',
           difficulty: 'Intermediate',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/hardware-wallets',
           icon: '🔐'
         },
@@ -167,7 +177,7 @@ const GuidesIndex = () => {
           description: 'How mining works: energy, difficulty, and security',
           readTime: '11 min',
           difficulty: 'Intermediate',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/bitcoin-mining',
           icon: '⛏️'
         },
@@ -307,7 +317,7 @@ const GuidesIndex = () => {
         <div className="mt-12 text-center">
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-bold text-white mb-2">
-              7 Available Guides & More Coming
+              10 Available Guides & More Coming
             </h3>
             <p className="text-gray-400 text-sm">
               We're building a complete Bitcoin education library. Each guide is thoroughly 

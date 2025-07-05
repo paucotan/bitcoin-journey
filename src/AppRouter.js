@@ -18,6 +18,9 @@ import WhyBitcoinMattersNow from './pages/guides/WhyBitcoinMattersNow';
 import SendReceiveBitcoin from './pages/guides/SendReceiveBitcoin';
 import BitcoinSuccessStories from './pages/guides/BitcoinSuccessStories';
 import BitcoinCommonMistakes from './pages/guides/BitcoinCommonMistakes';
+import BitcoinMining from './pages/guides/BitcoinMining';
+import HardwareWallets from './pages/guides/HardwareWallets';
+import TimePreference from './pages/guides/TimePreference';
 
 function AppRouter() {
   return (
@@ -43,6 +46,9 @@ function AppRouter() {
             <Route path="/guides/security-checklist" element={<SecurityChecklist />} />
             <Route path="/guides/dollar-cost-averaging" element={<DollarCostAveraging />} />
             <Route path="/guides/bitcoin-fees" element={<BitcoinFees />} />
+            <Route path="/guides/bitcoin-mining" element={<BitcoinMining />} />
+            <Route path="/guides/hardware-wallets" element={<HardwareWallets />} />
+            <Route path="/guides/time-preference" element={<TimePreference />} />
             
             {/* All other routes have header */}
             <Route path="/*" element={
