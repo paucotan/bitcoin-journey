@@ -406,7 +406,7 @@ const GuidesIndex = () => {
         <div className="mt-12 text-center">
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-bold text-white mb-2">
-              10 Available Guides & More Coming
+              11 Available Guides & More Coming
             </h3>
             <p className="text-gray-400 text-sm">
               We're building a complete Bitcoin education library. Each guide is thoroughly 
