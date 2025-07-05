@@ -665,19 +665,23 @@ const BitcoinCommonMistakes = () => {
                           <li>• <strong>Official sources only:</strong> Download from official websites</li>
                           <li>• <strong>Verify developers:</strong> Check official company name</li>
                           <li>• <strong>Read reviews:</strong> Look for recent complaints about theft</li>
-                          <li>• <strong>Recommended wallets:</strong> Use established wallets like Strike, BlueWallet</li>
+                          <li>• <strong>Recommended wallets:</strong> Use established wallets like Strike, Muun</li>
                         </ul>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="text-white font-bold mb-2">Trusted Bitcoin Wallets</h4>
+                      <h4 className="text-white font-bold mb-2">Recommended Bitcoin Wallets</h4>
                       <div className="bg-green-500/10 border border-green-500/20 rounded p-3">
-                        <div className="text-green-300 text-sm space-y-1">
-                          <div><strong>Beginners:</strong> Strike, Cash App, BlueWallet</div>
-                          <div><strong>Hardware:</strong> Ledger, Trezor, Coldcard</div>
-                          <div><strong>Advanced:</strong> Electrum, Sparrow, Specter</div>
-                          <div><strong>Verify:</strong> Always download from official websites</div>
+                        <div className="text-green-300 text-sm space-y-2">
+                          <div><strong>Top Choice (Custodial):</strong> Strike - Zero fees, Lightning Network, beginner-friendly</div>
+                          <div><strong>Hardware (Cold Storage):</strong> Trezor - Open-source, auditable, maximum security</div>
+                          <div><strong>Open-Source Mobile:</strong> Muun, Sparrow - Community-audited, self-custody</div>
+                          <div className="pt-2 border-t border-gray-600">
+                            <div className="text-yellow-300 text-xs">
+                              <strong>Why open-source matters:</strong> Code can be audited by security experts worldwide, ensuring no hidden backdoors or vulnerabilities.
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
