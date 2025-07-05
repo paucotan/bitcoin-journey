@@ -31,14 +31,14 @@ const GuidesIndex = () => {
           icon: '₿'
         },
         {
-          id: 'bitcoin-vs-fiat',
-          title: 'Bitcoin vs Traditional Money',
-          description: 'Why Bitcoin matters: inflation and censorship resistance',
+          id: 'why-bitcoin-matters-now',
+          title: 'Why Bitcoin Matters Now',
+          description: 'Understanding Bitcoin\'s relevance in today\'s economic reality',
           readTime: '7 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
-          path: '/guides/bitcoin-vs-fiat',
-          icon: '🏦'
+          status: 'available',
+          path: '/guides/why-bitcoin-matters-now',
+          icon: '🚨'
         },
         {
           id: 'send-receive-bitcoin',
@@ -46,7 +46,7 @@ const GuidesIndex = () => {
           description: 'Master Bitcoin transactions, addresses, and fees',
           readTime: '9 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
+          status: 'available',
           path: '/guides/send-receive-bitcoin',
           icon: '💸'
         }
@@ -68,14 +68,14 @@ const GuidesIndex = () => {
           icon: '🔐'
         },
         {
-          id: 'protect-private-keys',
-          title: 'How to Protect Your Private Keys',
-          description: 'Backup strategies and secure key management',
-          readTime: '8 min',
+          id: 'bitcoin-common-mistakes',
+          title: 'Bitcoin for Beginners: Common Mistakes',
+          description: 'Learn from others\' costly errors to protect your Bitcoin',
+          readTime: '7 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
-          path: '/guides/protect-private-keys',
-          icon: '🔑'
+          status: 'available',
+          path: '/guides/bitcoin-common-mistakes',
+          icon: '⚠️'
         },
         {
           id: 'security-checklist',
@@ -105,14 +105,14 @@ const GuidesIndex = () => {
       description: 'Get Bitcoin and start using it in daily life',
       guides: [
         {
-          id: 'buying-bitcoin',
-          title: 'Buying Your First Bitcoin',
-          description: 'Step-by-step guide to making your first Bitcoin purchase safely',
-          readTime: '10 min',
+          id: 'strike-vs-other-platforms',
+          title: 'Strike vs Other Platforms',
+          description: 'Detailed comparison of Bitcoin platforms with Strike focus',
+          readTime: '8 min',
           difficulty: 'Beginner',
           status: 'coming-soon',
-          path: '/guides/buying-bitcoin',
-          icon: '💰'
+          path: '/guides/strike-vs-other-platforms',
+          icon: '⚖️'
         },
         {
           id: 'dollar-cost-averaging',
@@ -125,14 +125,14 @@ const GuidesIndex = () => {
           icon: '📈'
         },
         {
-          id: 'bitcoin-exchanges',
-          title: 'Bitcoin Exchanges Explained',
-          description: 'Compare exchanges, understand KYC, and choose safely',
+          id: 'bitcoin-success-stories',
+          title: 'Bitcoin Success Stories',
+          description: 'Real-world examples of Bitcoin changing lives',
           readTime: '9 min',
           difficulty: 'Beginner',
-          status: 'coming-soon',
-          path: '/guides/bitcoin-exchanges',
-          icon: '🏢'
+          status: 'available',
+          path: '/guides/bitcoin-success-stories',
+          icon: '🌟'
         },
         {
           id: 'using-bitcoin-payments',
@@ -307,7 +307,7 @@ const GuidesIndex = () => {
         <div className="mt-12 text-center">
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-bold text-white mb-2">
-              16 Comprehensive Guides
+              7 Available Guides & More Coming
             </h3>
             <p className="text-gray-400 text-sm">
               We're building a complete Bitcoin education library. Each guide is thoroughly 

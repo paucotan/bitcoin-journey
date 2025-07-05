@@ -14,6 +14,10 @@ import WhatIsBitcoin from './pages/guides/WhatIsBitcoin';
 import SecurityChecklist from './pages/guides/SecurityChecklist';
 import DollarCostAveraging from './pages/guides/DollarCostAveraging';
 import BitcoinFees from './pages/guides/BitcoinFees';
+import WhyBitcoinMattersNow from './pages/guides/WhyBitcoinMattersNow';
+import SendReceiveBitcoin from './pages/guides/SendReceiveBitcoin';
+import BitcoinSuccessStories from './pages/guides/BitcoinSuccessStories';
+import BitcoinCommonMistakes from './pages/guides/BitcoinCommonMistakes';
 
 function AppRouter() {
   return (
@@ -32,6 +36,10 @@ function AppRouter() {
             <Route path="/guides" element={<GuidesIndex />} />
             <Route path="/guides/first-wallet" element={<FirstWallet />} />
             <Route path="/guides/what-is-bitcoin" element={<WhatIsBitcoin />} />
+            <Route path="/guides/why-bitcoin-matters-now" element={<WhyBitcoinMattersNow />} />
+            <Route path="/guides/send-receive-bitcoin" element={<SendReceiveBitcoin />} />
+            <Route path="/guides/bitcoin-success-stories" element={<BitcoinSuccessStories />} />
+            <Route path="/guides/bitcoin-common-mistakes" element={<BitcoinCommonMistakes />} />
             <Route path="/guides/security-checklist" element={<SecurityChecklist />} />
             <Route path="/guides/dollar-cost-averaging" element={<DollarCostAveraging />} />
             <Route path="/guides/bitcoin-fees" element={<BitcoinFees />} />

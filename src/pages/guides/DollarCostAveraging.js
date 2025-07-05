@@ -238,48 +238,32 @@ const DollarCostAveraging = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-white mb-4">Best Platforms for DCA</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Recommended DCA Platform</h2>
           <p className="text-gray-300 mb-4">
             Choose platforms that make DCA easy and affordable:
           </p>
 
           <div className="space-y-4">
             <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-green-400 mb-2">🏆 Top DCA Platforms</h3>
+              <h3 className="text-lg font-bold text-green-400 mb-2">🏆 Strike - Top Choice</h3>
               
-              <div className="space-y-3">
-                <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
-                  <div className="flex justify-between items-start mb-1">
-                    <strong className="text-white">Strike</strong>
-                    <span className="text-green-400 text-sm">0% DCA fees</span>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    <div><strong>Best for:</strong> Everyone - zero fees on recurring purchases</div>
-                    <div><strong>Features:</strong> Lightning Network, global reach, simple interface</div>
-                  </div>
+              <div className="bg-gray-800/50 border border-gray-700 rounded p-4">
+                <div className="flex justify-between items-start mb-3">
+                  <strong className="text-white text-lg">Strike</strong>
+                  <span className="text-green-400 text-sm font-bold">Zero fees after 1 week!</span>
                 </div>
-
-                <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
-                  <div className="flex justify-between items-start mb-1">
-                    <strong className="text-white">Swan Bitcoin</strong>
-                    <span className="text-blue-400 text-sm">Bitcoin-only</span>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    <div><strong>Best for:</strong> Serious Bitcoin investors</div>
-                    <div><strong>Features:</strong> Bitcoin-only focus, automatic withdrawal, education</div>
-                  </div>
+                <div className="text-gray-300 text-sm space-y-2">
+                  <div><strong>Why Strike:</strong> Completely free recurring Bitcoin purchases after your first week</div>
+                  <div><strong>Features:</strong> Lightning Network integration, global reach, clean interface</div>
+                  <div><strong>Best for:</strong> Everyone - the fee savings make it the obvious choice</div>
+                  <div><strong>Bonus:</strong> Built-in Lightning wallet for instant, cheap transactions</div>
                 </div>
-
-                <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
-                  <div className="flex justify-between items-start mb-1">
-                    <strong className="text-white">Cash App</strong>
-                    <span className="text-purple-400 text-sm">User-friendly</span>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    <div><strong>Best for:</strong> Beginners who want simplicity</div>
-                    <div><strong>Features:</strong> Easy setup, mainstream app, Lightning support</div>
-                  </div>
-                </div>
+              </div>
+              
+              <div className="mt-4 bg-orange-500/10 border border-orange-500/20 rounded p-3">
+                <p className="text-orange-300 text-sm">
+                  <strong>Pro tip:</strong> Start with Strike for your DCA strategy. Zero fees means more of your money goes into Bitcoin, not platform fees.
+                </p>
               </div>
             </div>
           </div>
@@ -318,7 +302,7 @@ const DollarCostAveraging = () => {
             <ul className="text-gray-300 text-sm space-y-1">
               <li>• <strong>Value Averaging:</strong> Buy more when price drops, less when it rises</li>
               <li>• <strong>Graduated DCA:</strong> Increase amounts over time as income grows</li>
-              <li>• <strong>Dip Buying:</strong> Save extra cash for major drops (>20%)</li>
+              <li>• <strong>Dip Buying:</strong> Save extra cash for major drops (&gt;20%)</li>
               <li>• <strong>Profit Taking:</strong> Occasionally take some profits during euphoria</li>
             </ul>
           </div>
@@ -351,7 +335,7 @@ const DollarCostAveraging = () => {
               <span className="text-blue-400 mt-1">3️⃣</span>
               <div>
                 <strong className="text-white">Choose your platform</strong>
-                <p className="text-gray-300 text-sm">Strike offers 0% fees on recurring purchases.</p>
+                <p className="text-gray-300 text-sm">Strike offers zero fees on recurring purchases after your first week.</p>
               </div>
             </div>
 
@@ -385,7 +369,7 @@ const DollarCostAveraging = () => {
         </section>
 
         <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-4 text-center">
-          <h3 className="text-lg font-bold text-white mb-2">Time in Market > Timing the Market</h3>
+          <h3 className="text-lg font-bold text-white mb-2">Time in Market &gt; Timing the Market</h3>
           <p className="text-gray-300 text-sm">
             DCA is the antidote to trying to time Bitcoin's volatile price movements. By consistently investing over time, you smooth out volatility and build a substantial Bitcoin position without the stress of perfect timing. Most successful Bitcoin investors use some form of DCA strategy.
           </p>

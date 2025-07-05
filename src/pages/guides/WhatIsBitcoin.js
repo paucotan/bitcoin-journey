@@ -108,6 +108,7 @@ const WhatIsBitcoin = () => {
             </p>
             <ul className="text-gray-300 text-sm space-y-1">
               <li>• <strong>Absolute scarcity:</strong> First time in history we have truly scarce digital asset</li>
+              <li>• <strong>Divisible for everyone:</strong> Each Bitcoin divides into 100 million "satoshis" - there's enough for everyone</li>
               <li>• <strong>Predictable supply:</strong> New Bitcoin creation follows a precise schedule</li>
               <li>• <strong>Decreasing inflation:</strong> Supply growth rate halves every 4 years</li>
               <li>• <strong>Store of value:</strong> Scarcity creates digital gold properties</li>
@@ -219,6 +220,28 @@ const WhatIsBitcoin = () => {
             While Bitcoin is often grouped with "cryptocurrency," it's fundamentally different from most other digital assets:
           </p>
 
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
+              <h3 className="text-lg font-bold text-orange-400 mb-3">Bitcoin (Proof of Work)</h3>
+              <ul className="text-gray-300 text-sm space-y-1">
+                <li>• <strong>Energy-backed security:</strong> Miners use real energy to secure the network</li>
+                <li>• <strong>No pre-mining:</strong> Satoshi mined alongside everyone else from day one</li>
+                <li>• <strong>Immutable ledger:</strong> Changing history requires massive energy expenditure</li>
+                <li>• <strong>Trustless:</strong> Math and energy, not human promises</li>
+              </ul>
+            </div>
+
+            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+              <h3 className="text-lg font-bold text-red-400 mb-3">Most Altcoins (Proof of Stake)</h3>
+              <ul className="text-gray-300 text-sm space-y-1">
+                <li>• <strong>Wealth-based control:</strong> Richest validators control the network</li>
+                <li>• <strong>Pre-mined tokens:</strong> Founders often hold massive supplies</li>
+                <li>• <strong>Easier to change:</strong> Rules can be altered by stakeholder votes</li>
+                <li>• <strong>Trust-based:</strong> Relies on validator honesty, like traditional finance</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
             <h3 className="text-lg font-bold text-orange-400 mb-3">What Makes Bitcoin Unique</h3>
             <ul className="text-gray-300 space-y-2">
@@ -244,7 +267,7 @@ const WhatIsBitcoin = () => {
                 <span className="text-green-400 mt-1">1️⃣</span>
                 <div>
                   <strong className="text-white">Set up your first wallet</strong>
-                  <p className="text-gray-300 text-sm">Learn how to safely store Bitcoin with our wallet guide</p>
+                  <p className="text-gray-300 text-sm">Learn how to safely store Bitcoin with our <a href="/guides/first-wallet" className="text-orange-400 hover:text-orange-300 underline">wallet guide</a></p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

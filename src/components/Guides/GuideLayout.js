@@ -50,7 +50,7 @@ const GuideLayout = ({ children, title, description, readTime, nextGuide }) => {
             <button 
               onClick={() => {
                 const url = window.location.href;
-                const text = `Just learned how to set up my first Bitcoin wallet safely. This guide is incredibly helpful for beginners:`;
+                const text = `Just learned about ${title.toLowerCase()}! This Bitcoin guide is incredibly helpful for beginners:`;
                 window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
               }}
               className="bg-black hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center gap-2 mx-auto"

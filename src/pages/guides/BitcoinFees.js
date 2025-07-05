@@ -35,6 +35,46 @@ const BitcoinFees = () => {
         </div>
 
         <section>
+          <h2 className="text-2xl font-bold text-white mb-4">What Are Bitcoin Fees?</h2>
+          <p className="text-gray-300 mb-4">
+            Think of Bitcoin fees like shipping costs - you pay more for faster delivery. Here's what makes Bitcoin fees unique:
+          </p>
+
+          <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 mb-6">
+            <h3 className="text-lg font-bold text-white mb-4">Simple Analogies</h3>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-blue-400 mt-1">🚗</span>
+                <div>
+                  <strong className="text-white">Highway Toll:</strong> <span className="text-gray-300">Pay more during rush hour, less at night</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-400 mt-1">📦</span>
+                <div>
+                  <strong className="text-white">Package Shipping:</strong> <span className="text-gray-300">Heavier packages cost more, regardless of contents</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-purple-400 mt-1">🏪</span>
+                <div>
+                  <strong className="text-white">Auction Bidding:</strong> <span className="text-gray-300">Higher bids get priority processing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4 mb-6">
+            <h3 className="text-lg font-bold text-orange-400 mb-2">Why Fees Exist</h3>
+            <ul className="text-gray-300 text-sm space-y-1">
+              <li>• <strong>Pay miners:</strong> Incentivize network security and transaction processing</li>
+              <li>• <strong>Prevent spam:</strong> Stop people from flooding the network with junk transactions</li>
+              <li>• <strong>Allocate space:</strong> Bitcoin blocks have limited space - fees ensure fair distribution</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
           <h2 className="text-2xl font-bold text-white mb-4">How Bitcoin Fees Work</h2>
           <p className="text-gray-300 mb-4">
             Unlike traditional payment systems with fixed fees, Bitcoin fees are dynamic and market-based:
@@ -224,6 +264,7 @@ const BitcoinFees = () => {
                 <li>• <strong>Consolidate UTXOs:</strong> Combine small amounts during low-fee periods</li>
                 <li>• <strong>Avoid dust:</strong> Very small UTXOs cost more to spend than they're worth</li>
                 <li>• <strong>Plan withdrawals:</strong> Fewer, larger withdrawals vs many small ones</li>
+                <li>• <strong>Strike's priority feature:</strong> Choose low/medium/high priority when withdrawing to save on fees</li>
               </ul>
             </div>
 
@@ -357,6 +398,7 @@ const BitcoinFees = () => {
                 <li>• <strong>Consolidate wisely:</strong> Combine small UTXOs during low-fee periods</li>
                 <li>• <strong>Monitor trends:</strong> Learn your local low-fee times</li>
                 <li>• <strong>Emergency fund:</strong> Keep some funds on Lightning for urgent needs</li>
+                <li>• <strong>Strike advantage:</strong> Rare priority selection feature lets you optimize fees on withdrawals</li>
               </ul>
             </div>
           </div>
