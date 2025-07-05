@@ -7,6 +7,14 @@ const WhatIsBitcoin = () => {
       title="What is Bitcoin?"
       description="Understanding digital money, scarcity, and why Bitcoin is digital gold"
       readTime="6 min"
+      learningObjectives={[
+        "What makes Bitcoin different from all previous money",
+        "Why the 21 million supply limit changes everything",
+        "How Bitcoin works as peer-to-peer electronic cash",
+        "The 2008 financial crisis that inspired Bitcoin's creation",
+        "Bitcoin's revolutionary properties vs traditional money",
+        "Why Bitcoin is called 'digital gold'"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">

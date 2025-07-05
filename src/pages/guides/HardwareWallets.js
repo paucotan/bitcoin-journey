@@ -30,6 +30,14 @@ const HardwareWallets = () => {
       title="Self-Custody Guide: Hardware Wallets"
       description="Taking full control of your Bitcoin with hardware wallet security"
       readTime="12 min"
+      learningObjectives={[
+        "Why self-custody is crucial for Bitcoin ownership",
+        "Hardware vs software wallet security differences",
+        "Real-world Trezor Safe 3 setup and daily usage",
+        "Cost-benefit analysis for hardware wallet investment",
+        "Common security mistakes and how to avoid them",
+        "When to upgrade from custodial to self-custody"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">

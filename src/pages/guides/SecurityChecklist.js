@@ -112,6 +112,15 @@ const SecurityChecklist = () => {
       title="Bitcoin Security Checklist"
       description="Essential security practices and common mistakes to avoid"
       readTime="5 min"
+      learningObjectives={[
+        "Essential security practices for all Bitcoin users",
+        "How to protect against common Bitcoin scams",
+        "Device and network security best practices",
+        "Backup and recovery procedures that actually work",
+        "Red flags that indicate potential security threats",
+        "Building a comprehensive Bitcoin security plan"
+      ]}
+    
     >
       <div className="space-y-8">
         <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">

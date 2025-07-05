@@ -44,46 +44,20 @@ const TimePreference = () => {
       title="Time Preference: Why Sound Money Makes Better People"
       description="How the type of money we use shapes human behavior and civilization"
       readTime="8 min"
+      learningObjectives={[
+        "Why patience predicts life success",
+        "How fiat money destroys saving incentives",
+        "Why Bitcoin rewards delayed gratification",
+        "How money shapes entire civilizations",
+        "Practical ways to lower your time preference",
+        "Why this matters beyond just wealth"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
           <p className="text-orange-300">
             Would you save $1000 or spend it today? Your answer depends more on your money than your character. Here's how the type of money we use shapes human behavior, patience, and ultimately civilization itself.
           </p>
-        </div>
-
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-          <h3 className="text-lg font-bold text-blue-400 mb-3">What You'll Learn</h3>
-          <div className="grid md:grid-cols-2 gap-3 text-sm">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">Why patience predicts life success</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">How fiat money destroys saving incentives</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">Why Bitcoin rewards delayed gratification</span>
-              </div>
-            </div>
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">How money shapes entire civilizations</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">Practical ways to lower your time preference</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
-                <span className="text-gray-300">Why this matters beyond just wealth</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <section>

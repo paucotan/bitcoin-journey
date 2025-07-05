@@ -9,6 +9,14 @@ const SendReceiveBitcoin = () => {
       title="How to Send & Receive Bitcoin"
       description="Master Bitcoin transactions, addresses, and fees"
       readTime="9 min"
+      learningObjectives={[
+        "How Bitcoin addresses work and why they're important",
+        "Step-by-step process for receiving Bitcoin safely",
+        "How to send Bitcoin without losing your money",
+        "Understanding transaction fees and confirmation times",
+        "Lightning vs on-chain transactions and when to use each",
+        "Critical safety checks before every transaction"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">

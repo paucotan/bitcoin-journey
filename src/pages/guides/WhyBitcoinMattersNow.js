@@ -17,6 +17,14 @@ const WhyBitcoinMattersNow = () => {
       title="Why Bitcoin Matters Now"
       description="Understanding Bitcoin's relevance in today's economic reality"
       readTime="7 min"
+      learningObjectives={[
+        "How inflation is destroying your purchasing power right now",
+        "Why traditional savings and investments aren't keeping up",
+        "The Great Wealth Transfer and generational divide",
+        "How Bitcoin protects against currency debasement",
+        "Real examples of Bitcoin's impact during economic crises",
+        "Why waiting for 'perfect timing' costs you money"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">

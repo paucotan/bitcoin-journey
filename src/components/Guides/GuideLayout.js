@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const GuideLayout = ({ children, title, description, readTime, nextGuide }) => {
+const GuideLayout = ({ children, title, description, readTime, learningObjectives, nextGuide }) => {
   const navigate = useNavigate();
 
   return (
@@ -30,6 +30,35 @@ const GuideLayout = ({ children, title, description, readTime, nextGuide }) => {
           )}
         </div>
       </div>
+
+      {/* Learning Objectives */}
+      {learningObjectives && learningObjectives.length > 0 && (
+        <div className="max-w-4xl mx-auto px-4 py-6">
+          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+            <h3 className="text-lg font-bold text-blue-400 mb-3">What You'll Learn</h3>
+            <div className="grid md:grid-cols-2 gap-3 text-sm">
+              <div className="space-y-1">
+                {learningObjectives.slice(0, Math.ceil(learningObjectives.length / 2)).map((objective, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <span className="text-green-400">✓</span>
+                    <span className="text-gray-300">{objective}</span>
+                  </div>
+                ))}
+              </div>
+              {learningObjectives.length > 1 && (
+                <div className="space-y-1">
+                  {learningObjectives.slice(Math.ceil(learningObjectives.length / 2)).map((objective, index) => (
+                    <div key={index + Math.ceil(learningObjectives.length / 2)} className="flex items-center gap-2">
+                      <span className="text-green-400">✓</span>
+                      <span className="text-gray-300">{objective}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 py-8">

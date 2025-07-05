@@ -16,6 +16,14 @@ const BitcoinCommonMistakes = () => {
       title="Bitcoin for Beginners: Common Mistakes"
       description="Learn from others' costly errors to protect your Bitcoin"
       readTime="7 min"
+      learningObjectives={[
+        "Most expensive security mistakes beginners make",
+        "Investment errors that cost people money",
+        "Technical mistakes that lead to lost Bitcoin",
+        "How to recognize and avoid Bitcoin scams",
+        "Recovery strategies when mistakes happen",
+        "Building habits to prevent future errors"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">

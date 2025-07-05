@@ -20,6 +20,14 @@ const DollarCostAveraging = () => {
       title="Dollar Cost Averaging Bitcoin"
       description="Smart buying strategy with automation and psychology"
       readTime="8 min"
+      learningObjectives={[
+        "What Dollar Cost Averaging is and why it works",
+        "How to remove emotion from Bitcoin investing",
+        "Setting up automated Bitcoin purchases",
+        "Choosing the right DCA frequency and amount",
+        "DCA strategies during bull and bear markets",
+        "Platforms that support Bitcoin DCA with low fees"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">

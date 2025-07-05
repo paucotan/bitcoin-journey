@@ -26,6 +26,14 @@ const BitcoinFees = () => {
       title="Understanding Bitcoin Fees"
       description="Mempool, priority, and fee estimation strategies"
       readTime="6 min"
+      learningObjectives={[
+        "How Bitcoin transaction fees actually work",
+        "What the mempool is and why it matters",
+        "How to estimate fees for different priority levels",
+        "When to use Lightning vs on-chain transactions",
+        "Fee optimization strategies to save money",
+        "Tools and resources for monitoring network fees"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">

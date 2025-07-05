@@ -8,6 +8,14 @@ const FirstWallet = () => {
       title="Your First Bitcoin Wallet: Taking Control of Your Money"
       description="Learn how to safely store Bitcoin and understand custody options"
       readTime="8 min"
+      learningObjectives={[
+        "Difference between custodial and self-custody wallets",
+        "Why Strike is recommended for Bitcoin beginners",
+        "Essential security practices from day one",
+        "How to make your first Bitcoin purchase safely",
+        "When to graduate to hardware wallet storage",
+        "Setting up Lightning Network for instant payments"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">

@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const GuidesIndex = () => {
   const navigate = useNavigate();
+  const scrollRefs = useRef({});
+  const [scrollStates, setScrollStates] = useState({});
+
+  const updateScrollState = (categoryId, scrollContainer) => {
+    if (!scrollContainer) return;
+    
+    const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+    const canScrollLeft = scrollLeft > 0;
+    const canScrollRight = scrollLeft < scrollWidth - clientWidth - 10; // 10px threshold
+    
+    setScrollStates(prev => ({
+      ...prev,
+      [categoryId]: { canScrollLeft, canScrollRight }
+    }));
+  };
+
+  const scrollCategory = (categoryId, direction) => {
+    const container = scrollRefs.current[categoryId];
+    if (!container) return;
+    
+    const scrollAmount = 320; // Width of one card + gap
+    const newScrollLeft = direction === 'left' 
+      ? container.scrollLeft - scrollAmount
+      : container.scrollLeft + scrollAmount;
+    
+    container.scrollTo({
+      left: newScrollLeft,
+      behavior: 'smooth'
+    });
+  };
+
+  useEffect(() => {
+    // Initialize scroll states for all categories
+    Object.keys(scrollRefs.current).forEach(categoryId => {
+      updateScrollState(categoryId, scrollRefs.current[categoryId]);
+    });
+  }, []);
 
   const guideCategories = [
     {
@@ -216,6 +253,13 @@ const GuidesIndex = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16">
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        `
+      }} />
       {/* Header */}
       <div className="bg-black/50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 py-12">
@@ -258,9 +302,53 @@ const GuidesIndex = () => {
             </div>
 
             {/* Guides Carousel */}
-            <div className="overflow-x-auto pb-4">
-              <div className="flex gap-4 w-max">
-                {category.guides.map((guide) => (
+            <div className="relative overflow-hidden pb-4 group">
+              {/* Left Arrow */}
+              {scrollStates[category.id]?.canScrollLeft && (
+                <button
+                  onClick={() => scrollCategory(category.id, 'left')}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+                  aria-label="Scroll left"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Right Arrow */}
+              {scrollStates[category.id]?.canScrollRight && (
+                <button
+                  onClick={() => scrollCategory(category.id, 'right')}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+                  aria-label="Scroll right"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Fade overlays */}
+              {scrollStates[category.id]?.canScrollLeft && (
+                <div className="absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-black via-black/50 to-transparent z-10 pointer-events-none" />
+              )}
+              {scrollStates[category.id]?.canScrollRight && (
+                <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-black via-black/50 to-transparent z-10 pointer-events-none" />
+              )}
+              
+              <div 
+                ref={el => scrollRefs.current[category.id] = el}
+                className="overflow-x-auto hide-scrollbar" 
+                style={{ 
+                  scrollbarWidth: 'none', 
+                  msOverflowStyle: 'none',
+                  scrollBehavior: 'smooth'
+                }}
+                onScroll={(e) => updateScrollState(category.id, e.target)}
+              >
+                <div className="flex gap-4 pr-20">
+                  {category.guides.map((guide) => (
                   <div 
                     key={guide.id}
                     className={`bg-gray-800/50 border rounded-lg p-4 w-72 flex-shrink-0 transition-all duration-300 ${
@@ -308,6 +396,7 @@ const GuidesIndex = () => {
                     )}
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>

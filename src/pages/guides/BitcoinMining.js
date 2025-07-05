@@ -36,6 +36,14 @@ const BitcoinMining = () => {
       title="Bitcoin Mining Explained"
       description="Understanding how Bitcoin mining secures the network and creates new Bitcoin"
       readTime="11 min"
+      learningObjectives={[
+        "What Bitcoin mining actually does for network security",
+        "How Proof-of-Work consensus mechanism works",
+        "Evolution from CPU to GPU to ASIC mining",
+        "Mining economics and profitability factors",
+        "Energy consumption facts vs environmental myths",
+        "How mining affects your transaction fees and timing"
+      ]}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
