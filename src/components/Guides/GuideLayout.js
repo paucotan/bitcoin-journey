@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const GuideLayout = ({ children, title, description, readTime, learningObjectives, nextGuide }) => {
+const GuideLayout = ({ children, title, description, readTime, learningObjectives, nextGuide, bookRecommendation }) => {
   const navigate = useNavigate();
 
   return (
@@ -66,6 +66,52 @@ const GuideLayout = ({ children, title, description, readTime, learningObjective
           {children}
         </div>
 
+        {/* Book Recommendation */}
+        {bookRecommendation && (
+          <div className="mt-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Recommended Reading</h2>
+            <div className="bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden mb-8">
+              <div className="md:flex">
+                <div className="md:w-1/3 p-6">
+                  <img
+                    src={bookRecommendation.imageUrl}
+                    alt={`${bookRecommendation.title} by ${bookRecommendation.author}`}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+                <div className="md:w-2/3 p-6">
+                  <h3 className="text-xl font-bold text-white mb-2">{bookRecommendation.title}</h3>
+                  <p className="text-orange-400 font-medium mb-3">by {bookRecommendation.author}</p>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    {bookRecommendation.description}
+                  </p>
+                  {bookRecommendation.highlights && (
+                    <div className="mb-4">
+                      <p className="text-gray-300 text-sm mb-2"><strong>What you'll discover:</strong></p>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        {bookRecommendation.highlights.map((highlight, index) => (
+                          <li key={index}>• {highlight}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <a
+                    href={bookRecommendation.amazonUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
+                  >
+                    <span>📚</span>
+                    Get on Amazon
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Share Article */}
         <div className="mt-12 text-center">

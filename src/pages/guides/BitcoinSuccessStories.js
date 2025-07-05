@@ -23,6 +23,19 @@ const BitcoinSuccessStories = () => {
         "Common traits of people who succeeded with Bitcoin",
         "How to apply these success patterns to your own journey"
       ]}
+      bookRecommendation={{
+        title: "Check Your Financial Privilege",
+        author: "Alex Gladstein",
+        description: "Real-world case studies of how Bitcoin provides financial freedom to people facing currency debasement, hyperinflation, and financial oppression. From Nigeria to Afghanistan, these are documented stories of Bitcoin changing lives - not fictional examples, but actual testimonies of financial liberation.",
+        imageUrl: "https://store.bitcoinmagazine.com/cdn/shop/files/IMG_0554Edited.jpg?v=1697732129",
+        amazonUrl: "https://www.amazon.com/Check-Your-Financial-Privilege-Gladstein-ebook/dp/B0B1RDWHLN/ref=tmm_kin_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.THDB0PMor71Pw3ZXN_me5J1pCw4Iw0U565FeCunTfyxImbXDrWggoNkPKC-WW2BG_HtJHGbl0yKIFn6BlEm3730KRe8eTU9KGhSv2xeLrPy8tYzqojbBbNwgSyMwdZ9hS2XhiSqpdMnVVZKtr5XNfw.KuPih4P7tp4rQLem5UxaXwNpIq-6QupA5ab0LAaFJ6Y&qid=1751731837&sr=8-1",
+        highlights: [
+          "Real people escaping financial censorship through Bitcoin",
+          "Documented case studies from developing countries", 
+          "How Bitcoin provides inclusion for the unbanked",
+          "Examples of Bitcoin's impact during economic crises"
+        ]
+      }}
     >
       <div className="space-y-8">
         <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
@@ -56,9 +69,16 @@ const BitcoinSuccessStories = () => {
           <div className="space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">Individual Success Stories</h2>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300 mb-4">
                 Regular people who made Bitcoin work for them - not through luck, but through education, patience, and smart decisions.
               </p>
+              
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 mb-6">
+                <p className="text-blue-300 text-sm">
+                  <strong>Note:</strong> Individual stories below are educational examples based on common Bitcoin adoption patterns. 
+                  Business and country examples are factual. For real-world case studies, see the book recommendation at the end.
+                </p>
+              </div>
 
               <div className="space-y-6">
                 <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-6">
@@ -278,8 +298,8 @@ const BitcoinSuccessStories = () => {
                   <div className="flex items-start gap-4 mb-4">
                     <div className="text-3xl">📊</div>
                     <div>
-                      <h3 className="text-xl font-bold text-blue-400">MicroStrategy - Corporate Treasury Revolution</h3>
-                      <p className="text-gray-400 text-sm">Started: August 2020 • Total Investment: $5+ billion</p>
+                      <h3 className="text-xl font-bold text-blue-400">Strategy (formerly MicroStrategy) - Corporate Treasury Revolution</h3>
+                      <p className="text-gray-400 text-sm">Started: August 2020 • Total Investment: $33+ billion</p>
                     </div>
                   </div>
 
@@ -306,8 +326,8 @@ const BitcoinSuccessStories = () => {
                       <h4 className="text-white font-bold mb-2">The Results</h4>
                       <div className="bg-green-500/10 border border-green-500/20 rounded p-3">
                         <p className="text-green-300 text-sm">
-                          <strong>Impact:</strong> Stock price increased 10x+. Inspired dozens of other companies to add Bitcoin 
-                          to treasury. Proved Bitcoin works for institutional balance sheets.
+                          <strong>Impact:</strong> Stock price increased 10x+. Accumulated over 400,000 Bitcoin ($33+ billion invested). 
+                          Inspired dozens of other companies to add Bitcoin to treasury. Company renamed to "Strategy" to reflect Bitcoin focus.
                         </p>
                       </div>
                     </div>
@@ -320,6 +340,23 @@ const BitcoinSuccessStories = () => {
                         <li>• <strong>Long-term thinking:</strong> Focused on decade+ time horizon</li>
                         <li>• <strong>First mover advantage:</strong> Early corporate adoption paid off</li>
                       </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-bold mb-2">📺 Michael Saylor's Bitcoin Vision</h4>
+                      <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
+                        <p className="text-gray-300 text-sm mb-2">
+                          Watch Michael Saylor explain Strategy's Bitcoin strategy and vision for digital capital:
+                        </p>
+                        <a 
+                          href="https://www.youtube.com/watch?v=i9slA5JEO7Q&t=145s"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 text-sm underline"
+                        >
+                          🎥 Strategy Keynote: "Bitcoin as Digital Capital"
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -590,10 +627,10 @@ const BitcoinSuccessStories = () => {
 
                 <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-6">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="text-3xl">🇺🇦</div>
+                    <div className="text-3xl">🇧🇹</div>
                     <div>
-                      <h3 className="text-xl font-bold text-yellow-400">Ukraine - Bitcoin for Humanitarian Aid</h3>
-                      <p className="text-gray-400 text-sm">Context: February 2022 - Present</p>
+                      <h3 className="text-xl font-bold text-yellow-400">Bhutan - Sustainable Bitcoin Mining Pioneer</h3>
+                      <p className="text-gray-400 text-sm">Started: 2019 • Strategy: Hydroelectric-Powered Mining</p>
                     </div>
                   </div>
 
@@ -601,18 +638,18 @@ const BitcoinSuccessStories = () => {
                     <div>
                       <h4 className="text-white font-bold mb-2">The Challenge</h4>
                       <p className="text-gray-300 text-sm">
-                        War disrupted traditional banking and payment systems. Needed fast, borderless donations 
-                        for military and humanitarian aid. Traditional wire transfers too slow and expensive.
+                        Small Himalayan kingdom with abundant hydroelectric power but limited economic diversification. 
+                        Needed sustainable revenue sources while maintaining carbon neutrality goals.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="text-white font-bold mb-2">The Bitcoin Strategy</h4>
                       <ul className="text-gray-300 text-sm space-y-1">
-                        <li>• Government published Bitcoin donation addresses</li>
-                        <li>• Citizens used Bitcoin to receive international help</li>
-                        <li>• Bitcoin enabled 24/7 donations from anywhere</li>
-                        <li>• Transparent blockchain showed fund usage</li>
+                        <li>• Government-backed Bitcoin mining using 100% renewable hydroelectric power</li>
+                        <li>• Secretly accumulated Bitcoin for years before public disclosure</li>
+                        <li>• Partnered with international mining companies for expertise</li>
+                        <li>• Integrated mining operations with existing energy infrastructure</li>
                       </ul>
                     </div>
 
@@ -620,8 +657,8 @@ const BitcoinSuccessStories = () => {
                       <h4 className="text-white font-bold mb-2">The Results</h4>
                       <div className="bg-green-500/10 border border-green-500/20 rounded p-3">
                         <p className="text-green-300 text-sm">
-                          <strong>Impact:</strong> Raised $100+ million in cryptocurrency donations. Proved Bitcoin's 
-                          value for emergency humanitarian aid and crisis situations.
+                          <strong>Impact:</strong> Accumulated over $750 million in Bitcoin holdings. Became a model for 
+                          sustainable, carbon-neutral Bitcoin mining using renewable energy. Created new revenue stream for national treasury.
                         </p>
                       </div>
                     </div>
@@ -629,10 +666,10 @@ const BitcoinSuccessStories = () => {
                     <div>
                       <h4 className="text-white font-bold mb-2">Key Lessons</h4>
                       <ul className="text-gray-300 text-sm space-y-1">
-                        <li>• <strong>Crisis utility:</strong> Bitcoin works when traditional systems fail</li>
-                        <li>• <strong>Instant global donations:</strong> 24/7 borderless humanitarian aid</li>
-                        <li>• <strong>Transparency:</strong> Blockchain provides proof of funds</li>
-                        <li>• <strong>Sovereignty:</strong> Bitcoin can't be frozen by third parties</li>
+                        <li>• <strong>Renewable energy advantage:</strong> Hydroelectric power makes mining sustainable</li>
+                        <li>• <strong>Strategic patience:</strong> Accumulated quietly before public disclosure</li>
+                        <li>• <strong>National treasury diversification:</strong> Bitcoin as sovereign wealth reserve</li>
+                        <li>• <strong>Green Bitcoin mining:</strong> Proof that Bitcoin can be environmentally friendly</li>
                       </ul>
                     </div>
                   </div>

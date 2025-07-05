@@ -52,6 +52,13 @@ const TimePreference = () => {
         "Practical ways to lower your time preference",
         "Why this matters beyond just wealth"
       ]}
+      bookRecommendation={{
+        title: "The Bitcoin Standard",
+        author: "Saifedean Ammous",
+        description: "The decentralized alternative to central banking and essential guide to Bitcoin's history, properties, and future. This book explores how sound money shapes civilization and why Bitcoin represents a return to low time preference.",
+        imageUrl: "https://media.s-bol.com/7zrAyPpjNXor/k3gP6r/550x814.jpg",
+        amazonUrl: "https://www.amazon.com/Bitcoin-Standard-Decentralized-Alternative-Central/dp/1119473861"
+      }}
     >
       <div className="space-y-8">
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
@@ -319,39 +326,6 @@ const TimePreference = () => {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-bold text-white mb-4">Recommended Reading</h2>
-          <div className="bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden mb-8">
-            <div className="md:flex">
-              <div className="md:w-1/3 p-6">
-                <img
-                  src="https://media.s-bol.com/7zrAyPpjNXor/k3gP6r/550x814.jpg"
-                  alt="The Bitcoin Standard by Saifedean Ammous"
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="md:w-2/3 p-6">
-                <h3 className="text-xl font-bold text-white mb-2">The Bitcoin Standard</h3>
-                <p className="text-orange-400 font-medium mb-3">by Saifedean Ammous</p>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                  The decentralized alternative to central banking and essential guide to Bitcoin's history, properties, and future. This book explores how sound money shapes civilization and why Bitcoin represents a return to low time preference.
-                </p>
-                <a
-                  href="https://www.amazon.com/Bitcoin-Standard-Decentralized-Alternative-Central/dp/1119473861"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
-                >
-                  <span>📚</span>
-                  Get on Amazon
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">Taking Action: Lowering Your Time Preference</h2>
