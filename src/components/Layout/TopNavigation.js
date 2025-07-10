@@ -35,7 +35,7 @@ const TopNavigation = () => {
       return () => window.removeEventListener('scroll', handleScroll);
     }
   }, [lastScrollY, isDashboardRoute]);
-  
+
   if (isDashboardRoute) {
     return null;
   }
