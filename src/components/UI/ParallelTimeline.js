@@ -73,7 +73,7 @@ const ParallelTimeline = () => {
   const bitcoinEvents = [
     {
       year: "1976",
-      title: "Diffie-Hellman Key Exchange", 
+      title: "Diffie-Hellman Key Exchange",
       description: "Whitfield Diffie and Martin Hellman publish 'New Directions in Cryptography', introducing public-key cryptography.",
       impact: "Foundation for secure communication without shared secrets - essential for digital currencies",
       color: "bg-green-500",
@@ -86,7 +86,7 @@ const ParallelTimeline = () => {
       title: "Cypherpunk Mailing List",
       description: "Eric Hughes, Tim May, and John Gilmore start the cypherpunk movement focusing on privacy through cryptography.",
       impact: "Creates the ideological and technical community that will birth Bitcoin",
-      color: "bg-indigo-500", 
+      color: "bg-indigo-500",
       icon: "📧",
       category: "movement",
       keyPerson: "Hughes, May & Gilmore"
@@ -98,7 +98,7 @@ const ParallelTimeline = () => {
       impact: "Direct precursor to Bitcoin's proof-of-work - solves the double-spending problem",
       color: "bg-pink-500",
       icon: "⚡",
-      category: "proof-of-work", 
+      category: "proof-of-work",
       keyPerson: "Adam Back"
     },
     {
@@ -122,7 +122,7 @@ const ParallelTimeline = () => {
       keyPerson: "Satoshi Nakamoto"
     },
     {
-      year: "2010", 
+      year: "2010",
       title: "Pizza Day",
       description: "Laszlo Hanyecz buys two pizzas for 10,000 BTC (~$25). The first real-world Bitcoin purchase.",
       impact: "Proves Bitcoin can function as money - establishes first price discovery mechanism",
@@ -136,7 +136,7 @@ const ParallelTimeline = () => {
       title: "Bitcoin Fork Wars",
       description: "Hard fork creates Bitcoin Cash as debate rages over Bitcoin's scaling approach. Bitcoin's protocol proves antifragile.",
       impact: "Demonstrates Bitcoin's resistance to change and commitment to decentralization over convenience",
-      color: "bg-red-500", 
+      color: "bg-red-500",
       icon: "⚔️",
       category: "bitcoin",
       keyPerson: "Bitcoin Community"
@@ -145,7 +145,7 @@ const ParallelTimeline = () => {
       year: "2021",
       title: "El Salvador Adoption",
       description: "El Salvador becomes first country to adopt Bitcoin as legal tender. Institutions begin major Bitcoin purchases.",
-      impact: "Bitcoin transitions from internet money to sovereign money - institutional adoption accelerates", 
+      impact: "Bitcoin transitions from internet money to sovereign money - institutional adoption accelerates",
       color: "bg-green-600",
       icon: "🏛️",
       category: "bitcoin",
@@ -166,7 +166,7 @@ const ParallelTimeline = () => {
   // Create chronologically aligned timeline
   const createAlignedTimeline = () => {
     const allYears = [...new Set([...monetaryEvents.map(e => parseInt(e.year)), ...bitcoinEvents.map(e => parseInt(e.year))])].sort((a, b) => a - b);
-    
+
     return allYears.map(year => {
       const monetary = monetaryEvents.find(e => parseInt(e.year) === year);
       const bitcoin = bitcoinEvents.find(e => parseInt(e.year) === year);
@@ -197,9 +197,9 @@ const ParallelTimeline = () => {
         <p className="text-gray-300 text-lg mb-2">
           From gold standard to fake money: <span className="text-red-400 font-bold">The 1971 turning point that broke everything.</span>
         </p>
-        <p className="text-gray-300 text-sm">
+        {/* <p className="text-gray-300 text-sm">
           While governments destroyed sound money, cypherpunks built the alternative.
-        </p>
+        </p> */}
       </div>
 
       <div className="relative">
@@ -219,7 +219,7 @@ const ParallelTimeline = () => {
         {/* Desktop Timeline */}
         <div className="hidden md:block relative max-w-6xl mx-auto">
           <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-500 via-orange-500 to-green-500 transform -translate-x-1/2"></div>
-          
+
           <div className="space-y-8">
             {alignedTimeline.map((row, index) => (
               <div key={row.year} className="relative">
@@ -249,9 +249,9 @@ const ParallelTimeline = () => {
                             </div>
                             <span className="text-2xl">{row.monetary.icon}</span>
                           </div>
-                          
+
                           <p className="text-gray-300 text-sm mb-3">{row.monetary.description}</p>
-                          
+
                           {activeEvent === `monetary-${index}` && (
                             <div className="animate-fade-in space-y-3 mt-3">
                               <div className="bg-red-900/30 border border-red-500 rounded p-3">
@@ -260,7 +260,7 @@ const ParallelTimeline = () => {
                               </div>
                             </div>
                           )}
-                          
+
                           {activeEvent !== `monetary-${index}` && (
                             <div className="text-gray-500 text-xs">Click to see the damage →</div>
                           )}
@@ -292,9 +292,9 @@ const ParallelTimeline = () => {
                               <div className="text-gray-400 text-xs">{row.bitcoin.keyPerson}</div>
                             </div>
                           </div>
-                          
+
                           <p className="text-gray-300 text-sm mb-3">{row.bitcoin.description}</p>
-                          
+
                           {activeEvent === `bitcoin-${index}` && (
                             <div className="animate-fade-in space-y-3 mt-3">
                               <div className="bg-green-900/30 border border-green-500 rounded p-3">
@@ -303,7 +303,7 @@ const ParallelTimeline = () => {
                               </div>
                             </div>
                           )}
-                          
+
                           {activeEvent !== `bitcoin-${index}` && (
                             <div className="text-gray-500 text-xs">Click to see Bitcoin connection →</div>
                           )}
@@ -322,7 +322,7 @@ const ParallelTimeline = () => {
         {/* Mobile Timeline */}
         <div className="md:hidden relative">
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-500 via-orange-500 to-green-500"></div>
-          
+
           <div className="space-y-6">
             {alignedTimeline.map((row, index) => (
               <div key={row.year} className="relative">
@@ -352,9 +352,9 @@ const ParallelTimeline = () => {
                             <div className="text-gray-400 text-xs">💀 Monetary Destruction</div>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-300 text-xs mb-2">{row.monetary.description}</p>
-                        
+
                         {activeEvent === `monetary-${index}` && (
                           <div className="animate-fade-in space-y-2 mt-2">
                             <div className="bg-red-900/30 border border-red-500 rounded p-2">
@@ -363,7 +363,7 @@ const ParallelTimeline = () => {
                             </div>
                           </div>
                         )}
-                        
+
                         {activeEvent !== `monetary-${index}` && (
                           <div className="text-gray-500 text-xs">Tap to see impact →</div>
                         )}
@@ -391,9 +391,9 @@ const ParallelTimeline = () => {
                             <div className="text-gray-400 text-xs">🚀 {row.bitcoin.keyPerson}</div>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-300 text-xs mb-2">{row.bitcoin.description}</p>
-                        
+
                         {activeEvent === `bitcoin-${index}` && (
                           <div className="animate-fade-in space-y-2 mt-2">
                             <div className="bg-green-900/30 border border-green-500 rounded p-2">
@@ -402,7 +402,7 @@ const ParallelTimeline = () => {
                             </div>
                           </div>
                         )}
-                        
+
                         {activeEvent !== `bitcoin-${index}` && (
                           <div className="text-gray-500 text-xs">Tap to see connection →</div>
                         )}
@@ -421,24 +421,24 @@ const ParallelTimeline = () => {
         <div className="text-center mb-4">
           <h3 className="text-2xl font-bold text-orange-400 mb-2">⚡ The Perfect Storm: 2008-2009</h3>
           <p className="text-gray-300">
-            As the financial system collapsed from decades of monetary abuse, 
+            As the financial system collapsed from decades of monetary abuse,
             <span className="text-green-400 font-bold"> the cypherpunk solution was ready</span>.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-red-900/30 border border-red-400 rounded-lg p-4">
             <div className="text-red-400 font-bold mb-2">💥 The Crisis</div>
             <div className="text-red-200 text-sm">
-              Banks collapse, bailouts begin, money printing accelerates. 
+              Banks collapse, bailouts begin, money printing accelerates.
               The fiat system shows its true nature.
             </div>
           </div>
-          
+
           <div className="bg-green-900/30 border border-green-400 rounded-lg p-4">
             <div className="text-green-400 font-bold mb-2">₿ The Solution</div>
             <div className="text-green-200 text-sm">
-              30+ years of cryptographic innovation culminates in Bitcoin - 
+              30+ years of cryptographic innovation culminates in Bitcoin -
               a system immune to monetary manipulation.
             </div>
           </div>
