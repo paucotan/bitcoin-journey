@@ -108,11 +108,11 @@ const BitcoinVsAltcoins = () => {
         {/* Guided Tour Steps */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-2xl">👆</span>
+            <span className="text-2xl">👇</span>
             <p className="text-lg text-orange-400 font-semibold">
               Click each card to learn the truth
             </p>
-            <span className="text-2xl">👆</span>
+            <span className="text-2xl">👇</span>
           </div>
           <div className="flex justify-center gap-4">
             {comparisonCards.map((card, index) => (
