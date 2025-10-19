@@ -1,6 +1,6 @@
 import React from 'react';
 import AppRouter from './AppRouter';
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 
 
 function App() {
