@@ -48,7 +48,7 @@ export const loadMarkdownGuide = async (fileName) => {
     
     return parsed;
   } catch (error) {
-    console.error(`Error loading markdown guide ${fileName}:`, error);
+    // Guide failed to load - returning fallback content
     return {
       frontmatter: {
         title: 'Guide Not Found',

@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useReadGuides } from '../../hooks/useReadGuides';
 
 const GuidesIndex = () => {
   const navigate = useNavigate();
   const scrollRefs = useRef({});
   const [scrollStates, setScrollStates] = useState({});
+  const { readGuides, markAsRead } = useReadGuides();
 
   const updateScrollState = (categoryId, scrollContainer) => {
     if (!scrollContainer) return;
@@ -361,11 +363,18 @@ const GuidesIndex = () => {
                     {/* Guide Icon & Status */}
                     <div className="flex items-start justify-between mb-3">
                       <div className="text-2xl">{guide.icon}</div>
-                      {guide.status === 'coming-soon' && (
-                        <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                          Coming Soon
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1">
+                        {readGuides.has(guide.id) && (
+                          <span className="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-1 rounded flex items-center gap-1">
+                            ✓ Read
+                          </span>
+                        )}
+                        {guide.status === 'coming-soon' && (
+                          <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Title & Description */}

@@ -370,16 +370,9 @@ export const formatChartData = () => {
 
 // Data validation
 export const validateDataSources = () => {
-  console.log('Data Sources Validation:');
-  console.log('M2 Data Points:', M2_MONEY_SUPPLY_DATA.length);
-  console.log('CPI Data Points:', CPI_DATA.length);
-  console.log('Historical Price Years:', Object.keys(HISTORICAL_PRICES).length);
-  
   // Verify purchasing power calculation
   const test1959 = calculatePurchasingPower(100, 1959, 2024);
-  console.log('Test: $100 in 1959 = $', test1959.toFixed(2), 'in 2024');
-  console.log('Expected: ~$1,108 (per BLS calculator)');
-  
+
   return {
     m2DataCount: M2_MONEY_SUPPLY_DATA.length,
     cpiDataCount: CPI_DATA.length,

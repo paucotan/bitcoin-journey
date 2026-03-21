@@ -1,37 +1,62 @@
 # The Bitcoin Journey
 
-<img src="assets/btc_journey_logo.png" alt="Bitcoin Journey Logo" width="200">
+An educational Bitcoin resource with 13 practical guides covering everything from your first wallet to advanced topics like mining and time preference.
 
-An educational React application that teaches users about money, inflation, and Bitcoin through interactive stories and real-world examples.
+## Tech Stack
 
-## 🚀 Features
+- **Vite** - Build tool and dev server
+- **React 18** - UI framework with hooks and lazy loading
+- **TypeScript** - Type support (allowJs enabled, .js files work alongside .ts)
+- **Tailwind CSS** - Utility-first CSS (proper PostCSS install, no CDN)
+- **React Router v7** - Client-side routing with code-split lazy routes
+- **Vercel Analytics & Speed Insights** - Production monitoring
 
-### 📚 Learning Experience
-- **Interactive Stories**: Learn through engaging narratives like the 1923 German hyperinflation
-- **Real-world Examples**: Historical contexts and practical analogies
-- **Progressive Learning**: Structured chapters from beginner to advanced concepts
-- **Hyperinflation Calculator**: Interactive tool to visualize monetary debasement
+## Project Structure
 
-### 🧭 Navigation & UX
-- **Landing Page**: Welcoming introduction to the Bitcoin journey
-- **Dashboard**: Progress tracking and chapter overview
-- **Breadcrumb Navigation**: Clear learning path visualization
-- **Progress Indicators**: Visual feedback on learning achievements
-- **Responsive Design**: Works on desktop and mobile devices
+```
+src/
+  App.js                  # Root component with Analytics
+  AppRouter.js            # All routes, lazy-loaded guide pages
+  index.js                # Entry point, imports index.css
+  index.css               # Tailwind directives
+  hooks/
+    useReadGuides.ts      # localStorage-backed read tracking
+  pages/
+    Landing.js
+    About.js
+    guides/               # 13 guide pages (lazy loaded)
+      GuidesIndex.js
+      FirstWallet.js
+      WhatIsBitcoin.js
+      ...
+  components/
+    Layout/
+      TopNavigation.js
+  data/
+    historicalData.js
+  utils/
+    markdownParser.js
+  assets/
+    guides/               # Markdown source files for guides
+```
 
-### 🎯 Educational Content
-- **Level 1**: The Money Story - Understanding monetary fundamentals
-- **Level 2**: The Practical Path (Coming Soon)
-- **Level 3**: The Expert Realm (Coming Soon)
+## Available Guides
 
-## 🛠️ Technology Stack
+- Your First Bitcoin Wallet
+- What is Bitcoin?
+- Why Bitcoin Matters Now
+- How to Send & Receive Bitcoin
+- Time Preference: Why Sound Money Makes Better People
+- Self-Custody: Hardware Wallets
+- Bitcoin for Beginners: Common Mistakes
+- Bitcoin Security Checklist
+- Dollar Cost Averaging Bitcoin
+- Bitcoin Success Stories
+- Bitcoin Mining Explained
+- Understanding Bitcoin Fees
+- Bitcoin Mining (technical deep dive)
 
-- **React 18** - Modern React with hooks
-- **Tailwind CSS** - Utility-first CSS framework
-- **Lucide React** - Beautiful icons
-- **JavaScript ES6+** - Modern JavaScript features
-
-## 📦 Installation
+## Getting Started
 
 1. Clone the repository:
 ```bash
@@ -46,62 +71,25 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) to view in the browser.
 
-## 🎨 Available Scripts
+## Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm build` - Builds the app for production
-- `npm test` - Launches the test runner
-- `npm run eject` - Ejects from Create React App (one-way operation)
+- `npm run dev` - Start Vite dev server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
 
-## 🌍 Multilingual Support
+## Deployment
 
-The app supports multiple languages:
-- 🇺🇸 English
-- 🇪🇸 Español (Coming Soon)
-- 🇧🇷 Português (Coming Soon)
+Deployed on Vercel. Push to main branch triggers automatic deployment.
 
-## 📖 Learning Path
+## Multilingual Support
 
-### Chapter 1: What is Money Really?
-Understanding the fundamental nature and purpose of money
+Google Translate widget is integrated for on-the-fly translation support.
 
-### Chapter 2: The Wine Gets Watered Down
-Learning about inflation and monetary debasement
+## License
 
-### Chapter 3: When Money Goes Bad ⚡ (Current)
-Historical examples of hyperinflation and monetary collapse
-
-### Chapter 4: The Gold Standard Era
-The rise and fall of sound money principles
-
-## 🎯 Learning Objectives
-
-By completing The Bitcoin Journey, users will understand:
-- Why money was invented and how it evolved
-- How inflation silently affects purchasing power
-- Historical examples of monetary collapse
-- Why Bitcoin represents a new monetary paradigm
-- The importance of sound money principles
-
-## 🤝 Contributing
-
-We welcome contributions! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🌟 Acknowledgments
-
-- Inspired by Austrian economics and sound money principles
-- Built for educational purposes to promote financial literacy
-- Special thanks to the Bitcoin community for their educational resources
-
----
-
-**Start your Bitcoin journey today and understand why sound money matters!** 🚀
+Open source under the [MIT License](LICENSE).
