@@ -5,16 +5,11 @@ const TopNavigation = () => {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  
-  // Don't show on dashboard routes since they have their own header
-  const isDashboardRoute = location.pathname.startsWith('/dashboard') || 
-                          location.pathname.startsWith('/chapter') || 
-                          location.pathname.startsWith('/lesson');
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Show navbar if at top of page
       if (currentScrollY < 10) {
         setIsVisible(true);
@@ -25,20 +20,13 @@ const TopNavigation = () => {
       } else if (currentScrollY < lastScrollY) {
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
-    // Only add scroll listener if not on dashboard routes
-    if (!isDashboardRoute) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, [lastScrollY, isDashboardRoute]);
-
-  if (isDashboardRoute) {
-    return null;
-  }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
     <nav 
