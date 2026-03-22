@@ -34,6 +34,11 @@ Local dev: `npm run dev` → http://localhost:5173/
 - `src/components/UI/BitcoinVsAltcoins.jsx` — needs full text review before any edits (credibility/legal risk if named altcoins called fraudulent)
 - `src/pages/guides/` — all guide components (Phase 2)
 
+## Slash commands
+
+- `/curator` — museum curator agent; reads CREATIVE_BRIEF.md + CURATOR_REVIEW.md automatically; can interview, review specific guides, or critique copy; does NOT write code
+- `/webdev` — UI/UX web developer agent; reads CREATIVE_BRIEF.md + docs/ automatically; can visually audit the live site in Chrome (port 5173), screenshot pages, propose UI improvements; does NOT write code or make content decisions
+
 ## Guide tiers (from CREATIVE_BRIEF.md)
 
 - **Permanent Collection** (core): What Is Bitcoin, Why Bitcoin Matters Now, Time Preference — plus recommended new guide: What Is Money?
