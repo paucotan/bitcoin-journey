@@ -33,7 +33,7 @@ const BitcoinMoralCode = () => {
 
   const comparisons = [
     {
-      title: "Theft by Inflation",
+      title: "Inflation and Purchasing Power",
       fiatProblem: "Governments print money, stealing your purchasing power silently",
       fiatIcon: "💸",
       fiatExample: "$8 trillion printed in 2020 alone - your savings lost 15% value",
@@ -69,7 +69,7 @@ const BitcoinMoralCode = () => {
       bitcoinExample: "Send Bitcoin anywhere in minutes for pennies, no bank account needed"
     },
     {
-      title: "Manipulation & Lies",
+      title: "Monetary Transparency",
       fiatProblem: "Opaque monetary policy, hidden bailouts, false economic data",
       fiatIcon: <img src="/assets/annuit-coeptis.jpg" alt="Manipulation & Lies" className="w-8 h-8 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
       fiatExample: "Secret Federal Reserve meetings, undisclosed bank bailouts, inflation lies",
@@ -78,7 +78,7 @@ const BitcoinMoralCode = () => {
       bitcoinExample: "Every transaction public, supply schedule coded and immutable"
     },
     {
-      title: "War & Conflict Financing",
+      title: "War Finance and Sound Money",
       fiatProblem: "Governments print money to fund wars without public consent or taxation",
       fiatIcon: "⚔️",
       fiatExample: "WWI, WWII, Vietnam, Iraq - all funded by monetary expansion, not votes",
@@ -95,17 +95,13 @@ const BitcoinMoralCode = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              The Moral Case for <span className="text-orange-400">Bitcoin</span>
+              Two Systems, <span className="text-orange-400">Different Rules</span>
             </h2>
           </div>
-          <p className="text-xl text-orange-300 mb-8 font-semibold">
-            Why Bitcoin matters beyond the money
-          </p>
           <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
-          <blockquote className="text-xl md:text-2xl text-orange-400 italic max-w-4xl mx-auto">
-            "Bitcoin is more powerful than war, it's more powerful than government because of math."
-            <footer className="text-lg text-gray-400 mt-2 not-italic">- Jack Mallers</footer>
-          </blockquote>
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+            Every monetary system has rules. Here is what the rules of each system actually are.
+          </p>
         </div>
 
         {/* Comparison Cards */}
@@ -135,8 +131,7 @@ const BitcoinMoralCode = () => {
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-4xl">{comparison.fiatIcon}</div>
                     <div>
-                      <h4 className="text-red-400 font-bold text-lg">The Broken System</h4>
-                      <p className="text-red-300/80 text-sm">Fiat Currency Problems</p>
+                      <h4 className="text-red-400 font-bold text-lg">How fiat money works</h4>
                     </div>
                   </div>
                   
@@ -157,8 +152,7 @@ const BitcoinMoralCode = () => {
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-4xl">{comparison.bitcoinIcon}</div>
                     <div>
-                      <h4 className="text-orange-400 font-bold text-lg">Bitcoin's Solution</h4>
-                      <p className="text-orange-300/80 text-sm">Sound Money Principles</p>
+                      <h4 className="text-orange-400 font-bold text-lg">How Bitcoin works</h4>
                     </div>
                   </div>
                   
@@ -183,15 +177,14 @@ const BitcoinMoralCode = () => {
           <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/20 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <h3 className="text-2xl md:text-3xl font-bold text-white">
-                <span className="text-orange-500">₿</span> Your Generation's Choice
+                <span className="text-orange-500">₿</span> Something New
               </h3>
             </div>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
-              You don't need protests. You don't need war. You don't need permission from politicians. 
-              <span className="text-orange-400 font-bold">Bitcoin</span> is a peaceful revolution through mathematics.
+              For the first time in history, anyone with internet access can hold money that no government can print more of. That is new. That is worth understanding.
             </p>
             <p className="text-base md:text-lg text-orange-400 italic font-medium">
-              "Choose sound money. Own your financial future."
+              Bitcoin is a peaceful revolution through mathematics.
             </p>
           </div>
         </div>

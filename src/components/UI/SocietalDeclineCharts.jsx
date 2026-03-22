@@ -54,7 +54,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "HOME VALUE CHANGE VS. INCOME CHANGE",
       subtitle: "(1965-2021)",
-      description: "Housing became unaffordable for an entire generation",
+      description: "Home values rose 6x faster than wages between 1965 and 2021.",
       data: {
         homeValue: [
           { year: 1965, value: 0 },
@@ -81,7 +81,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "WORKER PAY VS. PRODUCTIVITY",
       subtitle: "Since the 1970s",
-      description: "The great wage theft began when money became fake",
+      description: "Productivity and wages moved together until the early 1970s. Then they diverged.",
       data: {
         productivity: [
           { year: 1949, value: 100 },
@@ -102,7 +102,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "CHILDHOOD OBESITY TRENDS",
       subtitle: "Ages 2-19 Years (1963-2016)",
-      description: "Industrial food replaced real food after 1971",
+      description: "Childhood obesity rates began rising steadily after the early 1970s.",
       data: {
         ages2to5: [
           { year: 1963, value: 4 },
@@ -135,7 +135,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "FAMILIES IN POVERTY BY STRUCTURE",
       subtitle: "(1959-2012)",
-      description: "Family breakdown accelerated after sound money ended",
+      description: "Single-parent poverty rates rose sharply in the decades after 1971.",
       data: {
         marriedCouple: [
           { year: 1960, value: 1800 },
@@ -324,7 +324,7 @@ const SocietalDeclineCharts = () => {
             The Great Divergence
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            How 1971 broke America: A data exhibition
+            The Divergence: What the Data Shows Since 1971
           </p>
           <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
         </div>
@@ -410,17 +410,15 @@ const SocietalDeclineCharts = () => {
 
         {/* Exhibition Message */}
         <div className="text-center mt-16">
-          <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-red-400 mb-4">
-              This Was Not An Accident
+          <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-orange-400 mb-4">
+              Four charts. The same inflection point.
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Every chart tells the same story: <strong>1971</strong> was the year America's leaders chose 
-              to sacrifice your generation's future for short-term power. They knew this system would 
-              "hollow out the middle class," "devastate our culture," and "steal from the youth."
+              Housing costs, wage growth, childhood health, family stability — each chart shows a divergence beginning around <strong>1971</strong>. Correlation is not causation. But the pattern across unrelated datasets is worth understanding.
             </p>
             <p className="text-orange-400 mt-4 font-semibold">
-              But there's a peaceful way out...
+              The next section explores what changed — and what was built in response.
             </p>
           </div>
         </div>
