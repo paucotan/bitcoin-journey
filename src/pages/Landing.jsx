@@ -377,10 +377,10 @@ const Landing = () => {
             <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-shrink-0 order-2 md:order-1">
-                  <img 
-                    src="/mickey.GIF" 
-                    alt="Mickey Mouse as the Sorcerer's Apprentice drowning in an endless flood of multiplying water buckets, representing how money printing creates an uncontrollable cascade of currency debasement that overwhelms and destroys purchasing power" 
-                    className="w-32 h-24 md:w-40 md:h-30 rounded-lg object-cover border border-orange-500/40"
+                  <img
+                    src="/weimar-burning-bills.jpg"
+                    alt="A German woman burning worthless banknotes in her stove during the Weimar Republic hyperinflation of 1923, when currency became cheaper to burn than to spend on firewood"
+                    className="w-36 h-56 md:w-44 md:h-64 rounded-lg object-cover object-center border border-orange-500/40"
                     loading="lazy"
                   />
                 </div>
@@ -390,7 +390,7 @@ const Landing = () => {
                     By printing money, you're taking away the value of what you already have. The charts below show the amount of money added to the existing supply (diluting the supply) and how that correlates with increasing inflation in housing prices and an inverse correlation to dollar purchasing power.
                   </p>
                   <p className="text-orange-300/80 text-sm italic">
-                    Like Mickey's magic water, "creating" more money only drowns us in devaluation.
+                    When money loses its value, it becomes cheaper to burn than to spend — Weimar Germany, 1923.
                   </p>
                 </div>
               </div>
