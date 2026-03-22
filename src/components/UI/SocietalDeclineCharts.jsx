@@ -324,7 +324,7 @@ const SocietalDeclineCharts = () => {
             The Great Divergence
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            The Divergence: What the Data Shows Since 1971
+            What the data shows since 1971
           </p>
           <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
         </div>

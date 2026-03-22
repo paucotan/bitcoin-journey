@@ -81,7 +81,7 @@ const BookCarousel = () => {
             Further Reading
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Deepen your understanding with these essential books on Bitcoin, monetary history, and financial freedom.
+            Want to go deeper? These are the books that shaped the ideas on this site.
           </p>
           <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
         </div>
@@ -181,8 +181,7 @@ const BookCarousel = () => {
         {/* Bottom Message */}
         <div className="text-center mt-12">
           <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-            These books provide deep insights into Bitcoin's significance, monetary history, and the future of money. 
-            Each offers a unique perspective on why Bitcoin matters for individual freedom and global financial systems.
+            Each of these books is cited or referenced in the guides on this site. They are starting points, not endpoints.
           </p>
         </div>
       </div>

@@ -234,7 +234,7 @@ const Landing = () => {
               </div>
             </div>
             <button className="text-orange-400 hover:text-orange-300 text-xl font-medium transition-colors animate-pulse">
-              ↓ See how they did it ↓
+              ↓ See what happened next ↓
             </button>
           </div>
 
@@ -327,7 +327,7 @@ const Landing = () => {
                 >
                   <div className="text-4xl mb-4">🍺💧</div>
                   <div className="text-xl font-bold text-red-400 mb-2">Watered-Down Beer</div>
-                  <div className="text-white/80 mb-4">Weak, worthless, a scam</div>
+                  <div className="text-white/80 mb-4">Diluted, worth less than you paid for</div>
                   <button className="text-red-400 hover:text-red-300 text-sm font-medium">
                     Read More →
                   </button>
@@ -385,7 +385,7 @@ const Landing = () => {
                 <div className="flex-1 order-1 md:order-2">
                   <h3 className="text-lg font-bold text-orange-400 mb-3">The Problem:</h3>
                   <p className="text-gray-300 mb-4">
-                    By printing money, you're taking away the value of what you already have. The charts below show the amount of money added to the existing supply (diluting the supply) and how that correlates with increasing inflation in housing prices and an inverse correlation to dollar purchasing power.
+                    Expanding the money supply dilutes the value of every existing unit. The charts below show how the US money supply grew after 1971 — and how purchasing power moved in the opposite direction over the same period.
                   </p>
                   <p className="text-orange-300/80 text-sm italic">
                     When money loses its value, it becomes cheaper to burn than to spend — Weimar Germany, 1923.

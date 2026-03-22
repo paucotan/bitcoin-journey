@@ -34,57 +34,57 @@ const BitcoinMoralCode = () => {
   const comparisons = [
     {
       title: "Inflation and Purchasing Power",
-      fiatProblem: "Governments print money, stealing your purchasing power silently",
+      fiatProblem: "When the money supply expands, each existing unit of currency buys less. This is how inflation works — not as a natural phenomenon, but as a predictable consequence of supply increases.",
       fiatIcon: "💸",
-      fiatExample: "$8 trillion printed in 2020 alone - your savings lost 15% value",
-      bitcoinSolution: "Fixed supply of 21 million, divisible to 8 decimal places - everyone can participate while your value stays protected",
+      fiatExample: "US M2 money supply grew roughly 40% between 2020 and 2022. US inflation reached a 40-year high of 9.1% in June 2022.",
+      bitcoinSolution: "Bitcoin has a fixed supply cap of 21 million coins, written into its code. No policy decision, government, or institution can change it.",
       bitcoinIcon: "🛡️",
-      bitcoinExample: "Each Bitcoin = 100,000,000 satoshis. Plenty for global adoption while maintaining scarcity"
+      bitcoinExample: "Each Bitcoin is divisible into 100,000,000 satoshis — enough granularity for global adoption without ever increasing supply."
     },
     {
       title: "Financial Censorship",
-      fiatProblem: "Banks and governments can freeze accounts and block transactions",
+      fiatProblem: "Banks and governments have the legal authority to freeze accounts and block transactions. Access to your money depends on the continued cooperation of intermediaries.",
       fiatIcon: "🏛️",
-      fiatExample: "Canadian truckers' accounts frozen, WikiLeaks payment blockades",
-      bitcoinSolution: "Permissionless money - no one can stop your transactions",
+      fiatExample: "Canadian truckers' accounts frozen in 2022. WikiLeaks donation channels blocked by Visa, Mastercard, and PayPal in 2010.",
+      bitcoinSolution: "Bitcoin transactions require no intermediary approval. No bank, government, or platform can block a transaction between two willing parties.",
       bitcoinIcon: "🌐",
-      bitcoinExample: "24/7 global transactions with no gatekeepers or permissions needed"
+      bitcoinExample: "24/7 global transactions settable without a bank account, credit check, or permission from any institution."
     },
     {
       title: "Confiscation Risk",
-      fiatProblem: "Governments can seize assets through laws, taxes, or executive orders",
+      fiatProblem: "Governments can seize assets held in banks or financial institutions through legal mechanisms — bail-ins, court orders, emergency powers, or executive action.",
       fiatIcon: "⚖️",
-      fiatExample: "Bank bail-ins, gold confiscation, emergency asset seizures",
-      bitcoinSolution: "Self-custody protected by cryptography - truly own your wealth",
+      fiatExample: "US gold confiscation, Executive Order 6102 (1933). Cypriot bank bail-ins (2013). Emergency asset freezes are a documented tool of state power.",
+      bitcoinSolution: "Bitcoin held in self-custody can only be moved with your cryptographic private key. No third party can transfer it without your signature.",
       bitcoinIcon: "🔐",
-      bitcoinExample: "Your private keys = your Bitcoin. Mathematically impossible to seize"
+      bitcoinExample: "Your private keys = your Bitcoin. There is no equivalent of a court order that compels the Bitcoin network to reassign funds."
     },
     {
       title: "Exclusion & Barriers",
-      fiatProblem: "2 billion people excluded from banking, high fees for remittances",
+      fiatProblem: "An estimated 1.4 billion adults worldwide have no bank account. Cross-border remittances — often sent by the world's poorest workers — carry fees of 6–10%.",
       fiatIcon: "🚫",
-      fiatExample: "10-15% fees to send money home, weeks for international transfers",
-      bitcoinSolution: "Anyone with internet access can participate in the global economy",
+      fiatExample: "A migrant worker sending $200 home loses $12–20 in fees. The transfer may take 3–5 business days and requires both sender and recipient to have bank accounts.",
+      bitcoinSolution: "Anyone with internet access and a phone can send and receive Bitcoin — no bank account, credit history, or government ID required.",
       bitcoinIcon: "🌍",
-      bitcoinExample: "Send Bitcoin anywhere in minutes for pennies, no bank account needed"
+      bitcoinExample: "Bitcoin transactions settle in minutes regardless of borders, with fees independent of the amount transferred."
     },
     {
       title: "Monetary Transparency",
-      fiatProblem: "Opaque monetary policy, hidden bailouts, false economic data",
-      fiatIcon: <img src="/assets/annuit-coeptis.jpg" alt="Manipulation & Lies" className="w-8 h-8 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
-      fiatExample: "Secret Federal Reserve meetings, undisclosed bank bailouts, inflation lies",
-      bitcoinSolution: "Transparent, verifiable, mathematical monetary policy",
+      fiatProblem: "Monetary policy decisions are made by institutions that are not directly democratically accountable. Emergency lending, asset purchases, and money supply changes are often disclosed only after the fact.",
+      fiatIcon: <img src="/assets/annuit-coeptis.jpg" alt="Monetary policy" className="w-8 h-8 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
+      fiatExample: "The Fed's emergency lending in 2008 was not publicly disclosed until Congress mandated it. The scale — over $16 trillion — was revealed years later.",
+      bitcoinSolution: "Bitcoin's monetary policy is public, fixed, and enforced by code. Every transaction is visible on a public ledger. The supply schedule has never changed.",
       bitcoinIcon: "✅",
-      bitcoinExample: "Every transaction public, supply schedule coded and immutable"
+      bitcoinExample: "Anyone can verify the total Bitcoin supply, the current issuance rate, and every transaction ever made — without trusting any institution."
     },
     {
       title: "War Finance and Sound Money",
-      fiatProblem: "Governments print money to fund wars without public consent or taxation",
+      fiatProblem: "Governments have historically used monetary expansion to fund military spending that would be politically difficult to sustain through direct taxation. Printing money spreads the cost invisibly across all currency holders.",
       fiatIcon: "⚔️",
-      fiatExample: "WWI, WWII, Vietnam, Iraq - all funded by monetary expansion, not votes",
-      bitcoinSolution: "Wars become financially impossible without voluntary funding",
+      fiatExample: "WWI, WWII, Vietnam, and Iraq all involved significant monetary expansion to sustain spending levels beyond what tax revenues could support.",
+      bitcoinSolution: "Bitcoin cannot be printed. Wars fought by a Bitcoin-standard government would need to be funded through direct taxation or voluntary borrowing — both of which require explicit public consent.",
       bitcoinIcon: "🕊️",
-      bitcoinExample: "No central authority can print Bitcoin to fund conflicts - requires real economic sacrifice"
+      bitcoinExample: "No central authority can expand the Bitcoin supply to fund anything. Every satoshi spent on conflict requires real economic resources."
     }
   ];
 
