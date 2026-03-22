@@ -19,15 +19,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'power',
       step: '1',
-      frontTitle: 'Global Financial Infrastructure',
+      frontTitle: 'A Network Built to Last',
       frontEmoji: '🏗️',
-      frontDescription: 'How powerful is Bitcoin\'s network?',
+      frontDescription: 'How resilient is Bitcoin\'s network?',
       frontTheme: 'bg-orange-600/30 border-orange-400',
-      backTitle: 'More Secure Than Google\'s Entire Infrastructure',
+      backTitle: 'Resilience Through Scale',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span> runs on more computing power than Google, Amazon, and Facebook combined. It performs 500 quintillion calculations per second. This massive infrastructure makes it virtually impossible to hack or shut down.
+          <span className="text-orange-400 font-semibold">Bitcoin</span>'s network performs hundreds of quintillions of calculations per second — a scale of distributed computing that makes altering its transaction history computationally infeasible. The network has no single point of failure and no off switch.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -35,15 +35,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'immutable',
       step: '2',
-      frontTitle: 'Unchangeable Like a Constitution',
+      frontTitle: 'Rules That Require Consensus to Change',
       frontEmoji: '📜',
       frontDescription: 'Can Bitcoin\'s rules be changed?',
       frontTheme: 'bg-gray-600/30 border-gray-400',
-      backTitle: 'Constitutional vs Corporate Control',
+      backTitle: 'Consensus-Based, Not Authority-Based',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span>'s rules are like the U.S. Constitution - they require overwhelming agreement to change. Banks can freeze your account or governments can print more money whenever they want. <span className="text-orange-400 font-semibold">Bitcoin</span> treats everyone equally under mathematical law.
+          <span className="text-orange-400 font-semibold">Bitcoin</span>'s rules cannot be changed by any individual, company, or government. Changes require overwhelming agreement from the entire network — a design closer to a constitutional amendment than a corporate policy update. The supply cap of 21 million has never changed.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -55,11 +55,11 @@ const BitcoinVsAltcoins = () => {
       frontEmoji: '🗽',
       frontDescription: 'Who controls Bitcoin?',
       frontTheme: 'bg-blue-600/30 border-blue-400',
-      backTitle: 'Decentralized vs Corporate Controlled',
+      backTitle: 'Leaderless by Design',
       backEmoji: '₿',
       backContent: () => (
         <>
-          <span className="text-orange-400 font-semibold">Bitcoin</span> has no CEO who can be pressured, no company that can be shut down, no headquarters to raid. Its creator disappeared, leaving it to run itself. Other cryptocurrencies have CEOs and corporate structures that can be controlled or shut down. <span className="text-orange-400 font-semibold">Bitcoin</span> is truly independent.
+          <span className="text-orange-400 font-semibold">Bitcoin</span> has no CEO who can be pressured, no company that can be shut down, no headquarters to raid. Its creator disappeared in 2011, leaving it to run itself. It is the only monetary network in history that has operated without a leader or controlling institution.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -67,15 +67,15 @@ const BitcoinVsAltcoins = () => {
     {
       key: 'physics',
       step: '4',
-      frontTitle: 'Backed by Real Energy, Not Promises',
+      frontTitle: 'A Real Cost, Written Into the Protocol',
       frontEmoji: '⚡',
-      frontDescription: 'What makes Bitcoin valuable?',
+      frontDescription: 'What gives Bitcoin its properties?',
       frontTheme: 'bg-purple-600/30 border-purple-400',
-      backTitle: 'Energy-Backed vs Promise-Backed Money',
+      backTitle: 'Production Cost as a Design Property',
       backEmoji: '₿',
       backContent: () => (
         <>
-          Each <span className="text-orange-400 font-semibold">Bitcoin</span> costs real electricity to create - like mining gold costs real energy. It takes about $30,000 in electricity to mine one Bitcoin today. Your dollars are backed only by government promises. <span className="text-orange-400 font-semibold">Bitcoin</span> is the only digital money with real production costs.
+          Every <span className="text-orange-400 font-semibold">Bitcoin</span> in existence was created through a measurable expenditure of real energy — a property written into the protocol that cannot be changed by policy decision. Like gold, its supply cannot be expanded without real-world cost.
         </>
       ),
       backTheme: 'bg-orange-500/20 border-orange-400'
@@ -99,8 +99,7 @@ const BitcoinVsAltcoins = () => {
           </p>
           <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 rounded-lg p-4 max-w-2xl mx-auto">
             <p className="text-white font-medium">
-              Bitcoin is backed by physics.<br/>
-              Everything else is backed by promises.
+              Bitcoin is the first money whose rules are enforced by physics, not by institutions.
             </p>
           </div>
         </div>
@@ -110,7 +109,7 @@ const BitcoinVsAltcoins = () => {
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-2xl">👇</span>
             <p className="text-lg text-orange-400 font-semibold">
-              Click each card to learn the truth
+              Click each card to explore
             </p>
             <span className="text-2xl">👇</span>
           </div>
@@ -182,49 +181,14 @@ const BitcoinVsAltcoins = () => {
           ))}
         </div>
 
-        {/* Share Section */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-2 border-orange-500 rounded-xl p-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-4xl">💡</span>
-              <h3 className="text-2xl font-bold text-orange-400">
-                Spread the Knowledge
-              </h3>
-            </div>
-            <p className="text-white text-lg mb-6 leading-relaxed">
-              Share this Bitcoin story with someone who needs to see it
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const url = 'https://bitcoin-journey.vercel.app/';
-                  const text = 'Just discovered why Bitcoin isn\'t "crypto" - it\'s the first living digital organism. This changed my perspective completely.';
-                  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-                }}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2"
-              >
-                Share on <span className="text-xl">𝕏</span>
-              </button>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText('https://bitcoin-journey.vercel.app/');
-                  const button = event.target.closest('button');
-                  const originalText = button.innerHTML;
-                  button.innerHTML = '<span class="text-xl">✓</span> Link Copied!';
-                  setTimeout(() => {
-                    button.innerHTML = originalText;
-                  }, 2000);
-                }}
-                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center gap-2"
-              >
-                <span className="text-xl">🔗</span>
-                Copy Link
-              </button>
-            </div>
-            <p className="text-sm text-gray-400 mt-4">
-              Based on Jack Mallers' "There Is No Second Best" talk
-            </p>
-          </div>
+        {/* Quiet pointer to next room */}
+        <div className="text-center mt-4">
+          <p className="text-gray-500 text-sm">
+            Want to go deeper on how Bitcoin works?{' '}
+            <a href="/guides/what-is-bitcoin" className="text-orange-400 hover:text-orange-300 transition-colors">
+              Read the full guide →
+            </a>
+          </p>
         </div>
       </div>
 
