@@ -5,6 +5,13 @@ const BookCarousel = () => {
 
   const books = [
     {
+      title: "Fiat Food",
+      author: "Matthew Lysiak",
+      image: "/assets/fiat-food-cover.jpg",
+      amazonUrl: "https://www.amazon.com/Fiat-Food-Inflation-Destroyed-Bitcoin/dp/B0CZ2H1KWV/",
+      description: "How inflation reshaped the food industry after 1971 — and why the health consequences were a predictable result of unsound money."
+    },
+    {
       title: "The Bitcoin Standard",
       author: "Saifedean Ammous",
       image: "https://media.s-bol.com/7zrAyPpjNXor/k3gP6r/550x814.jpg",
@@ -118,11 +125,11 @@ const BookCarousel = () => {
                   className="group relative bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 hover:scale-105"
                 >
                   {/* Book Cover */}
-                  <div className="aspect-[3/4] overflow-hidden">
+                  <div className="aspect-[3/4] overflow-hidden bg-gray-900">
                     <img
                       src={book.image}
                       alt={`${book.title} by ${book.author}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
