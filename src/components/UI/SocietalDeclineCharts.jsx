@@ -329,25 +329,6 @@ const SocietalDeclineCharts = () => {
           <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
         </div>
 
-        {/* Chart Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-col items-center space-y-2">
-            <div className="flex space-x-4">
-              {chartData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveChart(index)}
-                  className={`w-4 h-4 rounded-full transition-colors ${
-                    activeChart === index ? 'bg-orange-500' : 'bg-gray-600'
-                  }`}
-                />
-              ))}
-            </div>
-            <div className="text-gray-400 text-xs md:hidden">
-              ← Swipe to navigate →
-            </div>
-          </div>
-        </div>
 
         {/* Active Chart with Swipe */}
         <div className="relative">

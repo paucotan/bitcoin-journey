@@ -60,7 +60,7 @@ const ParallelTimeline = () => {
       category: "monetary"
     },
     {
-      year: "2024",
+      year: "2026",
       title: "Debt Crisis Accelerates",
       description: "US national debt reaches $39 trillion. Net interest payments consume approximately 14% of federal outlays — or roughly 19% of all tax revenues collected.",
       impact: "Interest on the debt now costs more than the entire defence budget — and is projected to keep rising.",
@@ -196,6 +196,9 @@ const ParallelTimeline = () => {
         </h2>
         <p className="text-gray-300 text-lg mb-2">
           How the dollar's gold link was built, then dismantled — and what followed.
+        </p>
+        <p className="text-gray-500 text-sm">
+          {createAlignedTimeline().length} events · 1913 to 2026
         </p>
         {/* <p className="text-gray-300 text-sm">
           While governments destroyed sound money, cypherpunks built the alternative.

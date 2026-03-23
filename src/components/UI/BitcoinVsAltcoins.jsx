@@ -38,7 +38,7 @@ const BitcoinVsAltcoins = () => {
       frontTitle: 'Rules That Require Consensus to Change',
       frontEmoji: '📜',
       frontDescription: 'Can Bitcoin\'s rules be changed?',
-      frontTheme: 'bg-gray-600/30 border-gray-400',
+      frontTheme: 'bg-amber-600/30 border-amber-400',
       backTitle: 'Consensus-Based, Not Authority-Based',
       backEmoji: '₿',
       backContent: () => (
@@ -54,7 +54,7 @@ const BitcoinVsAltcoins = () => {
       frontTitle: 'No CEO, No Company, No Control',
       frontEmoji: '🗽',
       frontDescription: 'Who controls Bitcoin?',
-      frontTheme: 'bg-blue-600/30 border-blue-400',
+      frontTheme: 'bg-orange-800/30 border-orange-600',
       backTitle: 'Leaderless by Design',
       backEmoji: '₿',
       backContent: () => (
@@ -70,7 +70,7 @@ const BitcoinVsAltcoins = () => {
       frontTitle: 'A Real Cost, Written Into the Protocol',
       frontEmoji: '⚡',
       frontDescription: 'What gives Bitcoin its properties?',
-      frontTheme: 'bg-purple-600/30 border-purple-400',
+      frontTheme: 'bg-yellow-600/30 border-yellow-400',
       backTitle: 'Production Cost as a Design Property',
       backEmoji: '₿',
       backContent: () => (
@@ -112,20 +112,6 @@ const BitcoinVsAltcoins = () => {
               Click each card to explore
             </p>
             <span className="text-2xl">👇</span>
-          </div>
-          <div className="flex justify-center gap-4">
-            {comparisonCards.map((card, index) => (
-              <div
-                key={card.key}
-                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold transition-all ${
-                  flippedCards[card.key]
-                    ? 'bg-orange-500 border-orange-400 text-white'
-                    : 'bg-gray-800 border-gray-600 text-gray-400'
-                }`}
-              >
-                {card.step}
-              </div>
-            ))}
           </div>
         </div>
 

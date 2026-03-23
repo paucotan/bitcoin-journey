@@ -89,17 +89,13 @@ const Landing = () => {
       <ProgressSidebar />
       {/* Generational Wealth Theft Hero */}
       <div id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
-        {/* Burning Money Background */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        {/* Background */}
+        <div
+          className="absolute inset-0"
           style={{
-            backgroundImage: `url('https://static.vecteezy.com/system/resources/thumbnails/050/766/422/small_2x/a-pile-of-burning-money-on-fire-video.jpg')`
+            background: 'radial-gradient(ellipse at center, rgba(153,27,27,0.6) 0%, rgba(17,24,39,1) 70%)'
           }}
         ></div>
-        
-        {/* Overlay Gradients for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-red-900/70 to-black/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
         <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
 
           {/* Compelling Hook */}
@@ -240,14 +236,6 @@ const Landing = () => {
 
         </div>
 
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="text-9xl absolute top-10 left-10 animate-float text-red-500">🏠</div>
-          <div className="text-6xl absolute bottom-20 right-20 animate-float-delayed text-orange-500">💸</div>
-          <div className="text-8xl absolute top-1/2 left-1/4 animate-bounce-gentle text-yellow-500">⚖️</div>
-          <div className="text-7xl absolute top-1/3 right-1/3 animate-float text-green-500">💰</div>
-          <img src="/assets/annuit-coeptis.jpg" alt="Fiat symbol" className="absolute top-20 right-10 w-24 h-24 animate-float opacity-90 rounded-full bg-gray-800 p-1" style={{objectFit: 'cover'}} />
-        </div>
       </div>
 
       {/* Beer Analogy - Simple Explanation */}
@@ -363,7 +351,7 @@ const Landing = () => {
       </div>
 
       {/* The Evidence Section - Money Supply Chart */}
-      <div id="charts" className="bg-gray-900 py-20">
+      <div id="charts" className="bg-gradient-to-b from-red-950 to-gray-900 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
@@ -451,7 +439,7 @@ const Landing = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Continue the tour
+              Permanent Collection
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
               Three guides. No prior knowledge required.
@@ -464,8 +452,9 @@ const Landing = () => {
             {/* What Is Bitcoin */}
             <a
               href="/guides/what-is-bitcoin"
-              className="group bg-gray-800/50 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80"
+              className="group bg-gray-800/50 border-t-2 border-t-orange-500/40 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80 hover:shadow-lg hover:shadow-orange-500/20"
             >
+              <div className="text-xs font-semibold text-orange-500/60 uppercase tracking-widest mb-4">Exhibit I</div>
               <div className="text-3xl mb-6 text-orange-400">₿</div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
                 What Is Bitcoin?
@@ -481,8 +470,9 @@ const Landing = () => {
             {/* Why Bitcoin Matters Now */}
             <a
               href="/guides/why-bitcoin-matters-now"
-              className="group bg-gray-800/50 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80"
+              className="group bg-gray-800/50 border-t-2 border-t-orange-500/40 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80 hover:shadow-lg hover:shadow-orange-500/20"
             >
+              <div className="text-xs font-semibold text-orange-500/60 uppercase tracking-widest mb-4">Exhibit II</div>
               <div className="text-3xl mb-6">🕰️</div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
                 Why Bitcoin Matters Now
@@ -498,8 +488,9 @@ const Landing = () => {
             {/* Time Preference */}
             <a
               href="/guides/time-preference"
-              className="group bg-gray-800/50 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80"
+              className="group bg-gray-800/50 border-t-2 border-t-orange-500/40 border border-gray-700 hover:border-orange-500/50 rounded-xl p-8 transition-all duration-300 hover:bg-gray-800/80 hover:shadow-lg hover:shadow-orange-500/20"
             >
+              <div className="text-xs font-semibold text-orange-500/60 uppercase tracking-widest mb-4">Exhibit III</div>
               <div className="text-3xl mb-6">⏳</div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
                 Time Preference

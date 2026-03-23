@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              © 2025 Bitcoin Journey. Built for education and awareness.
+              © 2026 Bitcoin Journey. Built for education and awareness.
             </p>
             <p className="text-gray-600 text-xs">
               Open source • Educational use only • Not financial advice

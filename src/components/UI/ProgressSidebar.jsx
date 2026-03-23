@@ -124,18 +124,6 @@ const ProgressSidebar = () => {
               ></div>
             </div>
             
-            {/* Current Section Label */}
-            <div 
-              className="absolute left-6 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-lg px-3 py-2 shadow-lg transition-all duration-500"
-              style={{ top: `${(activeSection / (sections.length - 1)) * 300}px` }}
-            >
-              <div className="flex items-center gap-2 text-orange-400">
-                <span className="text-sm">{sections[activeSection]?.icon}</span>
-                <span className="text-sm font-medium whitespace-nowrap">
-                  {sections[activeSection]?.label}
-                </span>
-              </div>
-            </div>
           </div>
         </div>
 
