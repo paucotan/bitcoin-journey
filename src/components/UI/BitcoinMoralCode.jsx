@@ -61,7 +61,7 @@ const BitcoinMoralCode = () => {
     },
     {
       title: "Exclusion & Barriers",
-      fiatProblem: "An estimated 1.4 billion adults worldwide have no bank account. Cross-border remittances — often sent by the world's poorest workers — carry fees of 6–10%.",
+      fiatProblem: "An estimated 1.3 billion adults worldwide have no bank account. Cross-border remittances — often sent by the world's poorest workers — carry fees averaging around 6%.",
       fiatIcon: "🚫",
       fiatExample: "A migrant worker sending $200 home loses $12–20 in fees. The transfer may take 3–5 business days and requires both sender and recipient to have bank accounts.",
       bitcoinSolution: "Anyone with internet access and a phone can send and receive Bitcoin — no bank account, credit history, or government ID required.",
@@ -72,7 +72,7 @@ const BitcoinMoralCode = () => {
       title: "Monetary Transparency",
       fiatProblem: "Monetary policy decisions are made by institutions that are not directly democratically accountable. Emergency lending, asset purchases, and money supply changes are often disclosed only after the fact.",
       fiatIcon: <img src="/assets/annuit-coeptis.jpg" alt="Monetary policy" className="w-8 h-8 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
-      fiatExample: "The Fed's emergency lending in 2008 was not publicly disclosed until Congress mandated it. The scale — over $16 trillion — was revealed years later.",
+      fiatExample: "The Fed's emergency lending programs in 2008 were not publicly disclosed until Congress mandated an audit under the Dodd-Frank Act — the results were published in 2011.",
       bitcoinSolution: "Bitcoin's monetary policy is public, fixed, and enforced by code. Every transaction is visible on a public ledger. The supply schedule has never changed.",
       bitcoinIcon: "✅",
       bitcoinExample: "Anyone can verify the total Bitcoin supply, the current issuance rate, and every transaction ever made — without trusting any institution."

@@ -400,7 +400,7 @@ const Landing = () => {
           <div className="text-center mt-8 mb-12">
             <p className="text-lg text-gray-300 mb-4">
               See the <span className="text-red-400 font-bold">perfect correlation</span>?
-              Money supply up 70x, dollar purchasing power down 91%, in the same period.
+              Money supply up roughly 32x, dollar purchasing power down ~88%, in the same period.
             </p>
             <p className="text-gray-300 text-xl mb-8">
               What you call this depends on your starting point. What isn't in dispute is the data.

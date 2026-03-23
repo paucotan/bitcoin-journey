@@ -54,7 +54,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "HOME VALUE CHANGE VS. INCOME CHANGE",
       subtitle: "(1965-2021)",
-      description: "Home values rose 6x faster than wages between 1965 and 2021.",
+      description: "Home values rose roughly 7–8x faster than wages between 1965 and 2021.",
       data: {
         homeValue: [
           { year: 1965, value: 0 },
@@ -81,7 +81,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "WORKER PAY VS. PRODUCTIVITY",
       subtitle: "Since the 1970s",
-      description: "Productivity and wages moved together until the early 1970s. Then they diverged.",
+      description: "Productivity and wages moved together until 1973. Then they diverged — and the gap has widened since.",
       data: {
         productivity: [
           { year: 1949, value: 100 },
@@ -102,7 +102,7 @@ const SocietalDeclineCharts = () => {
     {
       title: "CHILDHOOD OBESITY TRENDS",
       subtitle: "Ages 2-19 Years (1963-2016)",
-      description: "Childhood obesity rates began rising steadily after the early 1970s.",
+      description: "Childhood obesity rates began rising steadily after the early 1970s — coinciding with the rise of industrial food production.",
       data: {
         ages2to5: [
           { year: 1963, value: 4 },
