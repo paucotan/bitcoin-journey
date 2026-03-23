@@ -86,10 +86,6 @@ Open [http://localhost:5173](http://localhost:5173) to view in the browser.
 
 Deployed on Vercel. Push to main branch triggers automatic deployment.
 
-## Multilingual Support
-
-Google Translate widget is integrated for on-the-fly translation support.
-
 ## License
 
 Open source under the [MIT License](LICENSE).
