@@ -8,7 +8,7 @@ const ParallelTimeline = () => {
     {
       year: "1913",
       title: "Federal Reserve Created",
-      description: "The Federal Reserve Act creates a central banking system, ending the gold standard era. Government can now print money beyond gold reserves.",
+      description: "The Federal Reserve Act creates a central banking system. The gold standard remains in place, but the Fed gains the ability to manage currency and credit within it.",
       impact: "Dollar loses 96% of purchasing power from 1913 to today",
       color: "bg-yellow-500",
       icon: "🏦",
@@ -17,8 +17,8 @@ const ParallelTimeline = () => {
     {
       year: "1933",
       title: "Gold Confiscation",
-      description: "FDR outlaws private gold ownership, forcing citizens to sell gold at $20.67/oz. Government immediately devalues dollar by 69%.",
-      impact: "Gold revalued to $35/oz the next year — massive wealth transfer from citizens to government",
+      description: "FDR outlaws private gold ownership, forcing citizens to sell gold at $20.67/oz. The following year, the Gold Reserve Act revalues gold to $35/oz — devaluing the dollar by approximately 41%.",
+      impact: "Gold revalued from $20.67 to $35/oz — citizens who were forced to sell received the lower price, then watched the dollar lose 41% of its gold value.",
       color: "bg-orange-500",
       icon: "🚫",
       category: "monetary"
@@ -27,7 +27,7 @@ const ParallelTimeline = () => {
       year: "1944",
       title: "Bretton Woods Agreement",
       description: "Global monetary system established with USD as world reserve currency, backed by gold at $35/oz. Other currencies pegged to dollar.",
-      impact: "Dollar becomes foundation of global trade, but money printing continues behind the scenes",
+      impact: "Dollar becomes the foundation of global trade. The system requires US dollar stability — but allows monetary expansion within it.",
       color: "bg-blue-500",
       icon: "🌍",
       category: "monetary"
@@ -36,7 +36,7 @@ const ParallelTimeline = () => {
       year: "1971",
       title: "Nixon Shock",
       description: "Nixon ends gold convertibility. The last link between money and real value is severed.",
-      impact: "Dollar becomes pure fiat currency - backed by nothing but promises",
+      impact: "The dollar's value is no longer defined by a fixed quantity of gold. It now floats, determined by market confidence and Federal Reserve policy.",
       color: "bg-red-500",
       icon: <img src="/assets/annuit-coeptis.jpg" alt="Nixon Shock" className="w-6 h-6 rounded-full bg-gray-800 p-0.5" style={{objectFit: 'cover'}} />,
       category: "monetary"
@@ -45,7 +45,7 @@ const ParallelTimeline = () => {
       year: "2008",
       title: "Financial Crisis",
       description: "Banks collapse under toxic debt. Instead of letting them fail, the Fed steps in with historic bailouts.",
-      impact: "Quantitative Easing begins—unlimited money printing goes brrrrrr",
+      impact: "The Fed purchases trillions in assets to inject liquidity — a tool deployed at a scale with no historical precedent.",
       color: "bg-purple-500",
       icon: "📉",
       category: "monetary"
@@ -53,8 +53,8 @@ const ParallelTimeline = () => {
     {
       year: "2020",
       title: "COVID Money Printing",
-      description: "Under cover of pandemic, the Fed prints 40% of all dollars ever created in just 18 months.",
-      impact: "Worst inflation in 40 years - your groceries, rent, everything skyrockets",
+      description: "The Fed expands the M2 money supply by roughly 40% over two years — one of the fastest expansions in US history.",
+      impact: "US inflation hits a 40-year high of 9.1% in June 2022. Groceries, rent, and energy costs surge.",
       color: "bg-red-600",
       icon: "🖨️",
       category: "monetary"
@@ -62,8 +62,8 @@ const ParallelTimeline = () => {
     {
       year: "2024",
       title: "Debt Crisis Accelerates",
-      description: "US national debt exceeds $34 trillion. Interest payments alone consume 20% of federal budget.",
-      impact: "Money printing becomes the only solution - hyperinflation risk increases",
+      description: "US national debt reaches $39 trillion. Net interest payments consume approximately 14% of federal outlays — or roughly 19% of all tax revenues collected.",
+      impact: "Interest on the debt now costs more than the entire defence budget — and is projected to keep rising.",
       color: "bg-red-700",
       icon: "📊",
       category: "monetary"
@@ -95,7 +95,7 @@ const ParallelTimeline = () => {
       year: "1997",
       title: "Hashcash",
       description: "Adam Back creates Hashcash, a proof-of-work system to combat email spam.",
-      impact: "Direct precursor to Bitcoin's proof-of-work - solves the double-spending problem",
+      impact: "Direct precursor to Bitcoin's proof-of-work mechanism. Double-spending would later be solved by Bitcoin's blockchain consensus — but Hashcash provided the key ingredient.",
       color: "bg-pink-500",
       icon: "⚡",
       category: "proof-of-work",
@@ -124,7 +124,7 @@ const ParallelTimeline = () => {
     {
       year: "2010",
       title: "Pizza Day",
-      description: "Laszlo Hanyecz buys two pizzas for 10,000 BTC (~$25). The first real-world Bitcoin purchase.",
+      description: "Laszlo Hanyecz buys two pizzas for 10,000 BTC (~$41 at the time). The first recorded real-world Bitcoin transaction.",
       impact: "Proves Bitcoin can function as money - establishes first price discovery mechanism",
       color: "bg-yellow-500",
       icon: "🍕",
@@ -195,7 +195,7 @@ const ParallelTimeline = () => {
           The Parallel Genesis of Bitcoin
         </h2>
         <p className="text-gray-300 text-lg mb-2">
-          From gold standard to fake money: <span className="text-red-400 font-bold">The 1971 turning point that broke everything.</span>
+          How the dollar's gold link was built, then dismantled — and what followed.
         </p>
         {/* <p className="text-gray-300 text-sm">
           While governments destroyed sound money, cypherpunks built the alternative.
@@ -206,8 +206,8 @@ const ParallelTimeline = () => {
         <div className="text-center mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
-              <h3 className="text-lg font-bold text-red-400 mb-1">💀 Monetary Destruction</h3>
-              <p className="text-gray-400 text-xs">How governments destroyed sound money</p>
+              <h3 className="text-lg font-bold text-red-400 mb-1">Monetary History</h3>
+              <p className="text-gray-400 text-xs">The fiat transition — key moments since 1913</p>
             </div>
             <div className="text-center">
               <h3 className="text-lg font-bold text-green-400 mb-1">🚀 Bitcoin Genesis</h3>
@@ -262,7 +262,7 @@ const ParallelTimeline = () => {
                           )}
 
                           {activeEvent !== `monetary-${index}` && (
-                            <div className="text-gray-500 text-xs">Click to see the damage →</div>
+                            <div className="text-gray-500 text-xs">Click to explore →</div>
                           )}
                         </div>
                       </div>
@@ -419,27 +419,27 @@ const ParallelTimeline = () => {
       {/* Convergence Point */}
       <div className="mt-12 p-6 bg-gradient-to-r from-red-900/20 via-gray-800/50 to-green-900/20 border-2 border-orange-500 rounded-xl">
         <div className="text-center mb-4">
-          <h3 className="text-2xl font-bold text-orange-400 mb-2">⚡ The Perfect Storm: 2008-2009</h3>
+          <h3 className="text-2xl font-bold text-orange-400 mb-2">When Two Timelines Converged: 2008–2009</h3>
           <p className="text-gray-300">
-            As the financial system collapsed from decades of monetary abuse,
-            <span className="text-green-400 font-bold"> the cypherpunk solution was ready</span>.
+            As the financial system faced its most serious crisis in decades,
+            <span className="text-green-400 font-bold"> thirty years of cryptographic work produced an answer</span>.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-red-900/30 border border-red-400 rounded-lg p-4">
-            <div className="text-red-400 font-bold mb-2">💥 The Crisis</div>
+            <div className="text-red-400 font-bold mb-2">The Crisis</div>
             <div className="text-red-200 text-sm">
               Banks collapse, bailouts begin, money printing accelerates.
-              The fiat system shows its true nature.
+              The limits of the existing system become visible.
             </div>
           </div>
 
           <div className="bg-green-900/30 border border-green-400 rounded-lg p-4">
-            <div className="text-green-400 font-bold mb-2">₿ The Solution</div>
+            <div className="text-green-400 font-bold mb-2">₿ The Alternative</div>
             <div className="text-green-200 text-sm">
-              30+ years of cryptographic innovation culminates in Bitcoin -
-              a system immune to monetary manipulation.
+              30+ years of cryptographic work culminates in Bitcoin —
+              a system with a fixed supply and no central issuer.
             </div>
           </div>
         </div>
