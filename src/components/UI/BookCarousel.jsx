@@ -59,6 +59,14 @@ const BookCarousel = () => {
       image: "https://store.bitcoinmagazine.com/cdn/shop/files/IMG_0554Edited.jpg?v=1697732129",
       amazonUrl: "https://www.amazon.com/Check-Your-Financial-Privilege-Gladstein/dp/B09V2NM9VJ",
       description: "Bitcoin, human rights, and the reality of financial privilege across the globe."
+    },
+    {
+      title: "The Bitcoin Handbook",
+      author: "Anil Patel",
+      image: "/assets/bitcoin-handbook-cover.jpg",
+      amazonUrl: "https://thebitcoinhandbook.com/",
+      description: "Key concepts in economics, technology and psychology — visual, intuitive, and free to read online.",
+      freeBook: true
     }
   ];
 
@@ -70,9 +78,19 @@ const BookCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + books.length) % books.length);
   };
 
+  const [isMobile, setIsMobile] = React.useState(() => window.innerWidth < 768);
+
+  React.useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
+  const visibleCount = isMobile ? 1 : 3;
+
   const getVisibleBooks = () => {
     const visibleBooks = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < visibleCount; i++) {
       const index = (currentIndex + i) % books.length;
       visibleBooks.push(books[index]);
     }
@@ -118,7 +136,7 @@ const BookCarousel = () => {
 
           {/* Books Grid */}
           <div className="mx-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className={`grid gap-8 ${isMobile ? 'grid-cols-1' : 'grid-cols-3'}`}>
               {getVisibleBooks().map((book, index) => (
                 <div
                   key={`${book.title}-${currentIndex}-${index}`}
@@ -146,7 +164,7 @@ const BookCarousel = () => {
                       {book.description}
                     </p>
 
-                    {/* Amazon CTA */}
+                    {/* CTA */}
                     <a
                       href={book.amazonUrl}
                       target="_blank"
@@ -154,7 +172,7 @@ const BookCarousel = () => {
                       className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
                     >
                       <span>📚</span>
-                      Get on Amazon
+                      {book.freeBook ? 'Read Free Online' : 'Get on Amazon'}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>

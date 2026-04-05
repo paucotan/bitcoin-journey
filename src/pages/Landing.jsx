@@ -397,6 +397,12 @@ const Landing = () => {
 
           {/* Interactive Calculator */}
           <div id="calculator">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-white mb-4">Does your money hold its value?</h2>
+              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                The dollar has lost purchasing power every single year since 1913. Use the calculator below to see what any amount of money is actually worth today — and how much the cost of waiting has been.
+              </p>
+            </div>
             <DollarValueCalculator />
           </div>
         </div>
