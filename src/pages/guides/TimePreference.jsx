@@ -118,7 +118,7 @@ const TimePreference = () => {
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">How Fiat Money Destroys Patience</h2>
           <p className="text-gray-300 mb-4">
-            When your money loses value while you wait, <strong className="text-orange-400">saving becomes irrational</strong>. Fiat currency systems actively punish patience and reward immediate spending.
+            When your money loses value while you wait, saving in a savings account becomes economically costly. Fiat currency systems create a structural incentive to spend now rather than save for later — not because people are impulsive, but because the math makes patience expensive.
           </p>
 
           <div className="space-y-4">
@@ -194,29 +194,30 @@ const TimePreference = () => {
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">The Civilizational Impact</h2>
           <p className="text-gray-300 mb-4">
-            This isn't just about individual wealth - <strong className="text-orange-400">money shapes entire civilizations</strong>. The type of money a society uses determines whether it builds cathedrals or strip malls.
+            This argument extends beyond personal finance. The Gothic cathedrals of medieval Europe were built over centuries — funded by donations from people who would never see the finished building, constructed by craftsmen whose grandchildren would complete the work. That is low time preference made architectural. Nobody was calculating a quarterly return.
+          </p>
+          <p className="text-gray-300 mb-6">
+            The contrast with modern construction is not accidental. When money loses value quickly, builders optimise for speed and low cost. When money holds value, they can afford to build for permanence. The question "what kind of money does a society use?" and "what kind of things does that society build?" may not be unrelated.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-purple-400 mb-2">Sound Money Societies Build:</h3>
+              <h3 className="text-lg font-bold text-purple-400 mb-2">Low Time Preference (Sound Money)</h3>
               <ul className="text-gray-300 text-sm space-y-1">
-                <li>• Cathedrals and monuments lasting centuries</li>
-                <li>• Educational institutions and libraries</li>
-                <li>• Infrastructure for future generations</li>
-                <li>• Art and culture that endures</li>
-                <li>• Scientific research and innovation</li>
+                <li>• Invest in things that take decades to pay off</li>
+                <li>• Build institutions for future generations</li>
+                <li>• Fund research without guaranteed near-term returns</li>
+                <li>• Create durable art, architecture, and infrastructure</li>
               </ul>
             </div>
 
             <div className="bg-gray-500/10 border border-gray-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-gray-400 mb-2">Fiat Money Societies Build:</h3>
+              <h3 className="text-lg font-bold text-gray-400 mb-2">High Time Preference (Fiat Incentives)</h3>
               <ul className="text-gray-300 text-sm space-y-1">
-                <li>• Strip malls and disposable architecture</li>
-                <li>• Short-term profit maximization</li>
-                <li>• Planned obsolescence in products</li>
-                <li>• Entertainment over education</li>
-                <li>• Debt-financed consumption</li>
+                <li>• Optimise for this quarter's results</li>
+                <li>• Build cheaply, replace frequently</li>
+                <li>• Borrow against the future to consume today</li>
+                <li>• Prioritise entertainment over education</li>
               </ul>
             </div>
           </div>
@@ -295,7 +296,7 @@ const TimePreference = () => {
             </div>
             
             <p className="text-xs text-gray-400 mt-3">
-              * Uses historical averages for illustration. Past performance doesn't guarantee future results.
+              * Uses historical averages for illustration. The 45% default annual return reflects Bitcoin's long-run average but includes years of extreme volatility — 2022 alone was -65%, and some 12-month periods have seen -80% or worse. Past performance does not predict future results.
             </p>
           </div>
         </section>

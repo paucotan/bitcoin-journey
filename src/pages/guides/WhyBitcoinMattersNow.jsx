@@ -27,11 +27,12 @@ const WhyBitcoinMattersNow = () => {
       ]}
     >
       <div className="space-y-8">
-        <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
-          <p className="text-orange-300">
-            Your purchasing power is being quietly eroded every day. Bitcoin isn't just an investment - it's a lifeboat in an ocean of monetary manipulation. Here's why Bitcoin matters more today than ever before.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          Your parents could buy a house on one income and retire with a pension. That world is gone — and it didn't disappear because of laziness or bad luck. Something changed in how money works, and it changed against you.
+        </p>
+        <p className="text-gray-300">
+          This guide is about what changed, why it matters, and why Bitcoin is the first credible response to it.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">The Hidden Tax You're Already Paying</h2>
@@ -193,16 +194,16 @@ const WhyBitcoinMattersNow = () => {
               <div className="text-gray-300 text-sm space-y-1">
                 <div><strong>The Problem:</strong> Savings accounts pay 0.5% while inflation runs 3-8%</div>
                 <div><strong>The Math:</strong> You lose 2-7% purchasing power annually</div>
-                <div><strong>The Reality:</strong> Saving money = guaranteed poverty</div>
+                <div><strong>The Reality:</strong> $10,000 saved in 2020 had the purchasing power of roughly $7,550 by 2024</div>
               </div>
             </div>
 
             <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
               <h3 className="text-lg font-bold text-white mb-2">📈 "Just Buy Index Funds"</h3>
               <div className="text-gray-300 text-sm space-y-1">
-                <div><strong>The Problem:</strong> Stock valuations at historic highs, low future returns expected</div>
-                <div><strong>The Math:</strong> P/E ratios suggest 2-4% real returns for next decade</div>
-                <div><strong>The Reality:</strong> May not beat inflation consistently</div>
+                <div><strong>The Problem:</strong> Index funds are a reasonable option for some goals — but they don't solve the underlying problem of monetary debasement</div>
+                <div><strong>The Math:</strong> Stocks are priced in the same depreciating dollars as your savings account</div>
+                <div><strong>The Reality:</strong> You're treading water in a pool that's draining</div>
               </div>
             </div>
 
@@ -224,9 +225,9 @@ const WhyBitcoinMattersNow = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-white mb-4">Bitcoin: Your Financial Life Raft</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">What Bitcoin Offers Instead</h2>
           <p className="text-gray-300 mb-4">
-            Bitcoin isn't just another investment - it's a completely different monetary system designed to protect you from the wealth transfer happening right now.
+            Bitcoin doesn't fix everything. But it is the first monetary system in history where the supply rules are enforced by mathematics rather than political will — which means no one can dilute your share by printing more.
           </p>
 
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-6 mb-6">
@@ -312,7 +313,7 @@ const WhyBitcoinMattersNow = () => {
               </div>
             </div>
             <p className="text-yellow-300 text-sm mt-4">
-              <strong>Note:</strong> Past performance doesn't guarantee future results, but Bitcoin's track record of preserving purchasing power over 4-year cycles is remarkable.
+              <strong>Note:</strong> This 4-year window includes strong years only. 2022 alone saw Bitcoin fall ~65% — holders who bought near the 2021 peak spent over a year significantly underwater. These figures reflect the full period outcome, not a smooth ride.
             </p>
           </div>
         </section>
@@ -361,9 +362,9 @@ const WhyBitcoinMattersNow = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-white mb-4">Real Stories: How Bitcoin Changes Lives</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Common Patterns — Illustrative Examples</h2>
           <p className="text-gray-300 mb-4">
-            These aren't get-rich-quick stories. They're examples of people who recognized the monetary reality and acted accordingly:
+            The examples below are composites — not real people, but situations that represent genuine patterns across thousands of Bitcoin adopters. For documented human stories, Alex Gladstein's <em>Check Your Financial Privilege</em> is the right starting point.
           </p>
 
           <div className="space-y-4">
@@ -402,7 +403,7 @@ const WhyBitcoinMattersNow = () => {
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">The Cost of Waiting</h2>
           <p className="text-gray-300 mb-4">
-            The biggest risk isn't Bitcoin's volatility - it's the certainty of continued purchasing power erosion if you do nothing.
+            One risk worth naming is continued purchasing power erosion in cash savings — but "doing nothing" means different things depending on what you already hold. Index funds, real estate, and other assets have historically kept pace with or outpaced inflation. The question is specific: if your savings sit in cash or a low-yield account, what is the cost of that, and is Bitcoin a better alternative for some portion of it?
           </p>
 
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">

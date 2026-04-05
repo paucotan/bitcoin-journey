@@ -10,7 +10,7 @@ const BitcoinFees = () => {
   };
 
   const getFeeUSD = () => {
-    const btcPrice = 45000; // Approximation for demo
+    const btcPrice = 100000; // Illustrative price — check current price at mempool.space
     return (calculateFee() * btcPrice).toFixed(2);
   };
 
@@ -36,11 +36,12 @@ const BitcoinFees = () => {
       ]}
     >
       <div className="space-y-8">
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-          <p className="text-blue-300">
-            Bitcoin fees aren't fixed - they're determined by network demand and transaction priority. Understanding fees helps you save money and ensure timely transactions.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          I paid $22 to move $150 worth of Bitcoin once, because I didn't understand how fees worked. The transaction wasn't urgent. I just didn't know I had a choice.
+        </p>
+        <p className="text-gray-300">
+          Bitcoin fees are not fixed charges. They fluctuate with network demand, and you choose your priority level every time you send. Here's what I wish I'd known.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">What Are Bitcoin Fees?</h2>
@@ -173,6 +174,9 @@ const BitcoinFees = () => {
                 <div className="text-gray-400 text-xs mt-1">
                   Total fee = {transactionSize} bytes × {feeRate} sat/vB = {(transactionSize * feeRate).toLocaleString()} satoshis
                 </div>
+                <div className="text-gray-500 text-xs mt-2">
+                  USD estimate uses $100,000 as an illustrative BTC price. Check the current price at <a href="https://mempool.space" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline">mempool.space</a> for accurate figures.
+                </div>
               </div>
             </div>
           </div>
@@ -272,7 +276,7 @@ const BitcoinFees = () => {
                 <li>• <strong>Consolidate UTXOs:</strong> Combine small amounts during low-fee periods</li>
                 <li>• <strong>Avoid dust:</strong> Very small UTXOs cost more to spend than they're worth</li>
                 <li>• <strong>Plan withdrawals:</strong> Fewer, larger withdrawals vs many small ones</li>
-                <li>• <strong>Strike's priority feature:</strong> Choose low/medium/high priority when withdrawing to save on fees</li>
+                <li>• <strong>Priority selection:</strong> Some platforms (e.g. Strike, Kraken) let you choose low/medium/high transaction priority when withdrawing to save on fees</li>
               </ul>
             </div>
 
@@ -358,16 +362,6 @@ const BitcoinFees = () => {
 
                 <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
                   <div className="flex justify-between items-start mb-1">
-                    <strong className="text-white">BitcoinFees.earn.com</strong>
-                    <span className="text-blue-400 text-sm">Simple & clean</span>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    Easy-to-read fee recommendations for different confirmation times
-                  </div>
-                </div>
-
-                <div className="bg-gray-800/50 border border-gray-700 rounded p-3">
-                  <div className="flex justify-between items-start mb-1">
                     <strong className="text-white">Wallet Integration</strong>
                     <span className="text-purple-400 text-sm">Most convenient</span>
                   </div>
@@ -406,7 +400,7 @@ const BitcoinFees = () => {
                 <li>• <strong>Consolidate wisely:</strong> Combine small UTXOs during low-fee periods</li>
                 <li>• <strong>Monitor trends:</strong> Learn your local low-fee times</li>
                 <li>• <strong>Emergency fund:</strong> Keep some funds on Lightning for urgent needs</li>
-                <li>• <strong>Strike advantage:</strong> Rare priority selection feature lets you optimize fees on withdrawals</li>
+                <li>• <strong>Priority selection:</strong> Platforms like Strike and Kraken let you choose transaction priority on withdrawals to optimize fees</li>
               </ul>
             </div>
           </div>

@@ -30,16 +30,17 @@ const DollarCostAveraging = () => {
       ]}
     >
       <div className="space-y-8">
-        <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-          <p className="text-green-300">
-            Dollar Cost Averaging (DCA) is the simplest, most effective way to invest in Bitcoin long-term. Instead of trying to time the market, you buy a fixed amount regularly, regardless of price.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          In November 2021, Bitcoin hit $69,000. Thousands of people put their life savings in that week. By June 2022, the price was $18,000. Most of them sold, locking in the loss. The investors who simply bought the same small amount every week — through the peak, through the crash, through the recovery — came out ahead.
+        </p>
+        <p className="text-gray-300">
+          That strategy is called Dollar Cost Averaging. It is not complicated. It is not exciting. That's the point.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">What is Dollar Cost Averaging?</h2>
           <p className="text-gray-300 mb-4">
-            DCA is an investment strategy where you buy a fixed dollar amount of Bitcoin at regular intervals - daily, weekly, or monthly - regardless of the current price.
+            DCA means buying a fixed dollar amount of Bitcoin at regular intervals — weekly, monthly, whatever you choose — regardless of the current price. When the price is high, your fixed amount buys less. When it's low, it buys more. Over time, this averages out your cost and removes the need to guess when to buy.
           </p>
 
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6">
@@ -251,28 +252,29 @@ const DollarCostAveraging = () => {
             Choose platforms that make DCA easy and affordable:
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
+            <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold text-orange-400">Strike — US, Europe & most countries</h3>
+                <span className="text-green-400 text-sm font-bold">0% recurring</span>
+              </div>
+              <p className="text-gray-300 text-sm">Free recurring purchases after your first week. Lightning built-in. The best DCA experience available for most readers.</p>
+            </div>
+
             <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-green-400 mb-2">🏆 Strike - Top Choice</h3>
-              
-              <div className="bg-gray-800/50 border border-gray-700 rounded p-4">
-                <div className="flex justify-between items-start mb-3">
-                  <strong className="text-white text-lg">Strike</strong>
-                  <span className="text-green-400 text-sm font-bold">Zero fees after 1 week!</span>
-                </div>
-                <div className="text-gray-300 text-sm space-y-2">
-                  <div><strong>Why Strike:</strong> Completely free recurring Bitcoin purchases after your first week</div>
-                  <div><strong>Features:</strong> Lightning Network integration, global reach, clean interface</div>
-                  <div><strong>Best for:</strong> Everyone - the fee savings make it the obvious choice</div>
-                  <div><strong>Bonus:</strong> Built-in Lightning wallet for instant, cheap transactions</div>
-                </div>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold text-green-400">Shakepay — Canada</h3>
+                <span className="text-green-400 text-sm font-bold">0% after 7 days</span>
               </div>
-              
-              <div className="mt-4 bg-orange-500/10 border border-orange-500/20 rounded p-3">
-                <p className="text-orange-300 text-sm">
-                  <strong>Pro tip:</strong> Start with Strike for your DCA strategy. Zero fees means more of your money goes into Bitcoin, not platform fees.
-                </p>
+              <p className="text-gray-300 text-sm">Bitcoin-only, 0% spread on recurring purchases after the first week. The most Strike-like experience available in Canada. <a href="https://shakepay.me/r/37LS65K" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline">Sign up — get $20 each →</a></p>
+            </div>
+
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold text-blue-400">Kraken — Everywhere else</h3>
+                <span className="text-yellow-400 text-sm font-bold">~1% spread</span>
               </div>
+              <p className="text-gray-300 text-sm">Available in most countries. Reliable, but charges ~1% spread on all purchases. On $200/month that's $24/year — factor that in when setting your DCA amount. <a href="https://invite.kraken.com/JDNW/lzrhg3qf" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline">Sign up for Kraken →</a></p>
             </div>
           </div>
         </section>
@@ -300,7 +302,10 @@ const DollarCostAveraging = () => {
                 <div><strong>Opportunity:</strong> Accumulating more Bitcoin per purchase</div>
                 <div><strong>Psychology:</strong> "Should I stop since it keeps falling?"</div>
                 <div><strong>Strategy:</strong> This is when DCA shines most</div>
-                <div><strong>Reminder:</strong> Bear markets create generational wealth</div>
+                <div><strong>Reminder:</strong> Every previous Bitcoin bear market has been followed by new highs — though past cycles don't guarantee future ones</div>
+              </div>
+              <div className="mt-3 pt-3 border-t border-red-500/20 text-gray-300 text-sm">
+                The 2022 bear market lasted 18 months. Bitcoin fell from $69,000 to $16,000. People who had been buying weekly watched their account value drop by 70–80% and stay there for over a year. Most stopped buying. Some sold. The investors who continued the same weekly purchases through the entire decline accumulated significantly more Bitcoin per dollar — and recovered fully when the cycle turned. That's easy to say in retrospect. Living through 18 months of red numbers while continuing to buy is genuinely difficult, and it's worth knowing that before you start.
               </div>
             </div>
           </div>
@@ -343,7 +348,7 @@ const DollarCostAveraging = () => {
               <span className="text-blue-400 mt-1">3️⃣</span>
               <div>
                 <strong className="text-white">Choose your platform</strong>
-                <p className="text-gray-300 text-sm">Strike offers zero fees on recurring purchases after your first week.</p>
+                <p className="text-gray-300 text-sm">Strike (most countries), Shakepay (Canada), or Kraken (everywhere else) all support recurring purchases. See the platform guide above for which applies to you.</p>
               </div>
             </div>
 

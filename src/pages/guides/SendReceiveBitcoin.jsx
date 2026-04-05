@@ -19,11 +19,12 @@ const SendReceiveBitcoin = () => {
       ]}
     >
       <div className="space-y-8">
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-          <p className="text-blue-300">
-            Sending and receiving Bitcoin is easier than you think. This guide covers everything you need to know about Bitcoin transactions, from generating addresses to understanding fees.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          The first time I sent Bitcoin, I triple-checked the address for five minutes before hitting send. The second time, I barely looked. Here's why both instincts were reasonable — and what actually matters.
+        </p>
+        <p className="text-gray-300">
+          Bitcoin transactions are irreversible. That sounds scary, but it's also the entire point: no bank can reverse, freeze, or block a transaction that has been confirmed. Understanding how sending and receiving works means you get the protection without the anxiety.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">Understanding Bitcoin Addresses</h2>
@@ -187,7 +188,7 @@ const SendReceiveBitcoin = () => {
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
             <h3 className="text-lg font-bold text-red-400 mb-2">🚨 Critical Sending Rules</h3>
             <ul className="text-gray-300 text-sm space-y-1">
-              <li>• <strong>Bitcoin transactions are irreversible:</strong> There's no "undo" button</li>
+              <li>• <strong>Bitcoin transactions are irreversible:</strong> No undo button — this is also why no government or bank can reverse or freeze your transactions</li>
               <li>• <strong>Always start with small test amounts:</strong> Send $5-10 first to verify</li>
               <li>• <strong>Triple-check addresses:</strong> One wrong character = lost Bitcoin</li>
               <li>• <strong>Never send to exchange addresses long-term:</strong> Only for immediate trading</li>
@@ -236,7 +237,7 @@ const SendReceiveBitcoin = () => {
             <ul className="text-gray-300 text-sm space-y-1">
               <li>• <strong>Weekend transactions:</strong> Often 20-50% cheaper due to lower activity</li>
               <li>• <strong>Use Lightning Network:</strong> For small amounts (&lt;$100), fees are under $0.01</li>
-              <li>• <strong>Strike's advantage:</strong> Choose priority levels when withdrawing to optimize fees</li>
+              <li>• <strong>Priority selection:</strong> Some platforms (e.g. Strike, Kraken) let you choose priority levels when withdrawing to optimize fees</li>
               <li>• <strong>Plan ahead:</strong> Non-urgent transactions can save significant money</li>
             </ul>
           </div>
@@ -374,10 +375,19 @@ const SendReceiveBitcoin = () => {
 
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
               <h3 className="text-lg font-bold text-red-400 mb-2">❌ "Transaction failed"</h3>
-              <div className="text-gray-300 text-sm space-y-1">
-                <div><strong>Cause:</strong> Insufficient balance, invalid address, or wallet error</div>
-                <div><strong>Solution:</strong> Check your balance, verify the address format, restart wallet</div>
-                <div><strong>Prevention:</strong> Always double-check addresses and available balance</div>
+              <div className="text-gray-300 text-sm space-y-2">
+                <div>
+                  <strong>Cause A — Insufficient balance:</strong> Your available balance may be lower than it appears if some funds are already committed to a pending transaction, or if the fee pushes you over your balance.
+                  <div className="text-gray-400 mt-1">Fix: Check that your available balance covers the send amount <em>plus</em> the fee.</div>
+                </div>
+                <div>
+                  <strong>Cause B — Invalid address format:</strong> Some wallets reject addresses from different networks (e.g., a Lightning invoice pasted into an on-chain send field, or a Litecoin address entered for a Bitcoin transaction).
+                  <div className="text-gray-400 mt-1">Fix: Make sure the address starts with 1, 3, or bc1 for on-chain Bitcoin. If sending via Lightning, the address should start with lnbc.</div>
+                </div>
+                <div>
+                  <strong>Cause C — Wallet or network error:</strong> Temporary issue with your app or its connection to the network.
+                  <div className="text-gray-400 mt-1">Fix: Close the app fully, reopen, and check your internet connection. If the problem persists, check whether your wallet provider has a status page.</div>
+                </div>
               </div>
             </div>
 

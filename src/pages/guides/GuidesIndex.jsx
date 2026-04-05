@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReadGuides } from '../../hooks/useReadGuides';
 
@@ -36,8 +36,8 @@ const GuidesIndex = () => {
     });
   };
 
-  useEffect(() => {
-    // Initialize scroll states for all categories
+  useLayoutEffect(() => {
+    // Initialize scroll states for all categories after DOM is ready
     Object.keys(scrollRefs.current).forEach(categoryId => {
       updateScrollState(categoryId, scrollRefs.current[categoryId]);
     });
@@ -50,14 +50,14 @@ const GuidesIndex = () => {
       description: 'Essential Bitcoin knowledge to get started',
       guides: [
         {
-          id: 'first-wallet',
-          title: 'Your First Bitcoin Wallet',
-          description: 'Learn how to safely store Bitcoin and understand custody options',
-          readTime: '8 min',
+          id: 'what-is-money',
+          title: 'What Is Money?',
+          description: 'A brief history of money — from gold to fiat — and why 1971 changed everything',
+          readTime: '7 min',
           difficulty: 'Beginner',
           status: 'available',
-          path: '/guides/first-wallet',
-          icon: '💳'
+          path: '/guides/what-is-money',
+          icon: '💰'
         },
         {
           id: 'what-is-bitcoin',
@@ -80,16 +80,6 @@ const GuidesIndex = () => {
           icon: '🚨'
         },
         {
-          id: 'send-receive-bitcoin',
-          title: 'How to Send & Receive Bitcoin',
-          description: 'Master Bitcoin transactions, addresses, and fees',
-          readTime: '9 min',
-          difficulty: 'Beginner',
-          status: 'available',
-          path: '/guides/send-receive-bitcoin',
-          icon: '💸'
-        },
-        {
           id: 'time-preference',
           title: 'Time Preference: Why Sound Money Makes Better People',
           description: 'How the type of money shapes behavior and civilization',
@@ -106,6 +96,16 @@ const GuidesIndex = () => {
       title: 'Security & Self-Custody',
       description: 'Protect your Bitcoin with proper security practices',
       guides: [
+        {
+          id: 'first-wallet',
+          title: 'Your First Bitcoin Wallet',
+          description: 'Learn how to safely store Bitcoin and understand custody options',
+          readTime: '8 min',
+          difficulty: 'Beginner',
+          status: 'available',
+          path: '/guides/first-wallet',
+          icon: '💳'
+        },
         {
           id: 'hardware-wallets',
           title: 'Self-Custody: Hardware Wallets',
@@ -154,14 +154,24 @@ const GuidesIndex = () => {
       description: 'Get Bitcoin and start using it in daily life',
       guides: [
         {
-          id: 'strike-vs-other-platforms',
-          title: 'Strike vs Other Platforms',
-          description: 'Detailed comparison of Bitcoin platforms with Strike focus',
+          id: 'comparing-bitcoin-platforms',
+          title: 'Comparing Bitcoin Platforms',
+          description: 'How to choose the right exchange based on where you live and what you need',
           readTime: '8 min',
           difficulty: 'Beginner',
           status: 'coming-soon',
           path: '/guides/strike-vs-other-platforms',
           icon: '⚖️'
+        },
+        {
+          id: 'send-receive-bitcoin',
+          title: 'How to Send & Receive Bitcoin',
+          description: 'Master Bitcoin transactions, addresses, and fees',
+          readTime: '9 min',
+          difficulty: 'Beginner',
+          status: 'available',
+          path: '/guides/send-receive-bitcoin',
+          icon: '💸'
         },
         {
           id: 'dollar-cost-averaging',
@@ -282,7 +292,7 @@ const GuidesIndex = () => {
             </p>
             <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 rounded-lg p-4 max-w-2xl mx-auto">
               <p className="text-orange-300 font-medium">
-                🎯 Start with "Your First Bitcoin Wallet" - everything builds from there
+                🎯 New to Bitcoin? Start with "What Is Money?" — it's the foundation everything else builds on
               </p>
             </div>
           </div>
@@ -304,12 +314,12 @@ const GuidesIndex = () => {
             </div>
 
             {/* Guides Carousel */}
-            <div className="relative overflow-hidden pb-4 group">
+            <div className="relative overflow-hidden pb-4">
               {/* Left Arrow */}
               {scrollStates[category.id]?.canScrollLeft && (
                 <button
                   onClick={() => scrollCategory(category.id, 'left')}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
                   aria-label="Scroll left"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -322,7 +332,7 @@ const GuidesIndex = () => {
               {scrollStates[category.id]?.canScrollRight && (
                 <button
                   onClick={() => scrollCategory(category.id, 'right')}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 hover:bg-orange-500/90 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
                   aria-label="Scroll right"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -350,7 +360,7 @@ const GuidesIndex = () => {
                 onScroll={(e) => updateScrollState(category.id, e.target)}
               >
                 <div className="flex gap-4 pr-20">
-                  {category.guides.map((guide) => (
+                  {category.guides.filter(g => g.status === 'available').map((guide) => (
                   <div 
                     key={guide.id}
                     className={`bg-gray-800/50 border rounded-lg p-4 w-72 flex-shrink-0 transition-all duration-300 ${
@@ -415,7 +425,7 @@ const GuidesIndex = () => {
         <div className="mt-12 text-center">
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-bold text-white mb-2">
-              11 Available Guides & More Coming
+              13 Available Guides & More Coming
             </h3>
             <p className="text-gray-400 text-sm">
               We're building a complete Bitcoin education library. Each guide is thoroughly 

@@ -17,6 +17,7 @@ const BitcoinCommonMistakes = lazy(() => import('./pages/guides/BitcoinCommonMis
 const BitcoinMining = lazy(() => import('./pages/guides/BitcoinMining'));
 const HardwareWallets = lazy(() => import('./pages/guides/HardwareWallets'));
 const TimePreference = lazy(() => import('./pages/guides/TimePreference'));
+const WhatIsMoney = lazy(() => import('./pages/guides/WhatIsMoney'));
 
 function AppRouter() {
   return (
@@ -40,6 +41,7 @@ function AppRouter() {
             <Route path="/guides/bitcoin-mining" element={<BitcoinMining />} />
             <Route path="/guides/hardware-wallets" element={<HardwareWallets />} />
             <Route path="/guides/time-preference" element={<TimePreference />} />
+            <Route path="/guides/what-is-money" element={<WhatIsMoney />} />
           </Routes>
         </Suspense>
       </div>

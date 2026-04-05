@@ -38,11 +38,12 @@ const BitcoinSuccessStories = () => {
       }}
     >
       <div className="space-y-8">
-        <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-          <p className="text-green-300">
-            Bitcoin isn't just theory - it's changing real lives every day. From individuals escaping inflation to entire countries adopting Bitcoin as legal tender, these stories show Bitcoin's transformative power in action.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          Bitcoin isn't just theory. El Salvador made it legal tender. Nigeria's peer-to-peer market became one of the world's largest during currency controls. A fishing village in El Salvador built an entire local economy on the Lightning Network before the rest of the world was paying attention.
+        </p>
+        <p className="text-gray-300">
+          The country and business examples below are documented. The individual patterns are illustrative composites — clearly labelled — included because the underlying situations they describe are real even if the people aren't. For actual human stories, the book recommendation at the bottom of this guide is the right place to start.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">Choose Your Inspiration</h2>
@@ -68,17 +69,10 @@ const BitcoinSuccessStories = () => {
         {selectedCategory === 'individuals' && (
           <div className="space-y-8">
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Individual Success Stories</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Illustrative Patterns — Not Real People</h2>
               <p className="text-gray-300 mb-4">
-                Regular people who made Bitcoin work for them - not through luck, but through education, patience, and smart decisions.
+                The individuals below are composites — constructed from common Bitcoin adoption patterns, not real people. They are included because the situations they represent are genuine: the teacher priced out of housing, the immigrant using Lightning for remittances, the bear market buyer. But these are not testimonies. For documented human stories, Alex Gladstein's <em>Check Your Financial Privilege</em> — recommended below — is the authoritative source.
               </p>
-              
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 mb-6">
-                <p className="text-blue-300 text-sm">
-                  <strong>Note:</strong> Individual stories below are educational examples based on common Bitcoin adoption patterns. 
-                  Business and country examples are factual. For real-world case studies, see the book recommendation at the end.
-                </p>
-              </div>
 
               <div className="space-y-6">
                 <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-6">
@@ -288,9 +282,9 @@ const BitcoinSuccessStories = () => {
         {selectedCategory === 'businesses' && (
           <div className="space-y-8">
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Business Success Stories</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Business Adoption</h2>
               <p className="text-gray-300 mb-6">
-                Companies that embraced Bitcoin and transformed their financial strategy.
+                Strategy (formerly MicroStrategy) is a documented public company case. The coffee shop and real estate examples below are illustrative composites representing patterns that have occurred across multiple real businesses.
               </p>
 
               <div className="space-y-6">
@@ -366,7 +360,7 @@ const BitcoinSuccessStories = () => {
                     <div className="text-3xl">☕</div>
                     <div>
                       <h3 className="text-xl font-bold text-green-400">Local Coffee Shop - Lightning Payments</h3>
-                      <p className="text-gray-400 text-sm">Started: March 2023 • Location: Austin, Texas</p>
+                      <p className="text-gray-400 text-sm">Started: March 2023 • Location: Austin, Texas • (Illustrative)</p>
                     </div>
                   </div>
 
@@ -416,7 +410,7 @@ const BitcoinSuccessStories = () => {
                     <div className="text-3xl">🏠</div>
                     <div>
                       <h3 className="text-xl font-bold text-purple-400">Real Estate Developer - Bitcoin Sales</h3>
-                      <p className="text-gray-400 text-sm">Started: January 2024 • Location: Miami, Florida</p>
+                      <p className="text-gray-400 text-sm">Started: January 2024 • Location: Miami, Florida • (Illustrative)</p>
                     </div>
                   </div>
 

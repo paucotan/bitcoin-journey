@@ -6,7 +6,7 @@ const BitcoinMining = () => {
     hashRate: 100,
     powerConsumption: 3000,
     electricityCost: 0.12,
-    btcPrice: 43000
+    btcPrice: 100000
   });
 
   const calculateProfitability = () => {
@@ -46,11 +46,12 @@ const BitcoinMining = () => {
       ]}
     >
       <div className="space-y-8">
-        <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
-          <p className="text-orange-300">
-            Every Bitcoin transaction you make is secured by thousands of computers around the world competing to solve mathematical puzzles. This process, called mining, is the foundation of Bitcoin's security and how new Bitcoin enters circulation.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          Right now, as you read this, thousands of machines around the world are spending real energy to protect your future Bitcoin transaction. That energy expenditure is not waste — it is the mechanism of trust.
+        </p>
+        <p className="text-gray-300">
+          Bitcoin has no CEO, no headquarters, no board of directors. What it has instead is a system where cheating is made economically irrational by requiring real-world cost to participate. That system is called mining. This guide explains how it works and why the design matters.
+        </p>
 
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">What is Bitcoin Mining?</h2>
@@ -70,7 +71,7 @@ const BitcoinMining = () => {
               <div className="flex items-start gap-3">
                 <span className="text-purple-400 mt-1">🧩</span>
                 <div>
-                  <strong className="text-white">Solve puzzles:</strong> <span className="text-gray-300">Compete to find the correct nonce for the next block</span>
+                  <strong className="text-white">Solve puzzles:</strong> <span className="text-gray-300">Compete to find any number that, when combined with the block data, produces a hash below the current target — a probabilistic process that requires brute-force computation</span>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -209,7 +210,7 @@ const BitcoinMining = () => {
             </div>
             
             <p className="text-xs text-gray-400 mt-3">
-              * This is a simplified calculation for educational purposes. Real mining involves additional costs like hardware depreciation, cooling, and maintenance.
+              * Simplified calculation for educational purposes. Real mining involves additional costs like hardware depreciation, cooling, and maintenance. BTC price uses your input above. Network hashrate is hardcoded at ~600 EH/s (illustrative) — actual hashrate changes constantly. Check <a href="https://mempool.space" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline">mempool.space</a> for live figures.
             </p>
           </div>
         </section>

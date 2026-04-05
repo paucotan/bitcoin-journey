@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GuideLayout from '../../components/Guides/GuideLayout';
 
 const BitcoinCommonMistakes = () => {
-  const [selectedCategory, setSelectedCategory] = useState('security');
+  const [selectedCategory, setSelectedCategory] = useState('investment');
 
   const mistakeCategories = {
     security: 'Security Mistakes',
@@ -393,7 +393,7 @@ const BitcoinCommonMistakes = () => {
                       <h4 className="text-white font-bold mb-2">Why It's Dangerous</h4>
                       <ul className="text-gray-300 text-sm space-y-1">
                         <li>• <strong>Selling low:</strong> Locking in maximum losses</li>
-                        <li>• <strong>Missing recovery:</strong> Bitcoin always rebounds stronger</li>
+                        <li>• <strong>Missing recovery:</strong> Bitcoin has recovered from every previous crash — though this is historical observation, not a guarantee</li>
                         <li>• <strong>Emotional decision:</strong> Acting on fear, not logic</li>
                         <li>• <strong>Bad timing:</strong> Crashes are best buying opportunities</li>
                       </ul>
@@ -872,6 +872,82 @@ const BitcoinCommonMistakes = () => {
                           <li>• <strong>Verify identity:</strong> Ask for ticket number or account details</li>
                           <li>• <strong>Be suspicious:</strong> Legitimate support follows strict protocols</li>
                         </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-3xl">🪙</div>
+                    <div>
+                      <h3 className="text-xl font-bold text-red-400">Altcoin Promoters</h3>
+                      <p className="text-gray-400 text-sm">Cost: Losses that are hard to see coming</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-white font-bold mb-2">Why it's insidious</h4>
+                      <p className="text-gray-300 text-sm">
+                        Unlike obvious scams, altcoin promotion often comes from people who genuinely believe what they're saying — or who have a financial incentive they don't disclose. The pitch sounds reasonable: "Bitcoin is old, this new coin is faster / greener / smarter." What it doesn't mention: the promoter typically holds a large position, the token has no fixed supply cap, and most altcoins have lost 90–99% of their value against Bitcoin over any 4-year period.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-bold mb-2">Red Flags</h4>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• <strong>"Bitcoin is outdated"</strong> — followed by a specific alternative</li>
+                        <li>• <strong>Undisclosed holdings</strong> — the person promoting it owns a lot of it</li>
+                        <li>• <strong>No supply cap</strong> — unlike Bitcoin's fixed 21 million</li>
+                        <li>• <strong>YouTube or Twitter influencers</strong> paid to promote tokens</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-bold mb-2">The honest question to ask</h4>
+                      <div className="bg-yellow-500/10 border border-yellow-500/20 rounded p-3">
+                        <p className="text-yellow-300 text-sm">
+                          "Has this coin outperformed Bitcoin over the last four years — including the bear market?" If you can't find a clear answer, that's the answer.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-3xl">🎓</div>
+                    <div>
+                      <h3 className="text-xl font-bold text-red-400">"Bitcoin Coaching" and Paid Communities</h3>
+                      <p className="text-gray-400 text-sm">Cost: Hundreds to thousands of dollars for information that is freely available</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-white font-bold mb-2">Why it's insidious</h4>
+                      <p className="text-gray-300 text-sm">
+                        Bitcoin has a genuine learning curve, which creates a real market for education. Most paid Bitcoin courses and coaching programmes charge significant money for content that is available free — on Bitcoin's own documentation, in Saifedean Ammous's books, and across hundreds of free resources. The packaging looks professional. The information is not proprietary. You are paying for the feeling of being guided, not for exclusive knowledge.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-bold mb-2">Red Flags</h4>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• <strong>Upfront fees</strong> to join a "community" or "mastermind"</li>
+                        <li>• <strong>Promises of insider strategies</strong> or exclusive signals</li>
+                        <li>• <strong>Screenshots of gains</strong> as the primary credential</li>
+                        <li>• <strong>Upsells</strong> — the real content is always one tier higher</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-bold mb-2">The honest alternative</h4>
+                      <div className="bg-green-500/10 border border-green-500/20 rounded p-3">
+                        <p className="text-green-300 text-sm">
+                          Everything a beginner needs to know about Bitcoin is free. This site, Bitcoin.org, and <em>The Bitcoin Standard</em> cover the fundamentals. If someone is charging you to learn the basics, the business model is your confusion — not your education.
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -35,8 +35,7 @@ const SecurityChecklist = () => {
         { id: 'secure-wifi', text: 'Use secure Wi-Fi networks, avoid public Wi-Fi for Bitcoin' },
         { id: 'vpn-usage', text: 'Consider VPN for additional privacy' },
         { id: 'https-only', text: 'Use HTTPS websites only' },
-        { id: 'ssl-verify', text: 'Verify SSL certificates for Bitcoin services' },
-        { id: 'mitm-aware', text: 'Be cautious of man-in-the-middle attacks' }
+        { id: 'ssl-verify', text: 'Only access Bitcoin wallets and exchanges via bookmarked URLs — never click email links' }
       ]
     },
     {
@@ -123,11 +122,12 @@ const SecurityChecklist = () => {
     
     >
       <div className="space-y-8">
-        <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
-          <p className="text-red-300">
-            <strong>Critical:</strong> Your Bitcoin security is only as strong as your weakest link. This checklist covers the fundamentals that every Bitcoin user should implement.
-          </p>
-        </div>
+        <p className="text-gray-300">
+          Bitcoin security is categorically different from ordinary password security — and most people don't realise why until it's too late. If someone gets your Netflix password, you cancel the card and move on. If someone gets your Bitcoin seed phrase, the coins are gone. Permanently. There is no customer service line. No fraud department. No reversal.
+        </p>
+        <p className="text-gray-300">
+          This isn't a reason to avoid Bitcoin. It's a reason to take ten minutes now to do this checklist properly. The steps below are ordered by impact — the first week's tasks matter more than everything else combined.
+        </p>
 
         {/* Security Score */}
         <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6">

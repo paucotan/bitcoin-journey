@@ -197,7 +197,7 @@ const HardwareWallets = () => {
             <h3 className="text-lg font-bold text-yellow-400 mb-2">Honest Assessment - Minor Quirks</h3>
             <ul className="text-gray-300 text-sm space-y-1">
               <li>• Trezor Suite software can be a bit slow to load sometimes</li>
-              <li>• USB-C cable feels a bit short for desk setups</li>
+              <li>• Takes a few seconds to initialise on each connection</li>
               <li>• Takes a few seconds longer than mobile wallets for transactions</li>
               <li>• Learning curve if you're used to simple mobile apps</li>
             </ul>
@@ -208,54 +208,13 @@ const HardwareWallets = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-white mb-4">Other Hardware Wallet Options</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">What About Other Wallets?</h2>
           <p className="text-gray-300 mb-4">
-            While I can only speak from experience with the Trezor Safe 3, other popular options exist. Here's what I know from research:
+            I've only used the Trezor Safe 3, so I won't compare it against devices I haven't held. Other reputable hardware wallets exist — Coldcard is popular with advanced users for its Bitcoin-only focus and air-gapped operation; Ledger has a larger ecosystem though it has had past data breach issues worth researching.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-blue-400 mb-2">Ledger Nano S/X</h3>
-              <ul className="text-gray-300 text-xs space-y-1">
-                <li>• Most popular brand globally</li>
-                <li>• Wide app ecosystem</li>
-                <li>• Compact design</li>
-                <li>• Past data breach concerns</li>
-                <li>• Closed source elements</li>
-              </ul>
-              <p className="text-xs text-gray-400 mt-2">Research before purchasing</p>
-            </div>
-
-            <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-orange-400 mb-2">Coldcard Mk4</h3>
-              <ul className="text-gray-300 text-xs space-y-1">
-                <li>• Bitcoin-only focus</li>
-                <li>• Advanced security features</li>
-                <li>• Air-gapped operation</li>
-                <li>• More technical setup</li>
-                <li>• Power user oriented</li>
-              </ul>
-              <p className="text-xs text-gray-400 mt-2">For advanced users</p>
-            </div>
-
-            <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-green-400 mb-2">Trezor Safe 3</h3>
-              <ul className="text-gray-300 text-xs space-y-1">
-                <li>• My personal choice</li>
-                <li>• Open source hardware/software</li>
-                <li>• Great user experience</li>
-                <li>• Solid build quality</li>
-                <li>• Good for beginners</li>
-              </ul>
-              <p className="text-xs text-green-300 mt-2">Can personally recommend</p>
-            </div>
-          </div>
-
-          <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-4 mt-4">
-            <p className="text-gray-300 text-sm">
-              <strong>My Advice:</strong> I can only confidently recommend what I've used personally. Do your own research on alternatives, but any of these major brands will be infinitely safer than keeping Bitcoin on exchanges.
-            </p>
-          </div>
+          <p className="text-gray-300">
+            What I can say confidently: any reputable hardware wallet is vastly safer than keeping significant Bitcoin on an exchange. The specific brand matters less than the decision to take self-custody at all.
+          </p>
         </section>
 
         <section>
@@ -519,20 +478,33 @@ const HardwareWallets = () => {
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">Estate Planning Considerations</h2>
           <p className="text-gray-300 mb-4">
-            Hardware wallets require special consideration for inheritance. Here's what I've learned:
+            This is the part most guides skip, and it's one of the most anxiety-inducing aspects of self-custody: what happens to your Bitcoin if you die or become incapacitated?
+          </p>
+          <p className="text-gray-300 mb-4">
+            Unlike a bank account, there is no institution to call. No customer support. No recovery process. If your heirs don't know your seed phrase exists, or don't know how to use it, the Bitcoin is gone permanently. This is not a theoretical risk — a meaningful portion of all Bitcoin is believed to be permanently inaccessible due to lost keys and the deaths of holders who left no instructions.
           </p>
 
-          <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-            <h3 className="text-lg font-bold text-purple-400 mb-2">Inheritance Planning Basics</h3>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Document all wallets and their seed phrase locations</li>
-              <li>• Educate family members on basic Bitcoin recovery</li>
-              <li>• Consider multisig setups for large amounts</li>
-              <li>• Keep instructions separate from seed phrases</li>
-              <li>• Review and update plans regularly</li>
-              <li>• Consider professional Bitcoin estate planning services</li>
-            </ul>
+          <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-5 mb-4">
+            <h3 className="text-lg font-bold text-purple-400 mb-3">The minimum you should do</h3>
+            <div className="space-y-3 text-gray-300 text-sm">
+              <div>
+                <strong className="text-white">Write clear recovery instructions</strong> — document where the hardware wallet is, where the seed phrase is stored, and what software to use to recover funds. Write this as if explaining to someone who has never heard of Bitcoin.
+              </div>
+              <div>
+                <strong className="text-white">Store instructions and seed phrase separately</strong> — if both are in the same location, a single theft or fire eliminates both access and the ability to recover.
+              </div>
+              <div>
+                <strong className="text-white">Tell someone you trust that this document exists</strong> — they don't need to know the contents now, just that it exists and where to find it.
+              </div>
+              <div>
+                <strong className="text-white">Consider a multisig setup for large amounts</strong> — requires multiple keys to move funds, which can be distributed across trusted people or locations. More complex to set up, much harder to lose entirely.
+              </div>
+            </div>
           </div>
+
+          <p className="text-gray-400 text-sm">
+            This does not require a lawyer or a specialist service. A clear handwritten note in a sealed envelope kept with your will is a meaningful improvement over nothing.
+          </p>
         </section>
 
         <section>
