@@ -541,7 +541,7 @@ const Landing = () => {
 
           <div className="space-y-4">
             <a
-              href="/guides/first-wallet"
+              href="/guides"
               className="inline-block bg-white text-orange-600 font-bold py-6 px-12 rounded-2xl text-2xl shadow-xl hover:bg-gray-100 transition-colors"
             >
               🚀 Start Your Bitcoin Journey
