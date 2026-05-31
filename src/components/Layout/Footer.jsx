@@ -71,6 +71,18 @@ const Footer = () => {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
+              {/* Buy Me a Coffee */}
+              <a
+                href="https://buymeacoffee.com/paucotan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-[#FFDD00] border border-gray-700 hover:border-[#FFDD00] rounded-lg transition-all duration-300"
+                aria-label="Buy Me a Coffee"
+              >
+                <svg className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 5h-2V5h2v3zM2 21h18v-2H2v2z"/>
+                </svg>
+              </a>
 
             </div>
           </div>
